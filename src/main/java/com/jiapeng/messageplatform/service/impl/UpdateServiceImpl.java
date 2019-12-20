@@ -88,12 +88,16 @@ public class UpdateServiceImpl implements UpdateService {
                     "INSERT [dbo].[sys_module] ([id], [name], [parentid], [icon], [path], [ordernumber], [idname]) VALUES (N'102', N'通知发布管理', NULL, N'&#xe61d', NULL, 0, NULL)\n" +
                     "INSERT [dbo].[sys_module] ([id], [name], [parentid], [icon], [path], [ordernumber], [idname]) VALUES (N'102101', N'发信记录', N'102', N'&#xe61d', N'/page/messageList', 0, NULL)\n" +
                     "INSERT [dbo].[sys_module] ([id], [name], [parentid], [icon], [path], [ordernumber], [idname]) VALUES (N'103', N'配置管理', NULL, N'&#xe61d', N'', 0, NULL)\n" +
-                    "INSERT [dbo].[sys_module] ([id], [name], [parentid], [icon], [path], [ordernumber], [idname]) VALUES (N'103100', N'配置设置', N'103', N'&#xe61d', N'/page/configList', 0, NULL)\n"+
-                    "INSERT [dbo].[sys_module] ([id], [name], [parentid], [icon], [path], [ordernumber], [idname]) VALUES (N'103101', N'配置定义', N'103', N'&#xe61d', N'/page/configItemList ', 0, NULL)\n"+
+                    "INSERT [dbo].[sys_module] ([id], [name], [parentid], [icon], [path], [ordernumber], [idname]) VALUES (N'103100', N'配置设置', N'103', N'&#xe61d', N'/page/configList', 0, NULL)\n" +
+                    "INSERT [dbo].[sys_module] ([id], [name], [parentid], [icon], [path], [ordernumber], [idname]) VALUES (N'103101', N'配置定义', N'103', N'&#xe61d', N'/page/configItemList ', 0, NULL)\n" +
                     "INSERT [dbo].[sys_module] ([id], [name], [parentid], [icon], [path], [ordernumber], [idname]) VALUES (N'104', N'门禁消息', NULL, N'&#xe61d', N'', 0, NULL)\n" +
-                    "INSERT [dbo].[sys_module] ([id], [name], [parentid], [icon], [path], [ordernumber], [idname]) VALUES (N'104100', N'推送记录', N'104', N'&#xe61d', N'/page/ascList', 0, NULL)\n"+
-                    "INSERT [dbo].[sys_module] ([id], [name], [parentid], [icon], [path], [ordernumber], [idname]) VALUES (N'104101', N'出入统计', N'104', N'&#xe61d', N'/page/ascTotal', 0, NULL)";
-            updateDao.executeSql(sql);
+                    "INSERT [dbo].[sys_module] ([id], [name], [parentid], [icon], [path], [ordernumber], [idname]) VALUES (N'104100', N'推送记录', N'104', N'&#xe61d', N'/page/ascList', 0, NULL)\n" +
+                    "INSERT [dbo].[sys_module] ([id], [name], [parentid], [icon], [path], [ordernumber], [idname]) VALUES (N'104101', N'出入统计', N'104', N'&#xe61d', N'/page/ascTotal', 0, NULL)"+
+                    "INSERT [dbo].[sys_module] ([id], [name], [parentid], [icon], [path], [ordernumber], [idname]) VALUES (N'105', N'设备管理', NULL, N'&#xe61d', N'', 0, NULL)\n" +
+                    "INSERT [dbo].[sys_module] ([id], [name], [parentid], [icon], [path], [ordernumber], [idname]) VALUES (N'105100', N'设备管理', N'104', N'&#xe61d', N'/page/ascList', 0, NULL)\n" ;
+
+
+                    updateDao.executeSql(sql);
         }
 
 
@@ -411,8 +415,6 @@ public class UpdateServiceImpl implements UpdateService {
         sqlList.add(createColStr("sys_user", "scCode", "nvarchar(50)", null));//老师表添加字段
 
 
-
-
 //sys_user_role
         sqlList.add("if not exists (SELECT   name   FROM   sysobjects   where   name= 'sys_user_role') " +
                 "CREATE TABLE [dbo].[sys_user_role](\n" +
@@ -524,7 +526,6 @@ public class UpdateServiceImpl implements UpdateService {
                 "\t[id] ASC\n" +
                 ")WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]\n" +
                 ") ON [PRIMARY]");
-
 
 
         //config_define by xjp 2019-10-12 14:13:21
