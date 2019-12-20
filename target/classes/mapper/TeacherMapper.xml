@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiapeng.messageplatform.dao.TeacherMapper">
+    <resultMap id="BaseResultMap" type="com.jiapeng.messageplatform.entity.Teacher">
+        <id column="te_no" jdbcType="NVARCHAR" property="teNo"/>
+        <result column="loginName" jdbcType="NVARCHAR" property="loginname"/>
+        <result column="password" jdbcType="NVARCHAR" property="password"/>
+        <result column="name" jdbcType="NVARCHAR" property="name"/>
+        <result column="sex" jdbcType="NVARCHAR" property="sex"/>
+        <result column="idCode" jdbcType="NVARCHAR" property="idcode"/>
+        <result column="phoneNo" jdbcType="NVARCHAR" property="phoneno"/>
+        <result column="email" jdbcType="NVARCHAR" property="email"/>
+        <result column="sc_code" jdbcType="NVARCHAR" property="scCode"/>
+        <result column="scName" jdbcType="NVARCHAR" property="scName"/>
+        <result column="isAdmin" jdbcType="NVARCHAR" property="isadmin"/>
+        <result column="enable" jdbcType="NVARCHAR" property="enable"/>
+        <result column="statusDate" jdbcType="TIMESTAMP" property="statusdate"/>
+        <result column="statusReason" jdbcType="NVARCHAR" property="statusreason"/>
+        <result column="isWxLogin" jdbcType="NVARCHAR" property="iswxlogin"/>
+        <result column="isDelete" jdbcType="NVARCHAR" property="isdelete"/>
+
+        <collection property="classList" ofType="com.jiapeng.messageplatform.entity.ClassInfo">
+            <result property="classCode" column="classCode"></result>
+            <result property="classNo" column="classNo"></result>
+            <result property="className" column="className"></result>
+            <result property="gradeName" column="gradeName"></result>
+            <result property="schoolName" column="schoolName"></result>
+            <result property="classMaster" column="classMaster"></result>
+        </collection>
+    </resultMap>
+    <sql id="Base_Column_List">
+    t.*,c.cl_code AS classCode,c.cl_number AS classNo,c.name AS className,g.name AS gradeName,s.name AS scName,ct.isheadmaster AS classMaster
+  </sql>
+    <sql id="Base_From">
+   FROM teacher t LEFT JOIN class_teacher ct ON t.te_no=ct.te_no
+   LEFT JOIN class c ON ct.cl_code=c.cl_code
+   LEFT JOIN grade g ON g.gr_code=c.gr_code
+   LEFT JOIN school s ON s.sc_code=c.sc_code
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        <include refid="Base_From"/>
+        where t.te_no = #{teNo,jdbcType=NVARCHAR}
+    </select>
+
+    <select id="selectByWxNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        <include refid="Base_From"/>
+        where t.isWxLogin = #{wxNo,jdbcType=NVARCHAR}
+    </select>
+
+
+
+
+    <select id="findOneByLoginName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        <include refid="Base_From"/>
+        where t.loginName = #{loginname,jdbcType=NVARCHAR} and t.isDelete = '0'
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from teacher
+    where te_no = #{teNo,jdbcType=NVARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.jiapeng.messageplatform.entity.Teacher">
+    insert into teacher (te_no, loginName, password,
+      name, sex, idCode,
+      phoneNo, email, sc_code,
+      isAdmin, enable, statusDate,
+      statusReason)
+    values (#{teNo,jdbcType=NVARCHAR}, #{loginname,jdbcType=NVARCHAR}, #{password,jdbcType=NVARCHAR},
+      #{name,jdbcType=NVARCHAR}, #{sex,jdbcType=NVARCHAR}, #{idcode,jdbcType=NVARCHAR},
+      #{phoneno,jdbcType=NVARCHAR}, #{email,jdbcType=NVARCHAR}, #{scCode,jdbcType=NVARCHAR},
+      #{isadmin,jdbcType=NVARCHAR}, #{enable,jdbcType=NVARCHAR}, #{statusdate,jdbcType=TIMESTAMP},
+      #{statusreason,jdbcType=NVARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.jiapeng.messageplatform.entity.Teacher">
+        insert into teacher
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="teNo != null">
+                te_no,
+            </if>
+            <if test="loginname != null">
+                loginName,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="idcode != null">
+                idCode,
+            </if>
+            <if test="phoneno != null">
+                phoneNo,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="scCode != null">
+                sc_code,
+            </if>
+            <if test="isadmin != null">
+                isAdmin,
+            </if>
+            <if test="enable != null">
+                enable,
+            </if>
+            <if test="statusdate != null">
+                statusDate,
+            </if>
+            <if test="statusreason != null">
+                statusReason,
+            </if>
+            <if test="isdelete != null">
+                isDelete,
+            </if>
+            <if test="iswxlogin != null">
+                isWxLogin,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="teNo != null">
+                #{teNo,jdbcType=NVARCHAR},
+            </if>
+            <if test="loginname != null">
+                #{loginname,jdbcType=NVARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=NVARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=NVARCHAR},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=NVARCHAR},
+            </if>
+            <if test="idcode != null">
+                #{idcode,jdbcType=NVARCHAR},
+            </if>
+            <if test="phoneno != null">
+                #{phoneno,jdbcType=NVARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=NVARCHAR},
+            </if>
+            <if test="scCode != null">
+                #{scCode,jdbcType=NVARCHAR},
+            </if>
+            <if test="isadmin != null">
+                #{isadmin,jdbcType=NVARCHAR},
+            </if>
+            <if test="enable != null">
+                #{enable,jdbcType=NVARCHAR},
+            </if>
+            <if test="statusdate != null">
+                #{statusdate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="statusreason != null">
+                #{statusreason,jdbcType=NVARCHAR},
+            </if>
+            <if test="isdelete != null">
+                #{isdelete,jdbcType=NVARCHAR},
+            </if>
+            <if test="iswxlogin != null">
+                #{iswxlogin,jdbcType=NVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jiapeng.messageplatform.entity.Teacher">
+        update teacher
+        <set>
+            <if test="loginname != null">
+                loginName = #{loginname,jdbcType=NVARCHAR},
+            </if>
+            <if test="password != null">
+                password = #{password,jdbcType=NVARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=NVARCHAR},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=NVARCHAR},
+            </if>
+            <if test="idcode != null">
+                idCode = #{idcode,jdbcType=NVARCHAR},
+            </if>
+            <if test="phoneno != null">
+                phoneNo = #{phoneno,jdbcType=NVARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=NVARCHAR},
+            </if>
+            <if test="scCode != null">
+                sc_code = #{scCode,jdbcType=NVARCHAR},
+            </if>
+            <if test="isadmin != null">
+                isAdmin = #{isadmin,jdbcType=NVARCHAR},
+            </if>
+            <if test="enable != null">
+                enable = #{enable,jdbcType=NVARCHAR},
+            </if>
+            <if test="statusdate != null">
+                statusDate = #{statusdate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="statusreason != null">
+                statusReason = #{statusreason,jdbcType=NVARCHAR},
+            </if>
+            <if test="iswxlogin != null">
+                isWxLogin = #{iswxlogin,jdbcType=NVARCHAR},
+            </if>
+            <if test="isdelete != null">
+                isDelete = #{isdelete,jdbcType=NVARCHAR},
+            </if>
+
+        </set>
+        where te_no = #{teNo,jdbcType=NVARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jiapeng.messageplatform.entity.Teacher">
+    update teacher
+    set loginName = #{loginname,jdbcType=NVARCHAR},
+      password = #{password,jdbcType=NVARCHAR},
+      name = #{name,jdbcType=NVARCHAR},
+      sex = #{sex,jdbcType=NVARCHAR},
+      idCode = #{idcode,jdbcType=NVARCHAR},
+      phoneNo = #{phoneno,jdbcType=NVARCHAR},
+      email = #{email,jdbcType=NVARCHAR},
+      sc_code = #{scCode,jdbcType=NVARCHAR},
+      isAdmin = #{isadmin,jdbcType=NVARCHAR},
+      enable = #{enable,jdbcType=NVARCHAR},
+      statusDate = #{statusdate,jdbcType=TIMESTAMP},
+      statusReason = #{statusreason,jdbcType=NVARCHAR}
+    where te_no = #{teNo,jdbcType=NVARCHAR}
+  </update>
+    <sql id="Page_Where">
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="scCode != null ">
+                AND s.sc_code =#{scCode}
+            </if>
+        </trim>
+    </sql>
+    <select id="pageList" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+        SELECT TOP ${pageSize} * FROM
+        (
+        select
+        <include refid="Base_Column_List1"/>
+        ,Row_Number() OVER ( ORDER BY t.te_no DESC) as rownumber
+        <include refid="Base_From1"/>
+        <include refid="Page_Where1"/>
+        ) temp
+        where rownumber  <![CDATA[ > ]]> #{pageIndex}
+    </select>
+
+
+    <sql id="Base_Column_List1">
+        t.*
+    </sql>
+    <sql id="Base_From1">
+        FROM teacher t
+    </sql>
+    <sql id="Page_Where1">
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="scCode != null and scCode != ''">
+                AND t.sc_code =#{scCode}
+            </if>
+            <if test="isdelete != null and isdelete != ''">
+                AND t.isDelete =#{isdelete}
+            </if>
+            <if test="name != null and name != ''">
+                AND t.name =#{name}
+            </if>
+        </trim>
+    </sql>
+
+    <select id="getTeacherByScCode" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+        SELECT TOP ${pageSize} * FROM
+        (
+        select
+        <include refid="Base_Column_List1"/>
+        ,Row_Number() OVER ( ORDER BY t.te_no DESC) as rownumber
+        <include refid="Base_From1"/>
+        <include refid="Page_Where1"/>
+        ) temp
+        where rownumber  <![CDATA[ > ]]> #{pageIndex}
+    </select>
+
+
+    <select id="pageListCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+        SELECT
+        COUNT(DISTINCT t.te_no) AS Total
+        <include refid="Base_From1"/>
+        <include refid="Page_Where1"/>
+    </select>
+    <select id="getMyStudent" resultType="com.jiapeng.messageplatform.entity.Student">
+      SELECT * from student a WHERE a.cl_code in (SELECT b.cl_code from class_teacher b WHERE b.te_no=#{teNo})
+    </select>
+
+</mapper>

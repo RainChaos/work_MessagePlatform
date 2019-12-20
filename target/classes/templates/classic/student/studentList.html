@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>列表</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+	<meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../../../static/plugins/layui-v2.5.4/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../../../static/css/font_eolqem241z66flxr.css" media="all" />
+	<link rel="stylesheet" href="../../../static/css/list.css" media="all"/>
+	<style type="text/css">
+		.layui-elem-quote {
+			margin-bottom: 0px !important;
+		}
+        .layui-col-md2{
+            width: 10% !important;
+            min-width: 160px;
+        }
+		.layui-table-view{
+			margin: 0px !important;
+		}
+		#treeDemo{
+			min-height: 560px;
+
+		}
+		/*.layui-col-md10{*/
+			/*width: 89.33% !important;*/
+		/*}*/
+		@media screen and (max-width: 1200px) {
+			#treeDemo {
+				min-height: 50px;
+			}
+			#leaveDiv{
+				width: 107% !important;
+				min-width: max-content;
+			}
+			.layui-col-md10{
+				width: 100% !important;
+			}
+			.layui-col-md2{
+				width: 100% !important;
+			}
+		}
+		@media screen and (max-width: 750px){
+			#treeDemo{
+				min-height: 50px;
+			}
+			#leaveDiv{
+				width: 100% !important;
+				min-width: max-content;
+			}
+			.layui-col-md10{
+				width: 100% !important;
+			}
+			.layui-col-md2{
+				width: 100% !important;
+			}
+			.layui-inline{
+				margin-top: 3px;
+			}
+		}
+
+		/*.layui-table-tool {*/
+			/*position: inherit;*/
+		/*}*/
+
+		/*.layui-table-page {*/
+			/*position: relative;*/
+			/*width: auto;}*/
+	</style>
+	<link rel="stylesheet" href="../../../static/plugins/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="../../../static/plugins/zTree_v3/js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="../../../static/plugins/zTree_v3/js/jquery.ztree.core.js"></script>
+	<script type="text/javascript">
+		var setting = {
+			view: {
+				selectedMulti: false
+			},
+			check: {
+				enable: true
+			},
+			async: {
+				enable: true,
+				url:"/frame/listSchool",
+				autoParam:["sc_code", "name=n", "level=lv"],
+				dataFilter: filter
+			},
+			callback: {
+				onAsyncSuccess: zTreeOnAsyncSuccess,
+				onClick: zTreeOnClick
+			}
+		};
+
+		function filter(treeId, parentNode, childNodes) {
+			if (!childNodes) return null;
+			for (var i=0, l=childNodes.length; i<l; i++) {
+				childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');
+			}
+			return childNodes;
+		}
+		$(document).ready(function(){
+			treeObj = $.fn.zTree.init($("#treeDemo"), setting);
+		});
+
+		//用于捕获异步加载正常结束的事件回调函数
+		function zTreeOnAsyncSuccess(event, treeId, treeNode, msg){
+			var treeObj = $.fn.zTree.getZTreeObj(treeId);
+			var nodes = treeObj.getNodes();
+			if (nodes.length>0) {
+				for(var i=0;i<nodes.length;i++){
+					nodes[i].isParent="true";
+				}
+			}
+		}
+		//树节点点击事件
+		var isFirst = true;
+		function zTreeOnClick(event, treeId, treeNode) {
+			if(isFirst){
+				isFirst = false;
+				var url = "/frame/listSchool?sc_code=";
+				if(treeNode == undefined){
+					url += "";
+				}
+				else{
+					url += treeNode.sc_code;
+				}
+				$.ajax({
+					type : "post",
+					url : url,
+					dataType : "json",
+					async : true,
+					success : function(jsonData) {
+						if (jsonData != null) {
+							var data = jsonData;
+							var last = JSON.stringify(data);
+							var obj = JSON.parse(last);
+							treeObj.refresh();
+							if(data != null && data.length != 0){
+								if(treeNode == undefined){
+									treeObj.addNodes(null,data,true);// 如果是根节点，那么就在null后面加载数据
+								}
+								else{
+									treeObj.addNodes(treeNode,data,true);//如果是加载子节点，那么就是父节点下面加载
+								}
+							}else {isFirst = true;}
+							treeObj.expandNode(treeNode,true, false, false);// 将新获取的子节点展开
+						}
+					},
+					error : function() {
+						alert("请求错误！");
+					}
+				});
+			}
+			//节点点击事件
+			//清空数据
+			$('#sc_code').val("");
+			$('#gr_code').val("");
+			$('#uniType').val("");
+			$('#unitName').val("");
+			$('#cl_code').val("");
+			var  code,flag,sc_code,gr_code;
+			if(treeNode.getParentNode()!=null){
+				//点击的是年级或者班级
+				sc_code = treeNode.getParentNode().sc_code;
+				cl_code = treeNode.cl_code;
+				if(cl_code!=undefined){
+					//说明点击的是班级
+//					console.log("数据"+ JSON.stringify(treeNode));
+					flag = "class&clCodeList="+ treeNode.cl_code;
+					$('#cl_code').val(treeNode.cl_code);
+					$('#uniType').val("class");
+					$('#unitName').val(treeNode.name);
+
+				}else{
+					//说明是年级
+					flag = "grade&sc_code="+sc_code+"&gr_code="+ treeNode.gr_code+"&unitName="+treeNode.name;
+
+
+					$('#gr_code').val(treeNode.gr_code);
+					$('#sc_code').val(sc_code);
+					$('#uniType').val("grade");
+					$('#unitName').val(treeNode.name);
+				}
+
+			}else{
+				//说明用户点击的是学校节点
+				flag = "school&sc_code="+treeNode.sc_code+"&unitName="+treeNode.name;
+				//清空数据
+				$('#uniType').val("school");
+				$('#sc_code').val(treeNode.sc_code);
+				$('#unitName').val(treeNode.name);
+			}
+			//参数为  学校代码    年级代码   班级代码
+			var studentUrl = "/student/list?flag="+flag;
+
+			//渲染学生表格数据
+			layui.use('table', function() {
+				var element = layui.element;
+				var table = layui.table;
+				var form = layui.form;
+				table
+						.render({
+							id : 'studentList',
+							elem : '#studentList',
+							url : studentUrl //数据接口
+							,method:"post"
+							,parseData: function(res){ //res 即为原始返回的数据
+								return {
+									"code": res.code, //解析接口状态
+									"msg": res.msg, //解析提示文本
+									"count": res.content.total, //解析数据长度
+									"data": res.content.data //解析数据列表
+								};
+							}
+							,response:{
+								statusName:'code'
+								,statusCode:200
+							}
+							,toolbar: '#toolbarDemo'
+							,limit : 10//每页默认数
+							, limits : [ 10, 20, 30, 40 ]
+							,cellMinWidth: 80,
+							cols : [ [ //表头
+								{
+									type : 'checkbox'
+								}
+
+								,{field:'autoAdd', width:70, title: '序号',templet:'#autoAdd',unresize:true}
+								,{field:'schoolName', title: '学校'}
+								,{field:'gradeName', title: '年级'}
+								,{field:'className', title: '班级',width:100}
+								,{field:'stuNo', width:160, title: '学生编号', sort: true}
+								,{field:'stuName',width: 153, title: '学生姓名'}
+								,{width: 120, title: '微信绑定',templet:'#isBind'}
+								,{field:'sex', title: '性别',  width:100,templet: function (d) {
+									if (d.sex =='1'){
+										return '男'
+									}else {
+										return '女'
+									}
+								}}
+								,{field:'idCode', title: '身份证号'}
+								,{field:'createDate',width: 200, title: '创建时间',templet: '<div>{{ formatTime(d.createDate,"yyyy-MM-dd hh:mm:ss")}}</div>'}
+								,{field:'statustime',width: 200, title: '更新时间',templet: '<div>{{ formatTime(d.updateDate,"yyyy-MM-dd hh:mm:ss")}}</div>'}
+								,{title: '操作',width: 200,toolbar: '#barEdit'}
+							] ],
+							page : true
+							,where: {timestamp: (new Date()).valueOf()}
+							//开启分页
+						});
+			});
+		};
+	</script>
+</head>
+<body class="childrenBody">
+
+<!--用于存储用户点击选择的班级代码-->
+<input type="hidden" id="gr_code">
+<input type="hidden" id="cl_code">
+<input type="hidden" id="sc_code">
+<input type="hidden" id="uniType">
+<input type="hidden" id="unitName">
+
+<div class="layui-row">
+	<!--左边班级选择部分-->
+	<div id="leftdiv" class="layui-col-md2">
+		<div class="content_wrap" style="background-color: #d3e9ff;text-align: center; ">
+			<span style="display: block;padding: 10px;">学校结构</span>
+			<div class="zTreeDemoBackground left">
+				<ul id="treeDemo" class="ztree" style="background-color: aliceblue;min-width: 150px;"></ul>
+			</div>
+		</div>
+
+	</div>
+
+	<!--右边表格部分-->
+	<!--<div class="">-->
+		<div class="layui-col-md10">
+<div style="width: 107%;">
+		<blockquote class="layui-elem-quote news_search" style="border-left: 0px; margin-bottom: 0px;">
+
+			<form class="layui-form">
+				<div>
+
+					<div class="layui-inline">
+
+						<div class="layui-input-inline">
+							<input type="text" id="stuName" value="" placeholder="学生姓名或者编号"
+								   class="layui-input search_input">
+						</div>
+
+						<span style="padding-left: 30px;color: #8c8c8c;">微信是否已绑定</span>
+						<div class="layui-input-inline">
+							<select  id="isBindSelect">
+								<option value="">全部</option>
+								<option value="1">已绑定</option>
+								<option value="0">未绑定</option>
+							</select>
+						</div>
+						<a class="layui-btn search_btn" lay-submit="" data-type="search"
+						   lay-filter="search">查询</a>
+						<div class="layui-inline">
+							<a class="layui-btn layui-btn-normal userAdd_btn">添加学生</a>
+						</div>
+
+						<div class="layui-inline">
+							<a class="layui-btn layui-btn-normal input_btn">导入学生</a>
+						</div>
+
+						<!--<div class="layui-inline">-->
+							<!--<a class="layui-btn layui-btn-normal userDelete_btn">学生删除</a>-->
+						<!--</div>-->
+
+						<div class="layui-inline">
+							<a class="layui-btn layui-btn-normal output_img_btn" title="导出学生头像">导出学生头像</a>
+						</div>
+
+						<div class="layui-inline">
+							<a class="layui-btn layui-btn-normal output_wxNo_btn" title="导出学生信息名单">导出学生信息名单</a>
+						</div>
+					</div>
+				</div>
+			</form>
+		</blockquote>
+		<div class="layui-form">
+			<table id="studentList" lay-filter="studentList"></table>
+		</div>
+
+</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="../../../static/plugins/layui-v2.5.4/layui.js"></script>
+<script type="text/javascript" src="../../../static/js/student/studentList.js"></script>
+<script type="text/html" id="barEdit">
+	<a class="layui-btn layui-btn-xs" lay-event="editGuardian">家长信息</a>
+	<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+	<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+<script type="text/html" id="autoAdd">
+	{{d.LAY_TABLE_INDEX+1}}
+</script>
+
+<script type="text/html" id="isBind">
+	{{#if (d.isBind == 1) { }}
+	<span>已绑定</span>
+	{{# }else if(d.isBind == 0||d.isBind==null){ }}
+	<span>未绑定</span>
+	{{# } }}
+</script>
+</body>
+</html>

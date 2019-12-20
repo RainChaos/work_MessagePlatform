@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>登录--后台管理</title>
+    <link rel="stylesheet" href="../../static/plugins/layui-v2.5.4/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../../static/css/login.css" media="all" />
+    <style type="text/css">
+        .layui-form-radio{
+            color: #fff !important;
+        }
+        .layui-input, .layui-textarea{
+            margin-top: 10px;
+        }
+        .video_mask {
+            opacity: 0.6 !important;
+            filter: alpha(opacity=60) !important;
+        }
+        .layui-form-radio > i:hover, .layui-form-radioed > i {
+            color: #00BFFF;
+        }
+
+        .layui-form-checkbox[lay-skin="primary"] span{
+            color: white;
+        }
+        .layui-form-item .layui-form-checkbox[lay-skin="primary"] {
+            margin-top: 5px;
+        }
+        /*.layui-form-checked[lay-skin="primary"] i {*/
+        /*border-color: #00BFFF !important;*/
+        /*background-color: #00BFFF;*/
+        /*color: #fff;*/
+        /*}*/
+        @media screen and (max-width: 450px) {
+            .layui-form-item .layui-form-checkbox{
+                margin-right: 0px;
+                margin-bottom: 5px;
+            }
+        }
+
+
+    </style>
+    <script type="text/javascript">
+        if(window !=top){
+            top.location.href=location.href;
+        }
+    </script>
+</head>
+<body>
+
+<div class="video_mask" style="background-color: #87CEFA !important;"></div>
+<div class="login" style="height: auto !important;">
+    <h1>家校互动平台登录</h1>
+    <form class="layui-form" id="form" style="margin-top: 30px;">
+
+        <div class="layui-form-item">
+            <span style="color: #fff;">学校：</span>
+            <!--<input class="layui-input" id="username" name="name" placeholder="请输入账号" lay-verify="required" type="text" autocomplete="off">-->
+            <select id="scCode" name="scCode"  lay-filter="scCode" lay-search>
+                <option value="admin">请选择学校</option>
+                <span th:each="school:${schoollist.content.rows}">
+								           <option th:value="${school.sc_code}"th:text="${school.name}"></option>
+							        </span>
+            </select>
+        </div>
+        <div class="layui-form-item">
+            <span style="color: #fff;">用户名：</span>
+            <input class="layui-input" id="username" name="name" placeholder="请输入账号" lay-verify="required" type="text" autocomplete="off">
+        </div>
+
+        <div class="layui-form-item">
+            <span style="color: #fff;">密码：</span>
+            <input class="layui-input"  id="password" name="passWord" placeholder="请输入密码"   lay-verify="required" type="password" autocomplete="off">
+        </div>
+
+        <div class="layui-form-item form_code">
+            <input  id="verifyCode" class="layui-input" style="width: 140px;" name="verifyCode" placeholder="验证码" type="text" autocomplete="off" maxlength="4">
+            <div class="code"><img id="captcha" src="/getverify" width="100" height="36"></div>
+        </div>
+
+        <div class="layui-form-item">
+            <input type="radio" class="layui-input" lay-filter="go" name="type" value="teacher" title="教师" checked>
+            <input type="radio" class="layui-input" lay-filter="go"  name="type" value="user" title="管理员" >
+            <input id="isRemenber" type="checkbox" name="like1[write]" lay-skin="primary" title="记住账号?" checked="">
+        </div>
+
+        <input id="TeOpenid" type="hidden"  th:value="${openid}" >
+
+        <div class="layui-form-item">
+            <button style="width: 47%;float: left;background-color: #00BFFF !important;" class="layui-btn login_btn" lay-submit="login" lay-filter="login" id="btn">登录</button>
+            <div id="wxBtn" style="width: 47%;float: right;margin-left: 13px;background-color: #00BFFF !important;" class="layui-btn login_btn">微信登录</div>
+        </div>
+    </form>
+
+</div>
+<script type="text/javascript" src="../../static/plugins/layui-v2.5.4/layui.js"></script>
+<script type="text/javascript" src="../../static/js/jsbase/login.js"></script>
+</body>
+</html>

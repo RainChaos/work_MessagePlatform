@@ -1,0 +1,32 @@
+{
+	"code": 0,
+	"msg": "",
+	"count": 6,
+	"data": [
+		{
+			"uid": 34,
+			"eMail": "test@126.com",
+			"nickname": "dxd",
+			"password": "e10adc3949ba59abbe56e057f20f883e",
+			"sex": "1",
+			"birthday": "2018-07-31",
+			"address": "西安市高新区",
+			"phone": null,
+			"eCode": "1cb4c8f364204c1b8515f0c5555d1ba1615",
+			"status": "1",
+			"createTime": 1554965203000
+		}, {
+			"uid": 33,
+			"eMail": "593151321@qq.com",
+			"nickname": "fsdf",
+			"password": "c2909c4ab63391a7aa438ef83c3d66a8",
+			"sex": "1",
+			"birthday": "2018-10-18",
+			"address": "2331",
+			"phone": "11111111111",
+			"eCode": "b8c5626e77f04e5daac756aca08330d1750",
+			"status": "1",
+			"createTime": 1539834772000
+		}
+	]
+}

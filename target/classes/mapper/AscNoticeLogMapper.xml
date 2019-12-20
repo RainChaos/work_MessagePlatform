@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiapeng.messageplatform.dao.AscNoticeLogMapper">
+    <resultMap id="BaseResultMap" type="com.jiapeng.messageplatform.entity.AscNoticeLog">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="batchId" jdbcType="NVARCHAR" property="batchId"/>
+        <result column="sc_code" jdbcType="NVARCHAR" property="scCode"/>
+        <result column="stuId" jdbcType="NVARCHAR" property="stuId"/>
+        <result column="noticeWay" jdbcType="NVARCHAR" property="noticeway"/>
+        <result column="ascDeviceNo" jdbcType="NVARCHAR" property="ascdeviceno"/>
+        <result column="ascType" jdbcType="INTEGER" property="asctype"/>
+        <result column="actionType" jdbcType="INTEGER" property="actiontype"/>
+        <result column="actionTime" jdbcType="TIMESTAMP" property="actiontime"/>
+        <result column="ascRemark" jdbcType="NVARCHAR" property="ascremark"/>
+        <result column="noticeResult" jdbcType="NVARCHAR" property="noticeresult"/>
+        <result column="failReason" jdbcType="NVARCHAR" property="failreason"/>
+        <result column="createTime" jdbcType="TIMESTAMP" property="createtime"/>
+        <result column="imgName" jdbcType="NVARCHAR" property="imgName"/>
+        <result column="leaveId" jdbcType="INTEGER" property="leaveId"/>
+    </resultMap>
+    <resultMap id="RecordResultMap" type="com.jiapeng.messageplatform.model.ComeInOutRecord">
+        <result column="stuNo" jdbcType="NVARCHAR" property="stuNo"/>
+        <result column="stuName" jdbcType="NVARCHAR" property="stuName"/>
+        <result column="ascType" jdbcType="INTEGER" property="ascType"/>
+        <result column="actionType" jdbcType="INTEGER" property="actionType"/>
+        <result column="actionTime" jdbcType="TIMESTAMP" property="actionTime"/>
+        <result column="leaveId" jdbcType="INTEGER" property="leaveId"/>
+        <result column="actionState" property="actionState"/>
+        <result column="inOutType" property="inOutType"/>
+        <result column="className" property="className"/>
+        <result column="gradeName" property="gradeName"/>
+        <result column="schoolName" property="schoolName"/>
+        <result column="noticeResult" property="noticeResult"/>
+        <result column="failReason" property="reason"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, batchId, sc_code, stuId, noticeWay, ascDeviceNo, ascType, actionType,
+    actionTime, ascRemark, noticeResult, failReason, createTime,imgName,leaveId
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from asc_notice_log
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <sql id="Record_Column_List">
+        case when ac.actionType in (1,3,4) then '进入' else '离开'end as inOutType,
+        case when ac.actionType in (0,1) then '正常'
+        when actionType in (2,3) then '请假'
+        else '迟到'end as actionState,
+        ac.actionTime,ac.leaveId,ac.actionType,ac.ascType,ac.noticeResult,ac.failReason,
+        st.stuNo,st.stuName,
+        cl.name as className,
+        gr.name as gradeName,
+        sc.name as schoolName
+    </sql>
+    <sql id="Record_Page_Form">
+        from asc_notice_log ac
+        left join student st on ac.stuId=st.stuId
+        left join class cl on st.cl_code=cl.cl_code
+        left join grade gr on gr.gr_code=cl.gr_code
+        left join school sc on sc.sc_code=cl.sc_code
+    </sql>
+    <sql id="Record_Page_Where">
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="scCode != null and scCode != '' ">
+                AND ac.sc_code =#{scCode,jdbcType=NVARCHAR}
+            </if>
+            <if test="grCode != null and grCode != '' ">
+                AND gr.gr_code =#{grCode,jdbcType=NVARCHAR}
+            </if>
+            <if test="stuNo != null and stuNo != ''">
+                AND st.stuNo like CONCAT(CONCAT('%', #{stuNo}),'%')
+            </if>
+            <if test="ascType != null and ascType != ''">
+                AND ascType =#{ascType,jdbcType=NVARCHAR}
+            </if>
+            <if test="inOutType != null and inOutType != ''">
+                <if test="inOutType =='1'.toString() ">
+                    AND actionType in (1,3,4)
+                </if>
+                <if test="inOutType =='2'.toString()">
+                    AND actionType in (0,2)
+                </if>
+            </if>
+            <if test="actionState != null and actionState != ''">
+                <if test="actionState =='1'.toString()">
+                    AND actionType in (0,1)
+                </if>
+                <if test="actionState =='2'.toString()">
+                    AND actionType in (2,3)
+                </if>
+                <if test="actionState =='3'.toString()">
+                    AND actionType in (4)
+                </if>
+            </if>
+            <if test="startDate != null and startDate != ''">
+                AND (actionTime <![CDATA[>= ]]> #{startDate})
+            </if>
+            <if test="endDate != null and endDate != ''">
+                AND (actionTime <![CDATA[<= ]]> #{endDate})
+            </if>
+            <if test="clCodeList != null and clCodeList.size() != 0 ">
+                AND cl.cl_code IN
+                <foreach collection="clCodeList" item="id" index="index"
+                         open="(" close=")" separator=",">
+                    #{id}
+                </foreach>
+            </if>
+        </trim>
+    </sql>
+
+    <select id="selectRecord" parameterType="java.util.HashMap" resultMap="RecordResultMap">
+        <choose>
+            <when test="pageIndex != -1">
+                SELECT TOP ${pageSize} * FROM
+                (
+                select
+                <include refid="Record_Column_List"/>
+                ,Row_Number() OVER ( ORDER BY ac.actionTime DESC) as rownumber
+                <include refid="Record_Page_Form"/>
+                <include refid="Record_Page_Where"/>
+                ) temp
+                where rownumber  <![CDATA[ > ]]> #{pageIndex}
+            </when>
+            <otherwise>
+                select
+                <include refid="Record_Column_List"/>
+                ,Row_Number() OVER ( ORDER BY ac.actionTime DESC) as rownumber
+                <include refid="Record_Page_Form"/>
+                <include refid="Record_Page_Where"/>
+            </otherwise>
+        </choose>
+    </select>
+    <select id="selectRecordCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+        SELECT
+        COUNT(1) AS Total
+        <include refid="Record_Page_Form"/>
+        <include refid="Record_Page_Where"/>
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from asc_notice_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.jiapeng.messageplatform.entity.AscNoticeLog" keyProperty="id"
+            useGeneratedKeys="true">
+    insert into asc_notice_log (id,batchId, sc_code, stuId,noticeWay,
+      ascDeviceNo, ascType, actionType, 
+      actionTime, ascRemark, noticeResult, 
+      failReason, createTime,imgName,leaveId)
+    values (#{id,jdbcType=INTEGER}, #{batchId,jdbcType=NVARCHAR}, #{scCode,jdbcType=NVARCHAR},
+      #{stuId,jdbcType=NVARCHAR},#{noticeway,jdbcType=NVARCHAR},
+      #{ascdeviceno,jdbcType=NVARCHAR}, #{asctype,jdbcType=INTEGER}, #{actiontype,jdbcType=INTEGER}, 
+      #{actiontime,jdbcType=TIMESTAMP}, #{ascremark,jdbcType=NVARCHAR}, #{noticeresult,jdbcType=NVARCHAR}, 
+      #{failreason,jdbcType=NVARCHAR}, #{createtime,jdbcType=TIMESTAMP}), #{imgName,jdbcType=NVARCHAR},
+      #{leaveId,jdbcType=INTEGER})
+  </insert>
+    <insert id="insertSelective" parameterType="com.jiapeng.messageplatform.entity.AscNoticeLog" keyProperty="id"
+            useGeneratedKeys="true">
+        insert into asc_notice_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="batchId != null">
+                batchId,
+            </if>
+            <if test="scCode != null">
+                sc_code,
+            </if>
+            <if test="stuId != null">
+                stuId,
+            </if>
+            <if test="noticeway != null">
+                noticeWay,
+            </if>
+            <if test="ascdeviceno != null">
+                ascDeviceNo,
+            </if>
+            <if test="asctype != null">
+                ascType,
+            </if>
+            <if test="actiontype != null">
+                actionType,
+            </if>
+            <if test="actiontime != null">
+                actionTime,
+            </if>
+            <if test="ascremark != null">
+                ascRemark,
+            </if>
+            <if test="noticeresult != null">
+                noticeResult,
+            </if>
+            <if test="failreason != null">
+                failReason,
+            </if>
+            <if test="createtime != null">
+                createTime,
+            </if>
+            <if test="imgName != null">
+                imgName,
+            </if>
+            <if test="leaveId != null">
+                leaveId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="batchId != null">
+                #{batchId,jdbcType=NVARCHAR},
+            </if>
+            <if test="scCode != null">
+                #{scCode,jdbcType=NVARCHAR},
+            </if>
+            <if test="stuId != null">
+                #{stuId,jdbcType=NVARCHAR},
+            </if>
+            <if test="noticeway != null">
+                #{noticeway,jdbcType=NVARCHAR},
+            </if>
+            <if test="ascdeviceno != null">
+                #{ascdeviceno,jdbcType=NVARCHAR},
+            </if>
+            <if test="asctype != null">
+                #{asctype,jdbcType=INTEGER},
+            </if>
+            <if test="actiontype != null">
+                #{actiontype,jdbcType=INTEGER},
+            </if>
+            <if test="actiontime != null">
+                #{actiontime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="ascremark != null">
+                #{ascremark,jdbcType=NVARCHAR},
+            </if>
+            <if test="noticeresult != null">
+                #{noticeresult,jdbcType=NVARCHAR},
+            </if>
+            <if test="failreason != null">
+                #{failreason,jdbcType=NVARCHAR},
+            </if>
+            <if test="createtime != null">
+                #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="imgName != null">
+                #{imgName,jdbcType=NVARCHAR},
+            </if>
+            <if test="leaveId != null">
+                #{leaveId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jiapeng.messageplatform.entity.AscNoticeLog">
+        update asc_notice_log
+        <set>
+            <if test="batchId != null">
+                batchId = #{batchId,jdbcType=NVARCHAR},
+            </if>
+            <if test="scCode != null">
+                sc_code = #{scCode,jdbcType=NVARCHAR},
+            </if>
+            <if test="stuId != null">
+                stuId = #{stuId,jdbcType=NVARCHAR},
+            </if>
+            <if test="noticeway != null">
+                noticeWay = #{noticeway,jdbcType=NVARCHAR},
+            </if>
+            <if test="ascdeviceno != null">
+                ascDeviceNo = #{ascdeviceno,jdbcType=NVARCHAR},
+            </if>
+            <if test="asctype != null">
+                ascType = #{asctype,jdbcType=INTEGER},
+            </if>
+            <if test="actiontype != null">
+                actionType = #{actiontype,jdbcType=INTEGER},
+            </if>
+            <if test="actiontime != null">
+                actionTime = #{actiontime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="ascremark != null">
+                ascRemark = #{ascremark,jdbcType=NVARCHAR},
+            </if>
+            <if test="noticeresult != null">
+                noticeResult = #{noticeresult,jdbcType=NVARCHAR},
+            </if>
+            <if test="failreason != null">
+                failReason = #{failreason,jdbcType=NVARCHAR},
+            </if>
+            <if test="createtime != null">
+                createTime = #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="imgName != null">
+                imgName = #{imgName,jdbcType=NVARCHAR},
+            </if>
+            <if test="leaveId != null">
+                leaveId = #{leaveId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jiapeng.messageplatform.entity.AscNoticeLog">
+    update asc_notice_log
+    set batchId = #{batchId,jdbcType=NVARCHAR},
+      sc_code = #{scCode,jdbcType=NVARCHAR},
+      stuId = #{stuId,jdbcType=NVARCHAR},
+      noticeWay = #{noticeway,jdbcType=NVARCHAR},
+      ascDeviceNo = #{ascdeviceno,jdbcType=NVARCHAR},
+      ascType = #{asctype,jdbcType=INTEGER},
+      actionType = #{actiontype,jdbcType=INTEGER},
+      actionTime = #{actiontime,jdbcType=TIMESTAMP},
+      ascRemark = #{ascremark,jdbcType=NVARCHAR},
+      noticeResult = #{noticeresult,jdbcType=NVARCHAR},
+      failReason = #{failreason,jdbcType=NVARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      imgName = #{imgName,jdbcType=NVARCHAR},
+      leaveId = #{leaveId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

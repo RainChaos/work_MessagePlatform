@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+	<base th:href="${#request.getContextPath()}+'/'">
+	<meta charset="utf-8">
+	<title>家校互动平台</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="icon" href="favicon.ico">
+	<link rel="stylesheet" href="../../static/plugins/layui-v2.5.4/css/layui.css" media="all" />
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
+	<link rel="stylesheet" href="../../static/css/main.css" media="all" />
+
+<style type="text/css">
+	.layui-elem-quote{
+		margin-bottom: 0px;
+		border-left: 0px !important;
+
+	}
+	.layui-btn-normal {
+		background-color: #33AECC !important;
+	}
+
+	@media screen and (max-width: 750px) {
+		.logo{
+			display: none !important;
+		}
+		#goback {
+			display: block !important;
+			position: fixed;
+			z-index: 100000;
+			bottom: 75px;
+			left: 15px;
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			border-radius: 2px;
+			text-align: center;
+			background-color: rgba(0, 0, 0, .7);
+			color: #fff;
+		}
+		.layui-nav-tree .layui-nav-more {
+			right: 0px;
+		}
+		.layui-tab-title .layui-this {
+			background-color: lightseagreen;
+			color: #fff;
+		}
+		.layui-layout-admin .layui-header {
+			background-color:steelblue;
+		}
+		.layui-bg-black {
+			background: #145b7d !important;
+		}
+		.layui-nav-itemed > .layui-nav-child {
+			display: block;
+			padding: 0;
+			background-color: dimgray;
+		}
+		.layui-nav-tree .layui-nav-child dd.layui-this, .layui-nav-tree .layui-nav-child dd.layui-this a, .layui-nav-tree .layui-this, .layui-nav-tree .layui-this > a, .layui-nav-tree .layui-this > a:hover {
+			background-color: steelblue;
+			color: #fff;
+		}
+		.layui-layout-admin .layui-side {
+			top: 60px;
+			width: 160px;
+			overflow-x: hidden;
+		}
+		.layui-nav-tree .layui-nav-item {
+			display: block;
+			width: 80%;
+			line-height: 45px;
+		}
+		.layui-nav-tree .layui-nav-child dd.layui-this, .layui-nav-tree .layui-nav-child dd.layui-this a, .layui-nav-tree .layui-this, .layui-nav-tree .layui-this > a, .layui-nav-tree .layui-this > a:hover {
+			background-color: teal;
+			color: #fff;
+		}
+
+
+		.logo {
+			color: #fff;
+			float: left;
+			line-height: 60px;
+			font-size: 16px;
+			padding: 0 25px;
+			text-align: center;
+			width: 117px;
+		}
+		.layui-nav-item a{
+			float: left;
+			padding: 0px;
+		}
+
+	}
+
+</style>
+	<style type="text/css">
+		.layui-nav-tree .layui-nav-child a {
+			color: black !important;
+		}
+		.layui-bg-black {
+			background-color: #f2f2f2 !important;
+		}
+		.navBar{
+			background-color: #f2f2f2;
+		}
+
+		.layui-nav .layui-nav-item {
+			border-bottom: 1px solid #e5e5e5;
+		}
+
+		.layui-nav .layui-nav-item > a {
+			color: black !important;
+		}
+
+		.layui-nav-child dd {
+			border-bottom: 1px solid #e5e5e5;
+		}
+
+		.layui-nav-more {
+			border-color: black transparent transparent !important;
+		}
+		.layui-layout-admin .layui-header {
+			border-bottom: 0px solid #33AECC;
+			background-color: #33AECC;
+		}
+		.layui-body {
+			overflow: hidden;
+			border-left: 2px solid
+			#33AECC;
+		}
+
+
+		.clildFrame.layui-tab-content {
+			background-color: #f2f2f2;
+		}
+
+		.layui-tab-title .layui-this {
+			background-color: #fff;
+			color: #33AECC;
+		}
+		.layui-elem-quote {
+			border-left: 5px solid #f2f2f2;
+		}
+		.layui-nav-tree .layui-nav-child dd.layui-this, .layui-nav-tree .layui-nav-child dd.layui-this a, .layui-nav-tree .layui-this, .layui-nav-tree .layui-this > a, .layui-nav-tree .layui-this > a:hover {
+			background-color: #f2f2f2;
+			color: #fff;
+		}
+		.layui-nav .layui-nav-item :hover{
+			background-color: #f2f2f2 !important;
+			color: #33AECC !important;
+		}
+		.layui-nav-tree .layui-nav-child a:hover {
+			background-color: #f2f2f2;
+			color: #33AECC !important;
+		}
+
+		.layui-nav-itemed > .layui-nav-child {
+			background-color: #f2f2f2 !important;
+		}
+
+		.layui-nav .layui-nav-child dd.layui-this a, .layui-nav-child dd.layui-this {
+			background-color: #f2f2f2;
+			color: black;
+		}
+
+		.layui-nav-tree .layui-nav-bar {
+			width: 5px;
+			height: 0;
+			background-color: #33AECC;
+		}
+		.layui-body {
+
+			border-top: 0px solid #1AA094;
+		}
+
+		.closeBox {
+			background-color: whitesmoke !important;}
+		.layui-nav .layui-nav-item {
+			border-bottom: 2px solid
+			#e5e5e5;
+		}
+		.clildFrame.layui-tab-content {
+			background-color:
+					ghostwhite;
+		}
+
+		.layui-nav .layui-nav-item a {
+			padding: 0 17px;
+		}
+
+		.layui-anim-upbit {
+			left: 0px !important;
+		}
+		.layui-nav-child dd {
+			padding-left: 12%;
+		}
+
+		.closeBox {
+			position: absolute;
+			right: 0;
+			background-color: ghostwhite !important;
+			color: #000;
+			border: 0px;
+		}
+		.layui-nav .layui-nav-item {
+			border-bottom: 0px solid #e5e5e5;
+		}
+	</style>
+
+</head>
+<body class="main_body site-mobile">
+	<div class="layui-layout layui-layout-admin">
+		<!-- 顶部 -->
+		<div class="layui-header header">
+			<div class="layui-main">
+
+				<a class="logo" style="padding: 0;">家校互动平台</a>
+				<!-- 显示/隐藏菜单 -->
+				<a href="javascript:;" class="iconfont hideMenu icon-menu1"></a>
+				<!-- 顶部右侧菜单 -->
+
+
+				<ul class="layui-nav top_menu">
+
+					<li class="layui-nav-item" mobile>
+						<a id="personmobile" href="javascript:;" class="mobileAddTab"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>密码修改</cite></a>
+						<a th:style="${session.LOGINTEACHEROPENID=='false'}?'':'display:none;'" id="WxLoginmobile" href="javascript:;" class="mobileAddTab"><i class="layui-icon layui-icon-auz" data-icon="icon-shezhi1"></i>
+							<cite id="wxTextmobile" th:text="${session.LOGINTEACHEROPENID=='false'}?'微信授权':'已授权'"></cite>
+						</a>
+					</li>
+					<li class="layui-nav-item" mobile>
+						<a href="/logout" class="signOut"><i class="iconfont icon-loginout"></i> 退出</a>
+					</li>
+					<li class="layui-nav-item" pc>
+						<a href="javascript:;">
+							<i class="layui-icon">&#xe612;</i>
+							<cite th:text="${session.LOGINTEACHERNO}"></cite>
+						</a>
+						<dl class="layui-nav-child" style="left:-20px;width: 113px;">
+
+							<dd style="padding-left: 0% !important;"><a href="javascript:;" id="WxLogin"><i class="layui-icon layui-icon-auz" data-icon="icon-zhanghu"></i>
+								<cite id="wxText" th:text="${session.LOGINTEACHEROPENID=='false'}?'微信授权':'已授权'"></cite>
+							</a></dd>
+							<dd  style="padding-left: 0% !important;"><a href="javascript:;" id="ziliaoPC"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>资料修改</cite></a></dd>
+							<dd  style="padding-left: 0% !important;"><a id="personpc" href="javascript:;"<i class="iconfont icon-shezhi1" data-icon="icon-shezhi1" ></i><cite>密码修改</cite></a></dd>
+							<dd  style="padding-left: 0% !important;"><a href="/logout" class="signOut"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
+						</dl>
+					</li>
+				</ul>
+				</div>
+				<input type="hidden" id="UserOpenId" th:value="${openid}">
+		</div>
+
+		<!-- 左侧导航 -->
+		<div class="layui-side layui-bg-black">
+			<!-- <div class="navBar layui-side-scroll"></div> -->
+			<div class="navBar"></div>
+		</div>
+		<!-- 右侧内容 -->
+		<div class="layui-body layui-form">
+
+			<div class="layui-tab marg0" lay-filter="bodyTab" id="top_tabs_box">
+				<ul class="layui-tab-title top_tab" id="top_tabs">
+					<li class="layui-this" lay-id=""><i class="iconfont icon-computer"></i> <cite>首页</cite></li>
+				</ul>
+				<!-- 当前页面操作 -->
+				<ul class="layui-nav closeBox">
+					<li class="layui-nav-item" pc style="border-left: 4px solid white; width: 112px;">
+						<a href="javascript:;" style="padding: 0 28px;"><i style="left: 2px;" class="iconfont icon-caozuo"></i> 页面操作</a>
+						<dl class="layui-nav-child">
+							<dd><a style="padding: 0 5px;" href="javascript:;" class="refresh refreshThis"><i class="layui-icon">&#x1002;</i> 刷新当前</a></dd>
+							<dd><a style="padding: 0 5px;"href="javascript:;" class="closePageOther"><i class="iconfont icon-prohibit"></i> 关闭其他</a></dd>
+							<dd><a style="padding: 0 5px;"href="javascript:;" class="closePageAll"><i class="iconfont icon-guanbi"></i> 关闭全部</a></dd>
+						</dl>
+					</li>
+				</ul>
+				<!--子页面--->
+				<div class="layui-tab-content clildFrame">
+					<div class="layui-tab-item layui-show">
+						<iframe id="ParentIframe" src="page/teacher/messageSend"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 移动导航 -->
+	<div class="site-tree-mobile layui-hide"><i class="layui-icon">菜单</i></div>
+	<div class="site-mobile-shade"></div>
+
+	<div id="goback"  class="layui-hide"><i class="layui-icon">后退</i></div>
+	<div class="site-mobile-shade"></div>
+	<script type="text/javascript" src="../../static/plugins/layui-v2.5.4/layui.js"></script>
+	<script type="text/javascript" src="../../static/js/jsbase/leftNav.js"></script>
+	<script type="text/javascript" src="../../static/js/jsbase/tescherIndex.js"></script>
+	<script type="text/javascript" src="../../static/js/jsbase/jquery-1.9.1.min.js"></script>
+</body>
+</html>

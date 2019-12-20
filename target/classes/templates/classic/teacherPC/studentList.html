@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>列表</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+	<meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../../../static/plugins/layui-v2.5.4/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../../../static/css/font_eolqem241z66flxr.css" media="all" />
+	<link rel="stylesheet" href="../../../static/css/list.css" media="all"/>
+	<style type="text/css">
+		.layui-elem-quote {
+			margin-bottom: 0px !important;
+		}
+		.layui-table-view{
+			margin: 0px !important;
+		}
+
+		#test2{
+			width: 100%;
+			height: 100%;
+			min-height:600px;
+			overflow: scroll;
+		}
+		@media screen and (max-width: 750px){
+			#test2{
+				width: 100%;
+				height: 100%;
+				overflow: scroll;
+				min-height: 80px;
+				background: aliceblue;
+			}
+		}
+	</style>
+
+</head>
+<body class="childrenBody">
+
+<input type="hidden" id="cl_code">
+<input type="hidden" id="teaClass">
+
+
+<div class="layui-row">
+	<!--左边班级选择部分-->
+	<div class="layui-col-md2">
+		<div id="test2" class="demo-tree demo-tree-box"></div>
+
+	</div>
+
+	<!--右边表格部分-->
+	<div class="layui-col-md10">
+
+		<blockquote class="layui-elem-quote news_search" style="border-left: 0px;">
+
+			<input type="hidden" id="stuInit">
+
+			<form class="layui-form">
+				<div>
+
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+							<input type="text" id="stuName" value="" placeholder="学生姓名或者编号"
+								   class="layui-input search_input">
+						</div>
+
+
+						<a class="layui-btn search_btn" lay-submit="" data-type="search"
+						   lay-filter="search">查询</a>
+
+
+						<div class="layui-inline">
+							<a class="layui-btn layui-btn-normal userAdd_btn">添加学生</a>
+						</div>
+
+						<div class="layui-inline">
+							<a class="layui-btn layui-btn-normal input_btn">导入学生</a>
+						</div>
+
+						<div class="layui-inline">
+							<a class="layui-btn layui-btn-normal output_wxNo_btn" title="导出微信绑定信息名单">导出微信绑定信息名单</a>
+						</div>
+					</div>
+				</div>
+			</form>
+		</blockquote>
+
+		<div class="layui-form">
+			<table id="studentList" lay-filter="studentList"></table>
+		</div>
+
+	</div>
+</div>
+<script type="text/javascript" src="../../../static/plugins/layui-v2.5.4/layui.js"></script>
+<script type="text/javascript" src="../../../static/js/teacherPC/studentList.js"></script>
+<!--超时判断-->
+<script type="text/javascript" src="../../../static/js/jsbase/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../../../static/js/common/common.js"></script>
+<!--超时判断-->
+<script type="text/html" id="barEdit">
+	<a class="layui-btn layui-btn-xs" lay-event="editGuardian">家长信息</a>
+	<a class="layui-btn layui-btn-xs" lay-event="editClass">班级设置</a>
+	<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+	<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+<script type="text/html" id="autoAdd">
+	{{d.LAY_TABLE_INDEX+1}}
+</script>
+
+
+<script type="text/html" id="isBind">
+
+	{{#if (d.isBind == 1) { }}
+	<span>已绑定</span>
+	{{# }else if(d.isBind == 0||d.isBind==null){ }}
+	<span>未绑定</span>
+	{{# } }}
+</script>
+
+<script type="text/html" id="statusTpl">
+
+	{{#if (d.sex == 1) { }}
+	<span>男</span>
+	{{# }else if(d.sex == 0){ }}
+	<span>女</span>
+	{{# } }}
+
+</script>
+<script th:inline="javascript">
+	layui.config({
+		base : "js/"
+	}).use(['layer','jquery'],function(){
+		var layer = parent.layer === undefined ? layui.layer : parent.layer,
+				$ = layui.jquery;
+		//获取数据
+		layer.ready(function(){
+			var classTeacher = [[${classTeacher}]];
+			if (classTeacher==null||classTeacher==""){
+				$("#stuInit").val("TKLI2RH786");
+			}
+		});
+	})
+
+</script>
+</body>
+</html>

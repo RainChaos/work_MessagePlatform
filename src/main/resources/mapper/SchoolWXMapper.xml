@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiapeng.messageplatform.dao.SchoolWXMapper">
+    <resultMap id="BaseResultMap" type="com.jiapeng.messageplatform.entity.SchoolWX">
+        <id column="scCode" jdbcType="NVARCHAR" property="scCode"/>
+        <result column="appId" jdbcType="NVARCHAR" property="appId"/>
+        <result column="appSecret" jdbcType="NVARCHAR" property="appSecret"/>
+        <result column="normalTmp" jdbcType="NVARCHAR" property="normalTmp"/>
+        <result column="ascTmp" jdbcType="NVARCHAR" property="ascTmp"/>
+        <result column="expiresTime" jdbcType="TIMESTAMP" property="expiresTime"/>
+        <result column="token" jdbcType="NVARCHAR" property="token"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    scCode, appId, appSecret, normalTmp, ascTmp,expiresTime,token
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from school_wx
+        where scCode = #{scCode,jdbcType=NVARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from school_wx
+    where scCode = #{scCode,jdbcType=NVARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.jiapeng.messageplatform.entity.SchoolWX">
+    insert into school_wx (scCode, appId, appSecret, 
+      normalTmp, ascTmp,expiresTime,token)
+    values (#{scCode,jdbcType=NVARCHAR}, #{appId,jdbcType=NVARCHAR}, #{appSecret,jdbcType=NVARCHAR}, 
+      #{normalTmp,jdbcType=NVARCHAR}, #{ascTmp,jdbcType=NVARCHAR},#{expiresTime,jdbcType=TIMESTAMP}, #{token,jdbcType=NVARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.jiapeng.messageplatform.entity.SchoolWX">
+        insert into school_wx
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="scCode != null">
+                scCode,
+            </if>
+            <if test="appId != null">
+                appId,
+            </if>
+            <if test="appSecret != null">
+                appSecret,
+            </if>
+            <if test="normalTmp != null">
+                normalTmp,
+            </if>
+            <if test="ascTmp != null">
+                ascTmp,
+            </if>
+            <if test="expiresTime != null">
+                expiresTime,
+            </if>
+            <if test="token != null">
+                token,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="scCode != null">
+                #{scCode,jdbcType=NVARCHAR},
+            </if>
+            <if test="appId != null">
+                #{appId,jdbcType=NVARCHAR},
+            </if>
+            <if test="appSecret != null">
+                #{appSecret,jdbcType=NVARCHAR},
+            </if>
+            <if test="normalTmp != null">
+                #{normalTmp,jdbcType=NVARCHAR},
+            </if>
+            <if test="ascTmp != null">
+                #{ascTmp,jdbcType=NVARCHAR},
+            </if>
+            <if test="expiresTime != null">
+                #{expiresTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="token != null">
+                #{token,jdbcType=NVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jiapeng.messageplatform.entity.SchoolWX">
+        update school_wx
+        <set>
+            <if test="appId != null">
+                appId = #{appId,jdbcType=NVARCHAR},
+            </if>
+            <if test="appSecret != null">
+                appSecret = #{appSecret,jdbcType=NVARCHAR},
+            </if>
+            <if test="normalTmp != null">
+                normalTmp = #{normalTmp,jdbcType=NVARCHAR},
+            </if>
+            <if test="ascTmp != null">
+                ascTmp = #{ascTmp,jdbcType=NVARCHAR},
+            </if>
+            <if test="expiresTime != null">
+                expiresTime = #{expiresTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="token != null">
+                token = #{token,jdbcType=NVARCHAR},
+            </if>
+        </set>
+        where scCode = #{scCode,jdbcType=NVARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jiapeng.messageplatform.entity.SchoolWX">
+    update school_wx
+    set appId = #{appId,jdbcType=NVARCHAR},
+      appSecret = #{appSecret,jdbcType=NVARCHAR},
+      normalTmp = #{normalTmp,jdbcType=NVARCHAR},
+      ascTmp = #{ascTmp,jdbcType=NVARCHAR},
+      expiresTime = #{expiresTime,jdbcType=TIMESTAMP},
+      token = #{token,jdbcType=NVARCHAR}
+    where scCode = #{scCode,jdbcType=NVARCHAR}
+  </update>
+</mapper>

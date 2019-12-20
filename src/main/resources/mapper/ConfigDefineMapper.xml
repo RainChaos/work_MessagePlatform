@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiapeng.messageplatform.dao.ConfigDefineMapper">
+  <resultMap id="BaseResultMap" type="com.jiapeng.messageplatform.entity.ConfigDefine">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="NVARCHAR" property="name" />
+    <result column="code" jdbcType="NVARCHAR" property="code" />
+    <result column="type" jdbcType="NVARCHAR" property="type" />
+    <result column="selectValue" jdbcType="NVARCHAR" property="selectValue" />
+    <result column="remark" jdbcType="NVARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, code, type, selectValue, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from config_define
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from config_define
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jiapeng.messageplatform.entity.ConfigDefine">
+    insert into config_define (id, name, code, 
+      type, selectValue, remark
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=NVARCHAR}, #{code,jdbcType=NVARCHAR}, 
+      #{type,jdbcType=NVARCHAR}, #{selectValue,jdbcType=NVARCHAR}, #{remark,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jiapeng.messageplatform.entity.ConfigDefine">
+    insert into config_define
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="selectValue != null">
+        selectValue,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=NVARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=NVARCHAR},
+      </if>
+      <if test="selectValue != null">
+        #{selectValue,jdbcType=NVARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jiapeng.messageplatform.entity.ConfigDefine">
+    update config_define
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=NVARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=NVARCHAR},
+      </if>
+      <if test="selectValue != null">
+        selectValue = #{selectValue,jdbcType=NVARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jiapeng.messageplatform.entity.ConfigDefine">
+    update config_define
+    set name = #{name,jdbcType=NVARCHAR},
+      code = #{code,jdbcType=NVARCHAR},
+      type = #{type,jdbcType=NVARCHAR},
+      selectValue = #{selectValue,jdbcType=NVARCHAR},
+      remark = #{remark,jdbcType=NVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

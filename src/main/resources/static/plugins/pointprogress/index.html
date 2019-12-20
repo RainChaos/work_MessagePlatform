@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery步骤节点进度条代码 - 源码之家</title>
+
+<link rel="stylesheet" href="css/ystep.css">
+
+</head>
+<body>
+
+<h1>不显示按钮，可点击进度条节点</h1>
+
+<!-- 菜单及分页容器-->
+<div class="stepCont stepCont1">
+	<!-- 菜单导航显示-->
+	<div class='ystep-container ystep-lg ystep-blue'></div>
+	<!-- 分页容器-->
+	<div class="pageCont">
+		<div id="page1" class="stepPage">
+			<h1>page1</h1>
+		</div>
+		<div id="page2" class="stepPage">
+			<h1>page2</h1>
+		</div>
+		<div id="page3" class="stepPage">
+			<h1>page3</h1>
+		</div>
+		<div id="page4" class="stepPage">
+			<h1>page4</h1>
+		</div>
+		<div id="page5" class="stepPage">
+			<h1>page5</h1>
+		</div>
+	</div>
+</div>
+
+<h1>显示点击按钮 不可操作进度条节点</h1>
+
+<div class="stepCont stepCont2">
+	<!-- <div class="ystep"></div> -->
+	<div class='ystep-container ystep-lg ystep-blue'></div>
+	<div class="pageCont">
+		<div id="page1" class="stepPage">
+			<h1>page1</h1>
+		</div>
+		<div id="page2" class="stepPage">
+			<h1>page2</h1>
+		</div>
+		<div id="page3" class="stepPage">
+			<h1>page3</h1>
+		</div>
+		<div id="page4" class="stepPage">
+			<h1>page4</h1>
+		</div>
+		<div id="page5" class="stepPage">
+			<h1>page5</h1>
+		</div>
+	</div>
+</div>
+
+<h1>显示点击按钮 也可点击进度条节点</h1>
+
+<!-- 菜单及分页容器-->
+<div class="stepCont stepCont3">
+	<!-- 菜单导航显示-->
+	<div class='ystep-container ystep-lg ystep-blue'></div>
+	<!-- 分页容器-->
+	<div class="pageCont">
+		<div id="page1" class="stepPage">
+			<h1>page1</h1>
+		</div>
+		<div id="page2" class="stepPage">
+			<h1>page2</h1>
+		</div>
+		<div id="page3" class="stepPage">
+			<h1>page3</h1>
+		</div>
+		<div id="page4" class="stepPage">
+			<h1>page4</h1>
+		</div>
+		<div id="page5" class="stepPage">
+			<h1>page5</h1>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/setStep.js"></script>
+<script>
+var step1=new SetStep({
+	content:'.stepCont1',
+	showBtn:false,
+})
+var step2=new SetStep({
+	content:'.stepCont2',
+	clickAble:false
+})
+var step3=new SetStep({
+	content:'.stepCont3'
+})
+</script>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiapeng.messageplatform.dao.SchoolDBMapper">
+  <resultMap id="BaseResultMap" type="com.jiapeng.messageplatform.entity.SchoolDB">
+    <id column="scCode" jdbcType="NVARCHAR" property="scCode" />
+    <result column="url" jdbcType="NVARCHAR" property="url" />
+    <result column="userName" jdbcType="NVARCHAR" property="userName" />
+    <result column="password" jdbcType="NVARCHAR" property="password" />
+    <result column="code" jdbcType="NVARCHAR" property="code" />
+    <result column="dbType" jdbcType="NVARCHAR" property="dbType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    scCode, url, userName, password, code, dbType
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from school_db
+    where scCode = #{scCode,jdbcType=NVARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from school_db
+    where scCode = #{scCode,jdbcType=NVARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.jiapeng.messageplatform.entity.SchoolDB">
+    insert into school_db (scCode, url, userName, 
+      password, code, dbType
+      )
+    values (#{scCode,jdbcType=NVARCHAR}, #{url,jdbcType=NVARCHAR}, #{userName,jdbcType=NVARCHAR}, 
+      #{password,jdbcType=NVARCHAR}, #{code,jdbcType=NVARCHAR}, #{dbType,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jiapeng.messageplatform.entity.SchoolDB">
+    insert into school_db
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="scCode != null">
+        scCode,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="userName != null">
+        userName,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="dbType != null">
+        dbType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="scCode != null">
+        #{scCode,jdbcType=NVARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=NVARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=NVARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=NVARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=NVARCHAR},
+      </if>
+      <if test="dbType != null">
+        #{dbType,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jiapeng.messageplatform.entity.SchoolDB">
+    update school_db
+    <set>
+      <if test="url != null">
+        url = #{url,jdbcType=NVARCHAR},
+      </if>
+      <if test="userName != null">
+        userName = #{userName,jdbcType=NVARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=NVARCHAR},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=NVARCHAR},
+      </if>
+      <if test="dbType != null">
+        dbType = #{dbType,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where scCode = #{scCode,jdbcType=NVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jiapeng.messageplatform.entity.SchoolDB">
+    update school_db
+    set url = #{url,jdbcType=NVARCHAR},
+      userName = #{userName,jdbcType=NVARCHAR},
+      password = #{password,jdbcType=NVARCHAR},
+      code = #{code,jdbcType=NVARCHAR},
+      dbType = #{dbType,jdbcType=NVARCHAR}
+    where scCode = #{scCode,jdbcType=NVARCHAR}
+  </update>
+  <select id="list" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+    <choose>
+      <when test="pageIndex != -1">
+        SELECT TOP ${pageSize} * FROM
+        (
+        select
+        <include refid="Base_Column_List"/>
+        ,Row_Number() OVER ( ORDER BY schdb.scCode DESC) as rownumber from school_db schdb left join school sc on sc.sc_code = schdb.scCode
+        ) temp
+        where rownumber  <![CDATA[ > ]]> #{pageIndex}
+      </when>
+      <otherwise>
+        select
+        <include refid="Base_Column_List"/>
+        ,Row_Number() OVER ( ORDER BY schdb.scCode DESC) as rownumber from school_db schdb left join school sc on sc.sc_code = schdb.scCode
+        from school_db
+      </otherwise>
+    </choose>
+  </select>
+  <select id="listCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+    SELECT
+    COUNT(scCode) AS Total  from school_db
+  </select>
+
+</mapper>

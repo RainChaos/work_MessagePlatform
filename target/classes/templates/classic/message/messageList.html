@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>列表</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+	<meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../../../static/plugins/layui-v2.5.4/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../../../static/css/font_eolqem241z66flxr.css" media="all" />
+	<link rel="stylesheet" href="../../../static/css/list.css" media="all" />
+	<style type="text/css">
+		.layui-border-box{
+			margin-top: 0px;
+		}
+		.layui-elem-quote{
+			border-left: 0px !important;
+		}
+		.layui-btn-normal {
+			background-color: #33AECC !important;
+		}
+	</style>
+</head>
+<body class="childrenBody">
+<blockquote class="layui-elem-quote news_search">
+	<form class="layui-form">
+		<div>
+			<div class="layui-inline">
+
+				<div class="layui-input-inline">
+					信息类型：
+				</div>
+				<div class="layui-input-inline">
+					<select id="msgType" name="msgType"  lay-filter="msgType" lay-search>
+						<option value="">全部</option>
+						<option value="微信消息">微信消息</option>
+						<option value="短信消息">短信消息</option>
+					</select>
+				</div>
+
+				<div class="layui-input-inline">
+					发送状态：
+				</div>
+
+				<div class="layui-input-inline">
+					<!--<input type="text" id="gr_code" value="100001" placeholder="年级代码"-->
+					<!--class="layui-input search_input">-->
+					<select id="state" name="state"  lay-filter="state" lay-search>
+						<option value="">全部</option>
+						<option value="提交成功">提交成功</option>
+						<option value="提交失败">提交失败</option>
+					</select>
+				</div>
+
+				<a class="layui-btn search_btn" lay-submit="" data-type="search"
+				   lay-filter="search">查询</a>
+			</div>
+		</div>
+	</form>
+</blockquote>
+
+<div class="layui-form">
+	<table id="studentList" lay-filter="studentList"></table>
+</div>
+
+<script type="text/html" id="barEdit">
+	<input type="hidden" id="typemsg" value="{{d.msgType}}">
+	<a class="layui-btn layui-btn-xs" lay-event="Details">查看内容</a>
+	<a class="layui-btn layui-btn-xs" lay-event="messageDetails">接收人详情</a>
+	<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+<script type="text/html" id="detailsTpl"></script>
+<script type="text/javascript" src="../../../static/plugins/layui-v2.5.4/layui.js"></script>
+<script type="text/javascript" src="../../../static/js/message/messageList.js"></script>
+<script type="text/html" id="autoAdd">
+	{{d.LAY_TABLE_INDEX+1}}
+</script>
+
+<script type="text/html" id="msgContent">
+	{{#  if(d.msgType=="微信消息"){ }}
+	<a style="color: #83ae48;" lay-event="imgContentLook">查看</a>
+	{{#  } else if(d.msgContent === '1'){ }}
+	{{#  } else{ }}
+	{{= d.msgContent }}
+	{{#  } }}
+</script>
+</body>
+</html>

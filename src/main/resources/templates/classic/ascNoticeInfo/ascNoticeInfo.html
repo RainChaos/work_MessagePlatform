@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <meta charset="utf-8">
+    <title>门禁出入信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="../../../static/plugins/layui-v2.5.4/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all"/>
+    <link rel="stylesheet" href="../../../static/css/main.css" media="all"/>
+    <style type="text/css">
+        .layui-input-inline {
+            margin: 0px !important;
+
+        }
+        .layui-form-label {
+            width: auto;
+            overflow: auto;
+        }
+        #nobing {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body class="main_body" style="background: #F2F2F2;">
+<!--已绑定的用户界面-->
+<div id="bing" style="padding: 20px; background-color: #F2F2F2;">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    <legend style="font-size: 20px;font-weight: 300;">门禁出入信息</legend>
+                </div>
+                <div class="layui-card-body">
+
+                    <form class="layui-form" style="margin-top: 20px;">
+
+                        <div class="layui-form-item" style="margin-bottom: 0;height: 30px;">
+                            <label class="layui-form-label" style="clear: both; text-align: left;padding:0px 0px 0px 10px;white-space:pre">学  校   名  称：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="schoolName"
+                                       autocomplete="off" class="layui-input"  disabled style="padding-left: 0;border: none;height: 20px;">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item" style="margin-bottom: 0;height: 30px;">
+                            <label class="layui-form-label" style="clear: both; text-align: left;padding:0px 0px 0px 10px;white-space:pre">所  在   班  级：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="className"
+                                       autocomplete="off" class="layui-input"  disabled style="padding-left: 0;border: none;height: 20px;">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item" style="margin-bottom: 0;height: 30px;">
+                            <label class="layui-form-label" style="clear: both; text-align: left;padding:0px 0px 0px 10px;white-space: pre;">学  生   姓  名：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="stuName"
+                                       autocomplete="off" class="layui-input"  disabled style="padding-left: 0;border: none;height: 20px;">
+                            </div>
+                        </div>
+
+
+                        <div class="layui-form-item" style="margin-bottom: 0;height: 30px;">
+                            <label class="layui-form-label" style="clear: both; text-align: left;padding: 0px 0px 0px 10px;white-space: pre;">门  禁   类  型：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="asctype"
+                                       autocomplete="off" class="layui-input"  disabled style="padding-left: 0;border: none;height: 20px;">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item" style="margin-bottom: 0;height: 30px;">
+                            <label class="layui-form-label" style="clear: both; text-align: left;padding:0px 0px 0px 10px; white-space: pre;">出  入   状  态：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="actiontype"
+                                       autocomplete="off" class="layui-input"  disabled style="padding-left: 0;border: none;height: 20px;">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item" style="margin-bottom: 0;height: 30px;">
+                            <label class="layui-form-label" style="clear: both; text-align: left;padding:0px 0px 0px 10px; white-space: pre;">出  入   时  间：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="actiontime"
+                                       autocomplete="off" class="layui-input" disabled style="padding-left: 0;border: none;height: 20px;">
+                            </div>
+                        </div>
+
+                        <div id="leaveDiv" class="layui-form-item" style="margin-bottom: 0;height: 30px;display:none;">
+                            <label class="layui-form-label" style="clear: both; text-align: left;padding:0px 0px 0px 10px; white-space: pre;">请  假   时  间：</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="leaveTime"
+                                       autocomplete="off" class="layui-input"  disabled style="padding-left: 0;border: none;height: 20px;">
+                                <span style="color:grey">至</span><br>
+
+                            </div>
+
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="leaveTime1"
+                                       autocomplete="off" class="layui-input"  disabled style="padding-left: 0;border: none;height: 20px;">
+
+                            </div>
+                        </div>
+
+                        <div id="leaveReasonDiv" class="layui-form-item" style="margin-bottom: 0;height: 30px;margin-top: 43px;display: none;">
+                            <label class="layui-form-label" style="clear: both; text-align: left;padding:0px 0px 0px 10px; white-space: pre;">请  假   原  因：</label>
+                            <div class="layui-input-block">
+
+                            </div>
+                        </div>
+
+                        <div id="leaveReasonDiv1" class="layui-form-item" style="display: none">
+                            <div class="layui-input-block" style="text-align: center; margin: 0px;">
+                                <div id="leaveReson" style="min-height: 50px; color: gray;"></div>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item" style="margin-bottom: 0;height: 30px;">
+                            <label class="layui-form-label" style="clear: both; text-align: left;padding:0px 0px 0px 10px; white-space: pre;">图              像：</label>
+                            <div class="layui-input-block">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-input-block" style="text-align: center; margin: 0px;">
+                                <img layer-src="../../../static/image/nopic.png" src="../../../static/image/nopic.png" id="imgName"
+                                     width="100%" height="100%" style="margin: 3px;border:1px solid black !important; max-width:400px;max-height: 224px; "/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--openid值-->
+<script type="text/javascript" src="../../../static/plugins/layui-v2.5.4/layui.js"></script>
+<script th:inline="javascript">
+    layui.config({
+        base : "js/"
+    }).use(['layer','jquery'],function(){
+        var layer = parent.layer === undefined ? layui.layer : parent.layer,
+                $ = layui.jquery;
+
+        //获取数据
+        layer.ready(function(){
+
+            var ascNoticeLog = [[${ascNoticeLog}]];
+            var student = [[${student}]];
+            var leave = [[${leave}]];
+
+            var log = JSON.stringify(ascNoticeLog);
+            var logObj = JSON.parse(log);
+
+            var stu = JSON.stringify(student);
+            var stuObj = JSON.parse(stu);
+
+            var lea = JSON.stringify(leave);
+            var leaObj = JSON.parse(lea);
+
+            //学生信息填充
+            $("#schoolName").val(stuObj.schoolName);
+            //$("#className").val(stuObj.gradeName+stuObj.className);
+            $("#className").val(stuObj.className);
+            $("#stuName").val(stuObj.stuName);
+
+            //门禁信息填充
+
+                if (logObj.asctype=="1"){
+                    $("#asctype").val("校园");
+                }else  if(logObj.asctype=="2"){
+                    $("#asctype").val("公寓");
+                }else {
+                    $("#asctype").val("");
+                }
+
+            if (logObj.actiontype=="0"){
+                $("#actiontype").val("离开（正常）");
+            }else  if(logObj.actiontype=="1"){
+                $("#actiontype").val("进入（正常）");
+            }else  if(logObj.actiontype=="2"){
+                $("#actiontype").val("离开（请假）");
+            }else  if(logObj.actiontype=="3"){
+                $("#actiontype").val("回到（请假）");
+            }else {
+                $("#actiontype").val("");
+            }
+
+            $("#actiontime").val(formatTime(logObj.actiontime,"yyyy-MM-dd hh:mm:ss"));
+
+            //请假信息填充
+            if(logObj.leaveId!=null&&logObj.leaveId!=""){
+                $("#leaveTime").val(formatTime(leaObj.startDate,"yyyy-MM-dd hh:mm:ss"));
+                $("#leaveTime1").val(formatTime(leaObj.endDate,"yyyy-MM-dd hh:mm:ss"));
+
+                $("#leaveReson").text(leaObj.reason);
+
+                $("#leaveReasonDiv").css("display", "block");
+                $("#leaveReasonDiv1").css("display", "block");
+                $("#leaveDiv").css("display", "block");
+            }
+
+            //图像
+            if(logObj.imgName!=null){
+                $("#imgName").attr("src",logObj.imgName);
+            }
+        });
+    })
+
+    //格式化时间
+    function formatTime(datetime,fmt){
+        if(datetime==null||datetime==0){
+            return "";
+        }
+        if (parseInt(datetime)==datetime) {
+            if (datetime.length==10) {
+                datetime=parseInt(datetime)*1000;
+            } else if(datetime.length==13) {
+                datetime=parseInt(datetime);
+            }
+        }
+        datetime=new Date(datetime);
+        var o = {
+            "M+" : datetime.getMonth()+1,                 //月份
+            "d+" : datetime.getDate(),                    //日
+            "h+" : datetime.getHours(),                   //小时
+            "m+" : datetime.getMinutes(),                 //分
+            "s+" : datetime.getSeconds(),                 //秒
+            "q+" : Math.floor((datetime.getMonth()+3)/3), //季度
+            "S"  : datetime.getMilliseconds()             //毫秒
+        };
+        if(/(y+)/.test(fmt))
+            fmt=fmt.replace(RegExp.$1, (datetime.getFullYear()+"").substr(4 - RegExp.$1.length));
+        for(var k in o)
+            if(new RegExp("("+ k +")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+        return fmt;
+    }
+
+</script>
+</body>
+</html>

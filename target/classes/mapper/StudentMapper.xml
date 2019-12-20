@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiapeng.messageplatform.dao.StudentMapper">
+    <resultMap id="BaseResultMap" type="com.jiapeng.messageplatform.entity.Student">
+        <id column="stuId" jdbcType="NVARCHAR" property="stuId"/>
+        <result column="stuNo" jdbcType="NVARCHAR" property="stuNo"/>
+        <result column="stuName" jdbcType="NVARCHAR" property="stuName"/>
+        <result column="sex" jdbcType="NVARCHAR" property="sex"/>
+        <result column="idCode" jdbcType="NVARCHAR" property="idCode"/>
+        <result column="cl_code" jdbcType="NVARCHAR" property="clCode"/>
+
+        <result column="isBind" jdbcType="NVARCHAR" property="isBind"/>
+        <result column="createDate" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="updateDate" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="className" jdbcType="NVARCHAR" property="className"/>
+        <result column="gradeName" jdbcType="NVARCHAR" property="gradeName"/>
+        <result column="schoolName" jdbcType="NVARCHAR" property="schoolName"/>
+        <result column="faceImage1" jdbcType="NVARCHAR" property="imgPath"/>
+        <result column="scCode" jdbcType="NVARCHAR" property="scCode"/>
+        <result column="grCode" jdbcType="NVARCHAR" property="grCode"/>
+        <collection property="guardianList" column="stuNo" fetchType="lazy"
+                    javaType="ArrayList" ofType="com.jiapeng.messageplatform.entity.Guardian">
+            <result column="guaName" jdbcType="NVARCHAR" property="guaName"/><!-- property对应JavaBean中的属性名 -->
+            <result column="phone" jdbcType="NVARCHAR" property="phone"/>
+            <result column="wxNo" jdbcType="NVARCHAR" property="wxNo"/>
+            <result column="relation" jdbcType="NVARCHAR" property="relation"/>
+        </collection>
+    </resultMap>
+    <sql id="Base_Column_Page_List">
+        a.*,b.guaName as guaName,b.phone,b.wxNo,b.relation,c.name as className,g.name as gradeName,s.name as schoolName,
+        s.sc_code as scCode,g.gr_code as grCode
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_Page_List"/>
+        <include refid="Page_Form"/>
+        where a.stuId = #{stuId,jdbcType=NVARCHAR}
+    </select>
+    <select id="selectByScCodeAndStuNo" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_Page_List"/>
+        <include refid="Page_Form"/>
+        where a.stuNo = #{stuNo,jdbcType=NVARCHAR} and c.sc_code = #{scCode,jdbcType=NVARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from student
+    where stuId = #{stuId,jdbcType=NVARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.jiapeng.messageplatform.entity.Student" keyProperty="stuId"
+            useGeneratedKeys="true">
+    insert into student (stuId,stuNo, stuName, sex,
+      idCode, cl_code, createDate,
+      updateDate,isBind)
+
+    values (#{stuId,jdbcType=NVARCHAR},#{stuNo,jdbcType=NVARCHAR}, #{stuName,jdbcType=NVARCHAR}, #{sex,jdbcType=NVARCHAR},
+      #{idCode,jdbcType=NVARCHAR}, #{clCode,jdbcType=NVARCHAR}, GETDATE(), GETDATE(),isBind = #{isBind,jdbcType=NVARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.jiapeng.messageplatform.entity.Student" keyProperty="stuId"
+            useGeneratedKeys="true">
+        insert into student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stuId != null">
+                stuId,
+            </if>
+            <if test="stuNo != null">
+                stuNo,
+            </if>
+            <if test="stuName != null">
+                stuName,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="idCode != null">
+                idCode,
+            </if>
+            <if test="clCode != null">
+                cl_code,
+            </if>
+            <if test="createDate != null">
+                createDate,
+            </if>
+            <if test="updateDate != null">
+                updateDate,
+            </if>
+            <if test="isBind != null">
+                isBind
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="stuId != null">
+                #{stuId,jdbcType=NVARCHAR},
+            </if>
+            <if test="stuNo != null">
+                #{stuNo,jdbcType=NVARCHAR},
+            </if>
+            <if test="stuName != null">
+                #{stuName,jdbcType=NVARCHAR},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=NVARCHAR},
+            </if>
+            <if test="idCode != null">
+                #{idCode,jdbcType=NVARCHAR},
+            </if>
+            <if test="clCode != null">
+                #{clCode,jdbcType=NVARCHAR},
+            </if>
+            <if test="createDate != null">
+                GETDATE(),
+            </if>
+            <if test="updateDate != null">
+                GETDATE(),
+            </if>
+            <if test="isBind != null">
+                #{isBind,jdbcType=NVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jiapeng.messageplatform.entity.Student">
+        update student
+        <set>
+            <if test="stuName != null">
+                stuName = #{stuName,jdbcType=NVARCHAR},
+            </if>
+            <if test="stuNo != null">
+                stuNo = #{stuNo,jdbcType=NVARCHAR},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=NVARCHAR},
+            </if>
+            <if test="idCode != null">
+                idCode = #{idCode,jdbcType=NVARCHAR},
+            </if>
+            <if test="clCode != null">
+                cl_code = #{clCode,jdbcType=NVARCHAR},
+            </if>
+            <if test="createDate != null">
+                createDate = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isBind != null">
+                isBind = #{isBind,jdbcType=NVARCHAR},
+            </if>
+
+            updateDate = GETDATE(),
+        </set>
+        where stuId = #{stuId,jdbcType=NVARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jiapeng.messageplatform.entity.Student">
+    update student
+    set stuNo = #{stuNo,jdbcType=NVARCHAR},
+    stuName = #{stuName,jdbcType=NVARCHAR},
+      sex = #{sex,jdbcType=NVARCHAR},
+      idCode = #{idCode,jdbcType=NVARCHAR},
+      cl_code = #{clCode,jdbcType=NVARCHAR},
+       isBind = #{isBind,jdbcType=NVARCHAR},
+      createDate = #{createDate,jdbcType=TIMESTAMP},
+      updateDate = GETDATE()
+    where stuId = #{stuId,jdbcType=NVARCHAR}
+  </update>
+    <sql id="Page_Form">
+      FROM student a LEFT JOIN guardian b ON a.stuId=b.stuId
+        LEFT JOIN class c ON a.cl_code = c.cl_code
+        LEFT JOIN grade g ON g.gr_code = c.gr_code
+        LEFT JOIN school s ON s.sc_code = c.sc_code
+    </sql>
+
+
+    <sql id="Page_Where">
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="clCodeList != null and clCodeList.size() != 0 ">
+                AND a.cl_code IN
+                <foreach collection="clCodeList" item="id" index="index"
+                         open="(" close=")" separator=",">
+                    #{id}
+                </foreach>
+            </if>
+            <if test="changeUnitCode != null and changeUnitCode != '' ">
+                AND a.cl_code = #{changeUnitCode}
+            </if>
+            <if test="stuName != null and stuName != ''">
+                AND ((a.stuNo like CONCAT(CONCAT('%', #{stuName}),'%')) OR (a.stuName like CONCAT(CONCAT('%', #{stuName}), '%')))
+            </if>
+
+            <if test="isBind != null and isBind != ''">
+                <if test='isBind == "1"'>
+                    AND isBind = '1'
+                </if>
+                <if test='isBind == "0"'>
+                    AND (isBind is null or isBind = '0')
+                </if>
+            </if>
+        </trim>
+    </sql>
+
+
+    <!--解决分页总数问题-->
+    <sql id="Page_help_Where">
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="clCodeList != null and clCodeList.size() != 0 ">
+                AND cl_code IN
+                <foreach collection="clCodeList" item="id" index="index"
+                         open="(" close=")" separator=",">
+                    #{id}
+                </foreach>
+            </if>
+            <if test="stuName != null and stuName != ''">
+                AND ((stuNo like CONCAT(CONCAT('%', #{stuName}),'%')) OR (stuName like CONCAT(CONCAT('%', #{stuName}), '%')))
+            </if>
+            <if test="isBind != null and isBind != ''">
+                    <if test='isBind == "1"'>
+                        AND isBind = '1'
+                    </if>
+                    <if test='isBind == "0"'>
+                        AND (isBind is null or isBind = '0')
+                    </if>
+            </if>
+        </trim>
+    </sql>
+
+
+    <!--自定义发送-->
+    <sql id="Page_Where_Msg">
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="stuIdsList != null and stuIdsList.size() != 0 ">
+                AND a.stuId IN
+                <foreach collection="stuIdsList" item="id" index="index"
+                         open="(" close=")" separator=",">
+                    #{id}
+                </foreach>
+            </if>
+        </trim>
+    </sql>
+
+    <select id="listByStuId" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <choose>
+            <when test="pageIndex != -1">
+                SELECT TOP ${pageSize} * FROM
+                (
+                select
+                <include refid="Base_Column_Page_List"/>
+                ,Row_Number() OVER ( ORDER BY a.stuNo DESC) as rownumber
+                <include refid="Page_Form"/>
+                <include refid="Page_Where_Msg"/>
+                ) temp
+                where rownumber  <![CDATA[ > ]]> #{pageIndex}
+            </when>
+            <otherwise>
+                select
+                <include refid="Base_Column_Page_List"/>
+                ,Row_Number() OVER ( ORDER BY a.stuNo DESC) as rownumber
+                <include refid="Page_Form"/>
+                <include refid="Page_Where_Msg"/>
+            </otherwise>
+        </choose>
+    </select>
+
+    <!--自定义发送-->
+
+<!--提供网络APP接口-->
+    <select id="listStudent" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+        <choose>
+            <when test="pageIndex != -1">
+                select
+                <include refid="Base_Column_Page_List"/>
+                <include refid="Page_Form"/>
+                <include refid="Page_Where"/>
+                and a.stuId in
+                (SELECT temp.stuId from (select top ${pageSize} * from (select row_number() over(order by isBind desc) as rownumber,* from student <include refid="Page_help_Where"/>) temp_row where rownumber  >  ${pageIndex} ) as temp) ;
+            </when>
+
+        </choose>
+    </select>
+    <select id="listStudentCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+        SELECT
+        COUNT(a.stuId) AS Total FROM  student a
+        <include refid="Page_Where"/>
+    </select>
+
+    <!--提供网络APP接口-->
+
+
+    <select id="list" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+        <choose>
+            <when test="pageIndex != -1">
+                SELECT TOP ${pageSize} * FROM
+                (
+                select
+                <include refid="Base_Column_Page_List"/>
+                ,Row_Number() OVER ( ORDER BY b.wxNo DESC) as rownumber
+                <include refid="Page_Form"/>
+                <include refid="Page_Where"/>
+                ) temp
+                where rownumber  <![CDATA[ > ]]> #{pageIndex}
+
+            </when>
+            <otherwise>
+                select
+                <include refid="Base_Column_Page_List"/>
+                ,Row_Number() OVER ( ORDER BY b.wxNo DESC) as rownumber
+                <include refid="Page_Form"/>
+                <include refid="Page_Where"/>
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="listCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+        SELECT
+        COUNT(a.stuId) AS Total
+        <include refid="Page_Form"/>
+        <include refid="Page_Where"/>
+    </select>
+
+
+
+
+
+    <sql id="Page_Where_Out">
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="clCodeList != null and clCodeList.size() != 0 ">
+                AND stu.cl_code IN
+                <foreach collection="clCodeList" item="id" index="index"
+                         open="(" close=")" separator=",">
+                    #{id}
+                </foreach>
+            </if>
+            <if test="sc_code != null and sc_code != '' ">
+                AND c.sc_code = #{sc_code}
+            </if>
+            <if test="isBind != null and isBind != '' ">
+                AND stu.isBind = #{isBind}
+            </if>
+            <if test="changeUnitCode != null and changeUnitCode != '' ">
+                AND stu.cl_code = #{changeUnitCode}
+            </if>
+
+
+        </trim>
+    </sql>
+
+    <select id="binglist" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+        select stu.*,c.name as className,g.name as gradeName,s.name as schoolName from student stu
+        LEFT JOIN class c ON stu.cl_code = c.cl_code
+        LEFT JOIN grade g ON g.gr_code = c.gr_code
+        LEFT JOIN school s ON s.sc_code = c.sc_code
+        <include refid="Page_Where_Out"/>
+
+    </select>
+    <select id="selectByScCode" resultMap="BaseResultMap">
+       SELECT * from student WHERE cl_code in (SELECT cl_code from class WHERE  sc_code =#{scCode})
+    </select>
+
+
+</mapper>

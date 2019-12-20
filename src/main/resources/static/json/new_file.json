@@ -1,0 +1,72 @@
+[
+	{
+		"title": "一级1",
+		"id": 1,
+		"checked": true,
+		"spread": true,
+		"children": [
+			{
+				"title": "二级1-1 可允许跳转",
+				"id": 3,
+				"children": [
+					{
+						"title": "三级1-1-3",
+						"id": 23,
+						"children": [
+							{
+								"title": "四级1-1-3-1",
+								"id": 24,
+								"children": [
+									{
+										"title": "五级1-1-3-1-1",
+										"id": 30
+									}, {
+										"title": "五级1-1-3-1-2",
+										"id": 31
+									}
+								]
+							}
+						]
+					}, {
+						"title": "三级1-1-1",
+						"id": 7,
+						"children": [
+							{
+								"title": "四级1-1-1-1 可允许跳转",
+								"id": 15
+							}
+						]
+					}, {
+						"title": "三级1-1-2",
+						"id": 8,
+						"children": [
+							{
+								"title": "四级1-1-2-1",
+								"id": 32
+							}
+						]
+					}
+				]
+			}
+		]
+	}, {
+		"title": "一级3",
+		"id": 16,
+		"children": [
+			{
+				"title": "二级3-1",
+				"id": 17,
+				"fixed": true,
+				"children": [
+					{
+						"title": "三级3-1-1",
+						"id": 18
+					}, {
+						"title": "三级3-1-2",
+						"id": 19
+					}
+				]
+			}
+		]
+	}
+]

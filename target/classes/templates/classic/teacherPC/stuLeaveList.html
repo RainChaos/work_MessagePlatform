@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>列表</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+	<meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../../../static/plugins/layui-v2.5.4/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../../../static/css/font_eolqem241z66flxr.css" media="all" />
+	<link rel="stylesheet" href="../../../static/css/list.css" media="all"/>
+	<style type="text/css">
+		.layui-elem-quote {
+			margin-bottom: 0px !important;
+		}
+		.layui-table-view{
+			margin: 0px !important;
+		}
+	</style>
+
+</head>
+<body class="childrenBody">
+	<blockquote class="layui-elem-quote news_search">
+		<form class="layui-form">
+			<div>
+				<div class="layui-inline">
+					班级:
+					<div class="layui-input-inline">
+						<select id="classCode" name="classCode"  lay-filter="classCode"  lay-search>
+							<option value="">全部</option>
+							<span th:each="class:${classlist.content}">
+								<option th:value="${class.classCode}"th:text="${class.gradeName}+${class.className}"></option>
+							</span>
+						</select>
+					</div>
+					</div>
+
+					<div class="layui-inline">
+					编号或姓名:
+					<div class="layui-input-inline">
+						<input type="text" id="stuNoOrName" value=""
+							placeholder="学生编号或姓名" class="layui-input search_input">
+					</div>
+					</div>
+
+					<div class="layui-inline" style="margin-left: 5%;">
+						请假时间
+						<div class="layui-input-inline">
+						<input type="text" id="createTimeStart"
+							   class="layui-input userName" name="createTimeStart"
+							   placeholder="开始时间" value="">
+							</div>
+					</div>
+
+				<div class="layui-inline">
+					<div class="layui-input-inline">
+						至
+					</div>
+				</div>
+					<div class="layui-inline">
+						<div class="layui-input-inline">
+						<input type="text" id="createTimeEnd" class="layui-input userName"
+							   name="createTimeEnd" placeholder="结束时间" value="">
+					</div>
+						</div>
+				<div class="layui-inline">
+
+					<div class="layui-input-inline">
+						<a class="layui-btn search_btn" lay-submit="" data-type="search"
+						   lay-filter="search">查询</a>
+					</div>
+				</div>
+				</div>
+			</div>
+		</form>
+	</blockquote>
+
+	<div class="layui-form">
+		<table id="userList" lay-filter="userList"></table>
+	</div>
+	<script type="text/javascript" src="../../../static/plugins/layui-v2.5.4/layui.js"></script>
+	<script type="text/javascript" src="../../../static/js/teacherPC/stuLeaveList.js"></script>
+	<!--超时判断-->
+	<script type="text/javascript" src="../../../static/js/jsbase/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="../../../static/js/common/common.js"></script>
+	<!--超时判断-->
+	<script type="text/html" id="barEdit">
+			<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+  			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+	</script>
+</body>
+</html>

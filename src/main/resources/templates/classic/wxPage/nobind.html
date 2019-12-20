@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <meta charset="utf-8">
+    <title>学生信息绑定</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="../../static/plugins/layui-v2.5.4/css/layui.css" media="all"/>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all"/>
+    <link rel="stylesheet" href="../../static/css/main.css" media="all"/>
+    <style type="text/css">
+        .layui-input-inline {
+            margin: 0px !important;
+
+        }
+        .layui-form-label {
+            width: auto;
+            overflow: auto;
+        }
+        .layui-form-select .layui-edge {
+            position: absolute;
+            right: 10px;
+            top: 77%;
+        }
+        .layui-card {
+            background-color: #e8e8e8;
+        }
+    </style>
+</head>
+<body class="main_body" style="background: #F2F2F2;">
+
+<!--未绑定的用户信息界面-->
+<div id="nobing" style="padding: 20px; background-color: #F2F2F2;">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    <legend style="font-size: 20px;font-weight: 300;">学生信息绑定<i id="bindPage" class="layui-icon layui-icon-close-fill" style=" font-size:30px;color: #1E9FFF;float: right;"></i></legend>
+                </div>
+                <div class="layui-card-body">
+
+                    <form class="layui-form" style="margin-top: 20px;">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label" style="clear: both; text-align: left;">请选择学校<span class="required" style="color:red;padding-left: 4px;font-size: 120%;">*</span></label>
+                            <div class="layui-input-block" style="margin: 0px;">
+                                <select id="scCode" name="scCode"  lay-filter="scCode" lay-search>
+                                    <option value="">请选择学校</option>
+                                    <span th:each="school:${schoollist.content.rows}">
+								           <option th:value="${school.sc_code}"th:text="${school.name}"></option>
+							        </span>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label" style="clear: both; text-align: left;">学生编号<span class="required" style="color:red;padding-left: 4px;font-size: 120%;">*</span></label>
+                            <div class="layui-input-block" style="margin: 0px;">
+                                <input id="NoStuNo" type="text" name="stuNo" required lay-verify="required" placeholder="请输入学生编号"
+                                       autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label" style="clear: both; text-align: left;">学生姓名<span class="required" style="color:red;padding-left: 4px;font-size: 120%;">*</span></label>
+                            <div class="layui-input-block" style="margin: 0px;">
+                                <input id="NoStuName" type="text"  name="stuName" required lay-verify="required" placeholder="请输入学生名字"
+                                       autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label" style="clear: both; text-align: left;">家长姓名<span class="required" style="color:red;padding-left: 4px;font-size: 120%;">*</span></label>
+                            <div class="layui-input-block" style="margin: 0px;">
+                                <input type="text" id="NoGuaName"  name="guaName" lay-verify="required" placeholder="请输入家长姓名"
+                                       autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <label class="layui-form-label" style="clear: both; text-align: left;">家长手机号码<span class="required" style="color:red;padding-left: 4px;font-size: 120%;">*</span></label>
+                            <div class="layui-input-block" style="margin: 0px;">
+                                <input type="text" id="NoPhone" name="phone"  lay-verify="required|phone" placeholder="请输入家长手机号码"
+                                       autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block" style="text-align: center; margin: 0px;">
+                            <button id="bing" class="layui-btn" lay-submit="" lay-filter="bing" style="width: 100%;">绑定</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--openid值-->
+<input type="hidden" id="openid" th:value="${openid}">
+<script type="text/javascript" src="../../static/plugins/layui-v2.5.4/layui.js"></script>
+<script>
+    layui.use(['element','form', 'layedit', 'jquery'], function () {
+        var form = layui.form
+                , layer = layui.layer
+                , $ = layui.jquery
+                , element = layui.element;
+
+        $("#NoGuaName").blur(function(){
+            var scCode = $("#scCode option:selected").val();
+            var url = "/guardian/getGuardianPhone?guaName="
+                    +$("#NoGuaName").val()
+                    +"&stuName="+$("#NoStuName").val()
+                    +"&stuNo="+$("#NoStuNo").val()
+                    +"&scCode="+scCode;
+            $.ajax({
+                type: "post",
+                url:url,
+                dataType:"json",
+                success:function(d){
+                    if (d.content==""){
+                    }else{
+                        $("#NoPhone").val(d.content);
+                    }
+                }
+            });
+        });
+
+        $("#bing").click(function(){
+            var scCode = $("#scCode option:selected").val();
+            if (scCode.length == 0) {
+                layer.msg('请先选择学校', {icon: 5});
+                return false;
+            }
+            if ($("#NoStuNo").val().length == 0) {
+                layer.msg('请先输入学生编号', {icon: 5});
+                return false;
+            }
+            if ($("#NoStuName").val().length == 0) {
+                layer.msg('请输入学生姓名', {icon: 5});
+                return false;
+            }
+            if ($("#NoGuaName").val().length == 0) {
+                layer.msg('请输入家长姓名', {icon: 5});
+                return false;
+            }
+            if (!/^[1][3,4,5,6,7,8,9][0-9]{9}$/.test($("#NoPhone").val())) {
+                layer.msg('请输入正确的手机号码', {icon: 5});
+                return false;
+            }
+
+            var scName = $("#scCode option:selected").text();
+            var content = "<div style='margin: 20px'>"
+                    +"学校名称:&nbsp;&nbsp;&nbsp;&nbsp;"+scName
+                    +"<br>学生编号:&nbsp;&nbsp;&nbsp;&nbsp;"+$("#NoStuNo").val()
+                    +"<br>学生姓名:&nbsp;&nbsp;&nbsp;&nbsp;"+$("#NoStuName").val()
+                    + "<br>家长姓名:&nbsp;&nbsp;&nbsp;&nbsp;" +$("#NoGuaName").val()
+                    + "<br>手机号:&nbsp;&nbsp;&nbsp;&nbsp;" +$("#NoPhone").val()
+
+                    +"</div>";
+
+            var guadianObj =
+            {
+                scCode:scCode,
+                stuNo : $("#NoStuNo").val(),
+                stuName : $("#NoStuName").val(),
+                guaName : $("#NoGuaName").val(),
+                phone : $("#NoPhone").val(),
+                openId: $("#openid").val()
+            }
+
+            //页面层-自定义
+            layer.open({
+                type: 1,
+                title: "请您确认要绑定的信息？",
+                closeBtn: 0,
+                shadeClose: true,
+                content: content,
+                btn:['确认','取消']
+                ,yes: function(index, layero){
+                    layer.close(index);
+                    var msg;
+                    $.ajax({
+                        type: "post",
+                        url: "/guardian/wxBand",
+                        data:guadianObj,
+                        dataType:"json",
+                        success:function(d){
+                            if(d.code==200||d.content=="绑定成功"){
+                                msg="绑定成功！";
+                                layer.msg(msg);
+                                setTimeout(function(){
+                                    window.location.href = '/page/bindGuardian?openid='+$("#openid").val();
+                                },2000);
+                            }else{
+                                msg = d.msg;
+                                layer.msg(msg);
+                            }
+
+                        }
+                    });
+
+                }
+                ,btn2: function(index, layero){
+                }
+            });
+            return false;
+        });
+
+
+        $("#bindPage").click(function(){
+            window.location.href = '/page/bindGuardian?openid='+$("#openid").val();
+        });
+
+        })
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "100",
+    "name": "班级管理",
+    "icon": "&#xe61d",
+    "orderNumber": 0,
+    "parentId": null,
+    "path": "/page/teacher/getClassList",
+    "idName": null
+  },
+  {
+    "id": "101",
+    "name": "学生管理",
+    "icon": "&#xe61d",
+    "orderNumber": 0,
+    "parentId": null,
+    "path": "/page/teacher/studentList",
+    "idName": null
+  },
+  {
+    "id": "102",
+    "name": "信息管理",
+    "icon": "&#xe61d",
+    "orderNumber": 0,
+    "parentId": null,
+    "path": "/page/teacher/messageList",
+    "idName": null
+  },
+  {
+    "id": "103",
+    "name": "信息息发送",
+    "icon": "&#xe61d",
+    "orderNumber": 0,
+    "parentId": null,
+    "path": "/page/teacher/messageList",
+    "idName": null
+  }
+]

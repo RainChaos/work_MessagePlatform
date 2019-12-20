@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>列表</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../../../static/plugins/layui-v2.5.4/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../../../static/css/font_eolqem241z66flxr.css" media="all" />
+	<link rel="stylesheet" href="../../../static/css/list.css" media="all" />
+	<style type="text/css">
+		.layui-border-box{
+			margin-top: 0px;
+		}
+		.layui-elem-quote{
+			border-left: 0px !important;
+			margin-bottom: 0px !important;
+		}
+		.layui-btn-normal {
+			background-color: #33AECC !important;
+		}
+
+		.layui-table-view .layui-form-checkbox, .layui-table-view .layui-form-radio, .layui-table-view .layui-form-switch{
+			margin-top: 10% !important;
+		}
+
+	</style>
+</head>
+<body class="childrenBody">
+<blockquote class="layui-elem-quote news_search">
+	<form class="layui-form">
+		<div>
+			<div class="layui-inline">
+				学校：
+				<div class="layui-input-inline">
+
+					<select id="sc_code" name="sc_code"  lay-filter="sc_code" lay-search>
+						<option value="" selected>全部</option>
+						<span th:each="school:${schoollist.content.rows}">
+								<option th:value="${school.sc_code}"th:text="${school.name}"></option>
+							</span>
+					</select>
+				</div>
+
+				教师姓名：
+				<div class="layui-input-inline">
+					<input type="text" id="teName"  placeholder="教师姓名"
+						   class="layui-input search_input">
+				</div>
+
+				<a class="layui-btn search_btn" lay-submit="" data-type="search"
+				   lay-filter="search">查询</a>
+				<div class="layui-inline">
+					<a class="layui-btn layui-btn-normal teacherAdd_btn">添加教师</a>
+				</div>
+				<div class="layui-inline">
+					<a class="layui-btn layui-btn-normal input_btn">导入文件</a>
+				</div>
+
+
+			</div>
+		</div>
+	</form>
+</blockquote>
+
+	<!-- 数据表格 -->
+	<table id="teacherList" lay-filter="test" width="100%;"></table>
+	<script type="text/javascript" src="../../../static/plugins/layui-v2.5.4/layui.js"></script>
+	<script type="text/javascript" src="../../../static/js/teacher/teacherList.js"></script>
+
+	<script type="text/html" id="barEdit">
+		<a class="layui-btn layui-btn-xs" lay-event="banjilook">班级设置</a>
+  			<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+		    <a th:style="${session.scCode==''}?'display:none;':''" class="layui-btn layui-btn-xs" id="wxEdit" lay-event="resetPwd">密码重置</a>
+  			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+	</script>
+	<script type="text/html" id="statusTpl">
+	<input type="checkbox" id="{{d.teNo}}"  name="enable" value="{{d.enable}}" lay-skin="switch" lay-text="启用|禁用" lay-filter="lockStatus" {{ d.enable == 1 ? 'checked' : '' }}>
+</script>
+
+<script type="text/html" id="barDemo">
+	{{#if (d.sex == 1) { }}
+	<span>男</span>
+	{{# }else if(d.sex == 0){ }}
+	<span>女</span>
+	{{# } }}
+</script>
+
+<script type="text/html" id="iswxlogin">
+	{{#if (d.iswxlogin == 'false') { }}
+	<span>未启用</span>
+	{{# }else if(d.iswxlogin != 'false'){ }}
+	<span>已启用</span>
+	{{# } }}
+</script>
+
+<script type="text/html" id="statusTpl1">
+	{{#if (d.isadmin == 1) { }}
+	<span>是</span>
+	{{# }else if(d.isadmin == 0){ }}
+	<span>否</span>
+	{{# } }}
+</script>
+
+<script type="text/html" id="autoAdd">
+	{{d.LAY_TABLE_INDEX+1}}
+</script>
+
+<script type="text/html" id="classList">
+	{{# layui.each(d.classList, function(index, item){ }}
+		<span style="color: #6FA5DB;padding-right: 20px;">{{ item.gradeName }}{{ item.className }}</span>
+
+	{{# }); }}
+	{{# if(d.classList.length === 0){ }}
+	无数据
+	{{# } }}
+</script>
+	<style>
+	.layui-table-cell{
+	    height:36px;
+	    line-height: 36px;
+	}
+	</style>
+</body>
+</html>

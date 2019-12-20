@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiapeng.messageplatform.dao.TeacherWxInfoMapper">
+  <resultMap id="BaseResultMap" type="com.jiapeng.messageplatform.entity.TeacherWxInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="clCode" jdbcType="NVARCHAR" property="clCode" />
+    <result column="teNo" jdbcType="NVARCHAR" property="teNo" />
+    <result column="phoneNo" jdbcType="NVARCHAR" property="phoneNo" />
+    <result column="openId" jdbcType="NVARCHAR" property="openId" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="updateDate" jdbcType="TIMESTAMP" property="updateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, clCode, teNo, phoneNo, openId, createDate, updateDate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from teacher_wx_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from teacher_wx_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jiapeng.messageplatform.entity.TeacherWxInfo">
+    insert into teacher_wx_info (id, clCode, teNo, 
+      phoneNo, openId, createDate, 
+      updateDate)
+    values (#{id,jdbcType=INTEGER}, #{clCode,jdbcType=NVARCHAR}, #{teNo,jdbcType=NVARCHAR}, 
+      #{phoneNo,jdbcType=NVARCHAR}, #{openId,jdbcType=NVARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jiapeng.messageplatform.entity.TeacherWxInfo">
+    insert into teacher_wx_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="clCode != null">
+        clCode,
+      </if>
+      <if test="teNo != null">
+        teNo,
+      </if>
+      <if test="phoneNo != null">
+        phoneNo,
+      </if>
+      <if test="openId != null">
+        openId,
+      </if>
+      <if test="createDate != null">
+        createDate,
+      </if>
+      <if test="updateDate != null">
+        updateDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="clCode != null">
+        #{clCode,jdbcType=NVARCHAR},
+      </if>
+      <if test="teNo != null">
+        #{teNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        #{phoneNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=NVARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jiapeng.messageplatform.entity.TeacherWxInfo">
+    update teacher_wx_info
+    <set>
+      <if test="clCode != null">
+        clCode = #{clCode,jdbcType=NVARCHAR},
+      </if>
+      <if test="teNo != null">
+        teNo = #{teNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="phoneNo != null">
+        phoneNo = #{phoneNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="openId != null">
+        openId = #{openId,jdbcType=NVARCHAR},
+      </if>
+      <if test="createDate != null">
+        createDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        updateDate = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jiapeng.messageplatform.entity.TeacherWxInfo">
+    update teacher_wx_info
+    set clCode = #{clCode,jdbcType=NVARCHAR},
+      teNo = #{teNo,jdbcType=NVARCHAR},
+      phoneNo = #{phoneNo,jdbcType=NVARCHAR},
+      openId = #{openId,jdbcType=NVARCHAR},
+      createDate = #{createDate,jdbcType=TIMESTAMP},
+      updateDate = #{updateDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

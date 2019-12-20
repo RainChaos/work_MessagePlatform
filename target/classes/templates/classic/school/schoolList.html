@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>管理员列表</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../../../static/plugins/layui-v2.5.4/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../../../static/css/font_eolqem241z66flxr.css" media="all" />
+	<link rel="stylesheet" href="../../../static/css/list.css" media="all" />
+
+<style type="text/css">
+	.layui-table-view .layui-form-checkbox, .layui-table-view .layui-form-radio, .layui-table-view .layui-form-switch{
+		margin-top: 10% !important;
+	}
+	.layui-elem-quote{
+		border-left: 0px !important;
+	}
+	.layui-btn-normal {
+		background-color: #33AECC !important;
+	}
+</style>
+</head>
+<body class="childrenBody">
+	<input type="hidden" id="adminId" value="<shiro:principal property='id'"/>
+	<blockquote th:style="${session.scCode==''}?'':'display:none;'" class="layui-elem-quote list_search">
+		
+			<div class="layui-inline">
+				<!--<a th:text="${session.scCode==''}"></a>-->
+				<a class="layui-btn layui-btns-normal schoolAdd_btn" ><i class="layui-icon">&#xe608;</i>添加学校</a>
+			</div>
+
+
+		<div class="layui-inline">
+			<div class="layui-form-mid layui-word-aux"></div>
+		</div>
+	</blockquote>
+	<!-- 数据表格 -->
+	<table id="schoolList" lay-filter="test"></table>
+
+	<script type="text/javascript" src="../../../static/plugins/layui-v2.5.4/layui.js"></script>
+	<script type="text/javascript" src="../../../static/js/school/schoolList.js"></script>
+
+	<script type="text/html" id="barEdit">
+		<a th:style="${session.scCode==''}?'':'display:none;'" class="layui-btn layui-btn-xs" id="IPEdit" lay-event="IPEdit">IP配置</a>
+		  <a th:style="${session.scCode==''}?'':'display:none;'" class="layui-btn layui-btn-xs" id="menhuEdit" lay-event="menhuEdit">门户配置</a>
+
+		  <a th:style="${session.scCode==''}?'':'display:none;'" class="layui-btn layui-btn-xs" id="wxEdit" lay-event="wxEdit">微信配置</a>
+  			<a class="layui-btn layui-btn-xs" id="open_btn_primary" lay-event="edit">编辑</a>
+
+  			<a th:style="${session.scCode==''}?'':'display:none;'" class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+
+	</script>
+	<script type="text/html" id="statusTpl">
+		<span th:style="${session.scCode==''}?'':'display:none;'">
+  			<input type="checkbox" style="left:50%;top:50%;transform:translate(-50%,-50%);" name="id" value="{{d.sc_code}}" lay-skin="switch" lay-text="启用|禁用" lay-filter="lockStatus" {{ d.status == true ? 'checked' : '' }}>
+		</span>
+	</script>
+
+	<script type="text/html" id="ipTpl">
+		<a class="layui-btn layui-btn-xs"  lay-event="iplook">查看</a>
+	</script>
+
+
+	<script type="text/html" id="autoAdd">
+		{{d.LAY_TABLE_INDEX+1}}
+	</script>
+
+	<style>
+	.layui-table-cell{
+	    height:36px;
+	    line-height: 36px;
+	}
+	.layui-border-box{
+		margin-top: 0px;
+	}
+	.layui-elem-quote{
+		margin-bottom: 0px;
+	}
+	</style>
+</body>
+</html>

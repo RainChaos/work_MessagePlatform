@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>通知详情</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../../../static/plugins/layui-v2.5.4/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../../../static/css/font_eolqem241z66flxr.css" media="all" />
+    <link rel="stylesheet" href="../../../static/css/list.css" media="all"/>
+</head>
+<body class="childrenBody" style="background: #F2F2F2;">
+
+<div style="padding: 20px; background-color: #F2F2F2;">
+    <div class="layui-row layui-col-space15">
+        <form class="layui-form" id="auf" lay-filter="form">
+            <div class="layui-form-item">
+                <label class="layui-form-label" style="padding-left: 0px; text-align: left; clear: left;">消息内容</label>
+                <div class="layui-input-block" style="margin-right: 34px !important; margin-left: 57px;">
+                    <!--<textarea style="color:#666;min-height: 294px !important; " id = "content"   name="content" rows="" cols="" class="layui-textarea layui-input userName"></textarea>-->
+                    <table class="layui-table"  lay-skin="nob">
+                        <tbody>
+                        <tr><td>学校:XXX</td></tr>
+                        <tr><td>所在班级:XXX</td></tr>
+                        <tr><td>学生姓名:XXX</td></tr>
+                        <tr><td>通知人:</td><td th:text="${message.teName}"></td></tr>
+                        <tr><td>时间:</td><td th:text="${message.sendDate}"></td></tr>
+                        <tr><td>内容:</td><td><div  th:text="${message.msgContent}"></div></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="../../../static/plugins/layui-v2.5.4/layui.js"></script>
+<script th:inline="javascript">
+    layui.config({
+        base : "js/"
+    }).use(['layer','jquery'],function(){
+        var layer = parent.layer === undefined ? layui.layer : parent.layer,
+                $ = layui.jquery;
+
+        //获取数据
+        layer.ready(function(){
+
+            var msgContent = [[${message.msgContent}]];
+            var sendDate = formatTime( [[${message.sendDate}]],"yyyy-MM-dd");
+            var teName = [[${message.teName}]];
+            var msgType =[[${message.msgType}]];
+
+            if (msgType=="手机短信"){
+                $("#content").val(msgContent);
+                $("#content").attr('readonly', 'readonly');
+            }
+
+
+            if (msgType=="微信消息"){
+                $("#content").val("学校:XXX"+"\r\n"+"所在班级:XXX"+"\r\n"+"学生姓名:XXX"+"\r\n"+"通知人:"+teName+"\r\n"+"时间:"+sendDate+"\r\n"+"通知内容:"+"\r\n"+"【"+msgContent+"】");
+                $("#content").attr('readonly', 'readonly');
+            }
+        });
+    })
+
+    //格式化时间
+    function formatTime(datetime,fmt){
+        if(datetime==null||datetime==0){
+            return "";
+        }
+        if (parseInt(datetime)==datetime) {
+            if (datetime.length==10) {
+                datetime=parseInt(datetime)*1000;
+            } else if(datetime.length==13) {
+                datetime=parseInt(datetime);
+            }
+        }
+        datetime=new Date(datetime);
+        var o = {
+            "M+" : datetime.getMonth()+1,                 //月份
+            "d+" : datetime.getDate(),                    //日
+            "h+" : datetime.getHours(),                   //小时
+            "m+" : datetime.getMinutes(),                 //分
+            "s+" : datetime.getSeconds(),                 //秒
+            "q+" : Math.floor((datetime.getMonth()+3)/3), //季度
+            "S"  : datetime.getMilliseconds()             //毫秒
+        };
+        if(/(y+)/.test(fmt))
+            fmt=fmt.replace(RegExp.$1, (datetime.getFullYear()+"").substr(4 - RegExp.$1.length));
+        for(var k in o)
+            if(new RegExp("("+ k +")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+        return fmt;
+    }
+
+
+</script>
+<!--超时判断-->
+<script type="text/javascript" src="../../../static/js/jsbase/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../../../static/js/common/common.js"></script>
+<!--超时判断-->
+</body>
+</html>

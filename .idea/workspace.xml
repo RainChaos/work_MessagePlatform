@@ -1,0 +1,1464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/service/impl/TeacherServiceImpl.java" line="254" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/controller/HomeController.java" line="171" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/controller/HomeController.java" line="247" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/controller/ApiController.java" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d7923a28-29d2-4c46-9558-fd51fd13f024" name="Default" comment="" />
+    <ignored path="messageplatform.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="messageplatform" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4100">
+              <caret line="164" selection-start-line="159" selection-end-line="164" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/MessagePlatformApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="7" column="68" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/gate/code/RequestParams.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/gate/entity/Device.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/gate/entity/Personnel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/utils/MapTrunPojo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/utils/RequestHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/gate/code/GateRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/gate/code/GateResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/utils/MapTrunEntity.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/jiapeng/messageplatform/service/impl/StudentTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/utils/untils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/utils/MapKeyComparator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/code/GateResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/class/studentList.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/teacher/addTeacher.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/teacher/classList.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/teacher/editTeacher.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/teacher/editTeacherClass.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/teacher/teacherList.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/teacher/importTeacher.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/student/studentList.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/student/setGuardian.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/student/imgUpload.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/student/guardianList.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/student/editStudent.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/student/addStudent.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/teacherPC/classList.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/teacherPC/studentList.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/teacherPC/messageSend.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/teacherIndex.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/classic/login.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/thread/MbMsgResRptThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/webServices/AccountInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/webServices/ArrayOfBusinessType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/webServices/ArrayOfBindChannel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/config/WebMvcConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/entity/SchoolIP.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/listener/StartUpListener.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/entity/AutoRecord.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/entity/Personnel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/code/MD5.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/code/GateRequestParams.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/utils/HttpUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/code/GateRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/utils/Md5Util.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/service/DBChangeService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/entity/Device.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/jiapeng/messageplatform/service/impl/GateTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/controller/ApiController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="C:\Users\GL-JP\.m2\repository" />
+        <option name="mavenHome" value="D:/apache-maven-3.5.2" />
+        <option name="userSettingsFile" value="D:\apache-maven-3.5.2\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="MessagePlatform" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-285" />
+    <option name="y" value="17" />
+    <option name="width" value="1936" />
+    <option name="height" value="991" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Android</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="messageplatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="work_MessagePlatform" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="messageplatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="work_MessagePlatform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="messageplatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="work_MessagePlatform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="messageplatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="work_MessagePlatform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="messageplatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="work_MessagePlatform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="messageplatform" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="messageplatform" type="b2602c69:ProjectViewProjectNode" />
+              <item name="work_MessagePlatform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\work\work_MessagePlatform\src\main\java\com\jiapeng\messageplatform\gate\code" />
+      <recent name="D:\work\work_MessagePlatform\src\main\java\com\jiapeng\messageplatform\utils" />
+      <recent name="D:\work\work_MessagePlatform\src\main\resources\static\plugins\localResizeIMG" />
+      <recent name="D:\work\work_MessagePlatform\src\main\resources\static\image\header" />
+      <recent name="D:\work\work_MessagePlatform\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.jiapeng.messageplatform.utils" />
+      <recent name="com.jiapeng.messageplatform.enums" />
+      <recent name="com.jiapeng.messageplatform.code.dbdynamic" />
+      <recent name="com.jiapeng.messageplatform.annotation" />
+      <recent name="com.jiapeng.messageplatform.controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work\work_MessagePlatform\src\main\resources\templates\classic\wxtest" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.MessagePlatformApplication">
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="GAPID_DISABLE_PCS" value="false" />
+      </Profilers>
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GateRequest" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jiapeng.messageplatform.gate.code.GateRequest" />
+      <module name="messageplatform" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiapeng.messageplatform.gate.code.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Md5Util" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jiapeng.messageplatform.utils.Md5Util" />
+      <module name="messageplatform" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiapeng.messageplatform.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GateTest.deviceInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="messageplatform" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiapeng.messageplatform.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jiapeng.messageplatform.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.jiapeng.messageplatform.service.impl.GateTest" />
+      <option name="METHOD_NAME" value="deviceInsert" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GateTest.personnelInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="messageplatform" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiapeng.messageplatform.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jiapeng.messageplatform.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.jiapeng.messageplatform.service.impl.GateTest" />
+      <option name="METHOD_NAME" value="personnelInsert" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GateTest.selectAuthPersonnel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="messageplatform" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiapeng.messageplatform.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jiapeng.messageplatform.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.jiapeng.messageplatform.service.impl.GateTest" />
+      <option name="METHOD_NAME" value="selectAuthPersonnel" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GateTest.testLog" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="messageplatform" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiapeng.messageplatform.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jiapeng.messageplatform.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.jiapeng.messageplatform.service.impl.GateTest" />
+      <option name="METHOD_NAME" value="testLog" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MessagePlatformApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="messageplatform" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.jiapeng.messageplatform.MessagePlatformApplication" />
+      <option name="VM_PARAMETERS" value="-Dfile.encoding=UTF-8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.GateRequest" />
+      <item itemvalue="Application.Md5Util" />
+      <item itemvalue="JUnit.GateTest.selectAuthPersonnel" />
+      <item itemvalue="JUnit.GateTest.deviceInsert" />
+      <item itemvalue="JUnit.GateTest.personnelInsert" />
+      <item itemvalue="JUnit.GateTest.testLog" />
+      <item itemvalue="Spring Boot.MessagePlatformApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.GateTest.deviceInsert" />
+        <item itemvalue="Application.Md5Util" />
+        <item itemvalue="JUnit.GateTest.personnelInsert" />
+        <item itemvalue="JUnit.GateTest.testLog" />
+        <item itemvalue="JUnit.GateTest.selectAuthPersonnel" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d7923a28-29d2-4c46-9558-fd51fd13f024" name="Default" comment="" />
+      <created>1564716703999</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1564716703999</updated>
+      <workItem from="1564716706729" duration="170000" />
+      <workItem from="1564725669511" duration="3155000" />
+      <workItem from="1564730048304" duration="9755000" />
+      <workItem from="1564965800729" duration="21526000" />
+      <workItem from="1565051935833" duration="18151000" />
+      <workItem from="1565138164581" duration="21910000" />
+      <workItem from="1565224607125" duration="23775000" />
+      <workItem from="1565311163344" duration="15616000" />
+      <workItem from="1565405097945" duration="2354000" />
+      <workItem from="1565570534863" duration="5717000" />
+      <workItem from="1565659106975" duration="15015000" />
+      <workItem from="1565686330868" duration="4712000" />
+      <workItem from="1565743142526" duration="14729000" />
+      <workItem from="1565829223522" duration="22814000" />
+      <workItem from="1565916048553" duration="15425000" />
+      <workItem from="1566003240417" duration="10783000" />
+      <workItem from="1566131016946" duration="599000" />
+      <workItem from="1566175705309" duration="1605000" />
+      <workItem from="1566204509550" duration="2377000" />
+      <workItem from="1566261207046" duration="18986000" />
+      <workItem from="1566348241767" duration="7001000" />
+      <workItem from="1566434785110" duration="14348000" />
+      <workItem from="1566520647168" duration="6556000" />
+      <workItem from="1566607251130" duration="3232000" />
+      <workItem from="1566611493219" duration="20542000" />
+      <workItem from="1566717315658" duration="35000" />
+      <workItem from="1566779160862" duration="20213000" />
+      <workItem from="1566865759671" duration="13117000" />
+      <workItem from="1566900008689" duration="481000" />
+      <workItem from="1566952299449" duration="20487000" />
+      <workItem from="1567012514503" duration="623000" />
+      <workItem from="1567041323852" duration="10205000" />
+      <workItem from="1567064070369" duration="6959000" />
+      <workItem from="1567125261985" duration="5134000" />
+      <workItem from="1567212394627" duration="25158000" />
+      <workItem from="1567384462223" duration="4090000" />
+      <workItem from="1567390072619" duration="3758000" />
+      <workItem from="1567472897463" duration="1550000" />
+      <workItem from="1567580021703" duration="5138000" />
+      <workItem from="1567651217379" duration="2811000" />
+      <workItem from="1567654545579" duration="41341000" />
+      <workItem from="1567772050136" duration="22194000" />
+      <workItem from="1567989645295" duration="10939000" />
+      <workItem from="1568019201006" duration="3629000" />
+      <workItem from="1568023260069" duration="54000" />
+      <workItem from="1568075622143" duration="16238000" />
+      <workItem from="1568103681018" duration="731000" />
+      <workItem from="1568162408349" duration="20931000" />
+      <workItem from="1568594495259" duration="21674000" />
+      <workItem from="1568681500017" duration="693000" />
+      <workItem from="1568709275720" duration="1198000" />
+      <workItem from="1568771521288" duration="8552000" />
+      <workItem from="1568874541775" duration="5462000" />
+      <workItem from="1569295437408" duration="1227000" />
+      <workItem from="1569314440722" duration="26000" />
+      <workItem from="1569720533456" duration="2175000" />
+      <workItem from="1569723412997" duration="11966000" />
+      <workItem from="1570494310414" duration="10010000" />
+      <workItem from="1570580773307" duration="22555000" />
+      <workItem from="1570667416729" duration="10666000" />
+      <workItem from="1570753624293" duration="19074000" />
+      <workItem from="1570840117210" duration="7776000" />
+      <workItem from="1571012945152" duration="17312000" />
+      <workItem from="1571099517375" duration="9380000" />
+      <workItem from="1571186796426" duration="5238000" />
+      <workItem from="1571272780566" duration="2533000" />
+      <workItem from="1571296472040" duration="1417000" />
+      <workItem from="1571384683971" duration="421000" />
+      <workItem from="1571618041226" duration="4612000" />
+      <workItem from="1571706940791" duration="15777000" />
+      <workItem from="1571792565664" duration="4788000" />
+      <workItem from="1571878027991" duration="1941000" />
+      <workItem from="1571965989265" duration="14515000" />
+      <workItem from="1572223596808" duration="23308000" />
+      <workItem from="1572256859035" duration="541000" />
+      <workItem from="1572309993134" duration="22314000" />
+      <workItem from="1572396150203" duration="20658000" />
+      <workItem from="1572482848019" duration="6600000" />
+      <workItem from="1572568612216" duration="3346000" />
+      <workItem from="1572828148497" duration="9199000" />
+      <workItem from="1572914720280" duration="1207000" />
+      <workItem from="1573008493436" duration="7784000" />
+      <workItem from="1573086867934" duration="24468000" />
+      <workItem from="1573174402794" duration="13346000" />
+      <workItem from="1573518138391" duration="10971000" />
+      <workItem from="1573604819004" duration="8939000" />
+      <workItem from="1573691250869" duration="5836000" />
+      <workItem from="1573777979560" duration="13031000" />
+      <workItem from="1573812012612" duration="77000" />
+      <workItem from="1574037246245" duration="4865000" />
+      <workItem from="1574210122510" duration="12028000" />
+      <workItem from="1574304555254" duration="11091000" />
+      <workItem from="1574383394163" duration="9863000" />
+      <workItem from="1574649568622" duration="27000" />
+      <workItem from="1574847447305" duration="1341000" />
+      <workItem from="1574901432744" duration="17987000" />
+      <workItem from="1574997896045" duration="668000" />
+      <workItem from="1575099496071" duration="932000" />
+      <workItem from="1575247371677" duration="3844000" />
+      <workItem from="1575333566883" duration="4400000" />
+      <workItem from="1575595876885" duration="20000" />
+      <workItem from="1575853542808" duration="23476000" />
+      <workItem from="1575938090878" duration="21810000" />
+      <workItem from="1576024496348" duration="7517000" />
+      <workItem from="1576046860274" duration="3890000" />
+      <workItem from="1576111992448" duration="15196000" />
+      <workItem from="1576197292409" duration="15631000" />
+      <workItem from="1576455792036" duration="610000" />
+      <workItem from="1576461743951" duration="17000" />
+      <workItem from="1576549383469" duration="6437000" />
+      <workItem from="1576563555080" duration="5707000" />
+      <workItem from="1576635382530" duration="17081000" />
+      <workItem from="1576715035187" duration="19956000" />
+      <workItem from="1576741533860" duration="6456000" />
+      <workItem from="1576801838731" duration="3920000" />
+      <workItem from="1576808315880" duration="406000" />
+      <workItem from="1576808750085" duration="326000" />
+      <workItem from="1576809657869" duration="245000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="GateTest_deviceInsert - 2019.12.20 at 10h 10m 58s.xml">
+      <configuration name="GateTest.deviceInsert" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GateTest_deviceInsert - 2019.12.20 at 10h 14m 42s.xml">
+      <configuration name="GateTest.deviceInsert" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GateTest_personnelInsert - 2019.12.19 at 15h 17m 17s.xml">
+      <configuration name="GateTest.personnelInsert" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GateTest_personnelInsert - 2019.12.19 at 15h 21m 08s.xml">
+      <configuration name="GateTest.personnelInsert" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GateTest_personnelInsert - 2019.12.19 at 15h 25m 13s.xml">
+      <configuration name="GateTest.personnelInsert" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GateTest_personnelInsert - 2019.12.19 at 15h 31m 56s.xml">
+      <configuration name="GateTest.personnelInsert" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GateTest_personnelInsert - 2019.12.19 at 15h 33m 15s.xml">
+      <configuration name="GateTest.personnelInsert" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GateTest_personnelInsert - 2019.12.19 at 15h 47m 50s.xml">
+      <configuration name="GateTest.personnelInsert" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GateTest_personnelInsert - 2019.12.19 at 15h 50m 05s.xml">
+      <configuration name="GateTest.personnelInsert" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GateTest_personnelInsert - 2019.12.19 at 15h 55m 14s.xml">
+      <configuration name="GateTest.personnelInsert" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1105029000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Capture Tool" order="0" />
+      <window_info id="Structure" order="1" side_tool="true" />
+      <window_info id="UI Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.17750533" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Palette&#9;" order="5" />
+      <window_info id="Web" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5026652" side_tool="true" weight="0.3280757" />
+      <window_info active="true" anchor="bottom" id="Debug" order="1" sideWeight="0.85364586" visible="true" weight="0.41495124" />
+      <window_info anchor="bottom" id="Version Control" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.8979167" weight="0.44420367" />
+      <window_info anchor="bottom" id="Spring" order="4" sideWeight="0.49545455" weight="0.32752994" />
+      <window_info anchor="bottom" x="-67" y="322" width="1919" height="515" id="MyBatis Sql Log" order="5" sideWeight="0.75572914" weight="0.38444194" />
+      <window_info anchor="bottom" id="Messages" order="6" sideWeight="0.4609375" weight="0.46275395" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49733475" weight="0.3280757" />
+      <window_info anchor="bottom" id="Java Enterprise" order="8" weight="0.32861805" />
+      <window_info anchor="bottom" id="Tail" order="9" />
+      <window_info anchor="bottom" id="Problems" order="10" />
+      <window_info anchor="bottom" id="Find" order="11" sideWeight="0.4957265" weight="0.36431623" />
+      <window_info anchor="bottom" id="TODO" order="12" sideWeight="0.49772727" weight="0.32897863" />
+      <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="14" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="Maven Projects" order="1" visible="true" weight="0.08802083" />
+      <window_info anchor="right" id="Designer" order="2" />
+      <window_info anchor="right" id="Hierarchy" order="3" weight="0.3296875" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Ant Build" order="5" weight="0.14102565" />
+      <window_info anchor="right" id="Bean Validation" order="6" weight="0.32942432" />
+      <window_info anchor="right" x="703" y="472" width="1067" height="379" id="Documentation" order="7" type="FLOATING" />
+      <window_info anchor="right" id="Capture Analysis" order="8" />
+      <window_info anchor="right" id="Maven" order="9" weight="0.32995737" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Capture Tool" order="0" />
+      <window_info id="Structure" order="1" side_tool="true" />
+      <window_info id="UI Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.20738328" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Palette&#9;" order="5" />
+      <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.14427084" side_tool="true" weight="0.24130435" />
+      <window_info anchor="bottom" id="Debug" order="1" sideWeight="0.8442708" weight="0.44623655" />
+      <window_info anchor="bottom" id="Version Control" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.85572916" weight="0.19569893" />
+      <window_info anchor="bottom" id="Spring" order="4" sideWeight="0.49545455" weight="0.32752994" />
+      <window_info anchor="bottom" x="-67" y="322" width="1919" height="515" id="MyBatis Sql Log" order="5" sideWeight="0.75572914" weight="0.38444194" />
+      <window_info anchor="bottom" id="Messages" order="6" sideWeight="0.4609375" weight="0.17526881" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49772727" weight="0.32861805" />
+      <window_info anchor="bottom" id="Java Enterprise" order="8" weight="0.32861805" />
+      <window_info anchor="bottom" id="Tail" order="9" />
+      <window_info anchor="bottom" id="Problems" order="10" />
+      <window_info anchor="bottom" id="Find" order="11" sideWeight="0.4957265" weight="0.36451614" />
+      <window_info anchor="bottom" id="TODO" order="12" sideWeight="0.49772727" weight="0.32897863" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="Maven Projects" order="1" visible="true" weight="0.08143322" />
+      <window_info anchor="right" id="Designer" order="2" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Ant Build" order="4" weight="0.14102565" />
+      <window_info anchor="right" id="Bean Validation" order="5" weight="0.3294621" />
+      <window_info anchor="right" x="703" y="472" width="1067" height="379" id="Documentation" order="6" type="FLOATING" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/jiapeng/messageplatform/service/impl/StudentTest.java</url>
+          <line>118</line>
+          <properties />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/controller/TeacherController.java</url>
+          <line>188</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/controller/HomeController.java</url>
+          <line>195</line>
+          <properties />
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/jiapeng/messageplatform/service/impl/StudentTest.java</url>
+          <line>185</line>
+          <properties />
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/service/impl/ClassImpl.java</url>
+          <line>83</line>
+          <properties />
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/service/impl/ClassImpl.java</url>
+          <line>88</line>
+          <properties />
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/service/impl/MbMsgServiceImpl.java</url>
+          <line>77</line>
+          <properties />
+          <option name="timeStamp" value="125" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/jiapeng/messageplatform/service/impl/MbMsgTest.java</url>
+          <line>128</line>
+          <properties />
+          <option name="timeStamp" value="133" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/service/impl/MessageServiceImpl.java</url>
+          <line>80</line>
+          <properties />
+          <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/service/impl/MessageServiceImpl.java</url>
+          <line>577</line>
+          <properties />
+          <option name="timeStamp" value="151" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/service/impl/MessageServiceImpl.java</url>
+          <line>459</line>
+          <properties />
+          <option name="timeStamp" value="152" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/service/impl/AscCountServiceImpl.java</url>
+          <line>68</line>
+          <properties />
+          <option name="timeStamp" value="197" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/jiapeng/messageplatform/service/impl/StudentTest.java</url>
+          <line>37</line>
+          <properties />
+          <option name="timeStamp" value="250" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/code/dbdynamic/transcation/MultiDataSourceTransaction.java</url>
+          <line>109</line>
+          <properties />
+          <option name="timeStamp" value="255" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/gate/code/GateRequest.java</url>
+          <line>44</line>
+          <properties />
+          <option name="timeStamp" value="259" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/code/GateRequest.java</url>
+          <line>49</line>
+          <properties />
+          <option name="timeStamp" value="269" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/jiapeng/messageplatform/service/impl/GateTest.java</url>
+          <line>91</line>
+          <properties />
+          <option name="timeStamp" value="270" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/jiapeng/messageplatform/service/impl/GateTest.java</url>
+          <line>107</line>
+          <properties />
+          <option name="timeStamp" value="273" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/code/GateRequest.java</url>
+          <line>161</line>
+          <properties />
+          <option name="timeStamp" value="288" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/jiapeng/messageplatform/service/impl/GateTest.java</url>
+          <line>140</line>
+          <properties />
+          <option name="timeStamp" value="290" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/jiapeng/messageplatform/service/impl/GateTest.java</url>
+          <line>206</line>
+          <properties />
+          <option name="timeStamp" value="294" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/jiapeng/messageplatform/service/impl/GateTest.java</url>
+          <line>150</line>
+          <properties />
+          <option name="timeStamp" value="299" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/code/GateRequest.java</url>
+          <line>296</line>
+          <properties />
+          <option name="timeStamp" value="300" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/code/GateRequest.java</url>
+          <line>346</line>
+          <properties />
+          <option name="timeStamp" value="305" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/utils/Md5Util.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="311" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/utils/HttpUtil.java</url>
+          <line>146</line>
+          <properties />
+          <option name="timeStamp" value="316" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/webServices/AccountInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webServices/ArrayOfBusinessType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="957">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webServices/ArrayOfBindChannel.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webServices/AccountInfo.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/webServices/ArrayOfBindChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/controller/PageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="816" column="47" selection-start-line="816" selection-start-column="47" selection-end-line="816" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/code/dbdynamic/DynamicDataSource.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/entity/SchoolIP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/entity/Teacher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/entity/UserEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.6.RELEASE/spring-web-5.1.6.RELEASE.jar!/org/springframework/web/filter/CorsFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/config/WebMvcConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="61" column="7" selection-start-line="61" selection-start-column="7" selection-end-line="61" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/dao/AscNoticeLogMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/dao/ClassProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/dao/MessageDetailMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/dao/UpdateDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/dao/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/dao/MessageDetailProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/util/ArrayList.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/listener/TeacherListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="36" column="63" selection-start-line="36" selection-start-column="63" selection-end-line="36" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/listener/StartUpListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/listener/OrganizeListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/listener/StudentListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="70" column="15" selection-start-line="70" selection-start-column="15" selection-end-line="70" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/5.1.6.RELEASE/spring-test-5.1.6.RELEASE.jar!/org/springframework/test/context/junit4/SpringJUnit4ClassRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/utils/RequestHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/requests/FilterRequest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/entity/AutoRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/entity/Personnel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#1457#1458#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/WeChat Files/wxid_4ehdr0m4bzam41/FileStorage/File/2019-12/doorfaceDemo/src/com/face/MD5.java" />
+    <entry file="file://$USER_HOME$/Documents/WeChat Files/wxid_4ehdr0m4bzam41/FileStorage/File/2019-12/doorfaceDemo/src/com/face/MapKeyComparator.java" />
+    <entry file="file://$USER_HOME$/Documents/WeChat Files/wxid_4ehdr0m4bzam41/FileStorage/File/2019-12/doorfaceDemo/src/com/face/untils.java" />
+    <entry file="file://$USER_HOME$/Documents/WeChat Files/wxid_4ehdr0m4bzam41/FileStorage/File/2019-12/doorfaceDemo/src/com/face/personnel.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/code/GateResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1551">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/security/MessageDigest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/code/MD5.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-303">
+          <caret line="81" column="18" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/utils/HttpUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4521">
+          <caret line="153" column="62" selection-start-line="153" selection-start-column="62" selection-end-line="153" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/utils/Md5Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1386">
+          <caret line="49" column="25" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+          <folding>
+            <element signature="method#generateSignature1#0;class#Md5Util#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/code/GateRequestParams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="48" column="20" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/service/impl/DBChangeServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/jiapeng/messageplatform/service/impl/GateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="51" column="52" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
+          <folding>
+            <element signature="method#getPersonnel#0;class#GateTest#0" />
+            <element signature="method#listTest#0;class#GateTest#0" />
+            <element signature="method#testP#0;class#GateTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/code/GateRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/gate/entity/Device.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1300">
+          <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/controller/ApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28100">
+          <caret line="1154" column="78" selection-start-line="1154" selection-start-column="78" selection-end-line="1154" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/service/impl/DataSyncServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3150">
+          <caret line="139" column="5" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/interceptor/DBChangeInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding>
+            <marker date="1576807878248" expanded="true" signature="702:923" ph="//..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/service/DBChangeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/service/impl/StudentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4100">
+          <caret line="164" selection-start-line="159" selection-end-line="164" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jiapeng/messageplatform/MessagePlatformApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="68" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>messageplatform</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: ch.qos.logback:logback-classic:1.2.3</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

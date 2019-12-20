@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>列表</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../../../static/plugins/layui-v2.5.4/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../../../static/css/font_eolqem241z66flxr.css" media="all" />
+	<link rel="stylesheet" href="../../../static/css/list.css" media="all"/>
+	<style type="text/css">
+		.layui-border-box{
+			margin-top: 0px;
+		}
+		.layui-elem-quote{
+			margin-bottom: 0px;
+		}
+		.layui-layer-prompt .layui-layer-content {
+			padding-left: 0px;
+		}
+		#layui-layer1 .layui-layer-prompt .layui-form-label{
+			float: left;
+			display: block;
+			padding: 9px 15px;
+			width: 29px;
+			font-weight: 400;
+			text-align: inherit;
+		}
+		.layui-elem-quote{
+			border-left: 0px !important;
+		}
+		.layui-btn-normal {
+			background-color: #33AECC !important;
+		}
+	</style>
+</head>
+<body class="childrenBody">
+	<blockquote class="layui-elem-quote news_search">
+		<form class="layui-form">
+			<div>
+				<div class="layui-inline">
+
+					<div class="layui-input-inline">
+						学校：
+					</div>
+					<div class="layui-input-inline">
+						<select id="scCode" name="scCode"  lay-filter="scCode" lay-search>
+							<option value="">请选择学校</option>
+							<span th:each="school:${schoollist.content.rows}">
+								<option th:value="${school.sc_code}"th:text="${school.name}"></option>
+							</span>
+						</select>
+					</div>
+					<div class="layui-input-inline">
+						<!--<input type="text" id="gr_code" value="100001" placeholder="年级代码"-->
+							<!--class="layui-input search_input">-->
+						<select id="cfDeId" name="cfDeId"  lay-filter="cfDeId" lay-search>
+							<option value="">请选择配置名称</option>
+							<span th:each="list:${configItemList.content}">
+								<option th:value="${list.id}"th:text="${list.name}"></option>
+							</span>
+						</select>
+
+					</div>
+					<a class="layui-btn search_btn" lay-submit="" data-type="search"
+						lay-filter="search">查询</a>
+
+						<div class="layui-inline">
+							<a class="layui-btn layui-btn-normal userAdd_btn">添加配置</a>
+						</div>
+				</div>
+			</div>
+		</form>
+	</blockquote>
+
+	<div class="layui-form">
+		<table id="classList" lay-filter="classList"></table>
+	</div>
+	<script type="text/javascript" src="../../../static/plugins/layui-v2.5.4/layui.js"></script>
+	<script type="text/javascript" src="../../../static/js/config/configList.js"></script>
+	<script type="text/html" id="barEdit">
+		<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+		<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+	</script>
+	<script type="text/html" id="autoAdd">
+		{{d.LAY_TABLE_INDEX+1}}
+	</script>
+</body>
+</html>

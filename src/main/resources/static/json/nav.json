@@ -1,0 +1,103 @@
+[
+	{
+		"title": "后台首页",
+		"icon": "",
+		"href": "page/main.html",
+		"spread": "false",
+		"children": []
+	}, {
+		"title": "管理员管理",
+		"icon": "",
+		"href": "",
+		"spread": "false",
+		"children": [
+			{
+				"title": "角色管理",
+				"icon": "",
+				"href": "sys/roleList",
+				"spread": "false",
+				"children": null
+			}, {
+				"title": "管理员列表",
+				"icon": "&#xe613;",
+				"href": "sys/adminList",
+				"spread": "false",
+				"children": null
+			}, {
+				"title": "菜单管理",
+				"icon": "&#xe642;",
+				"href": "sys/menuList",
+				"spread": "false",
+				"children": null
+			}
+		]
+	}, {
+		"title": "轮播管理",
+		"icon": "",
+		"href": "",
+		"spread": "false",
+		"children": [
+			{
+				"title": "轮播管理",
+				"icon": "",
+				"href": "carousel/carouselList",
+				"spread": "false",
+				"children": null
+			}
+		]
+	}, {
+		"title": "产品管理",
+		"icon": "",
+		"href": "",
+		"spread": "false",
+		"children": [
+			{
+				"title": "添加产品",
+				"icon": "",
+				"href": "product/addProduct",
+				"spread": "false",
+				"children": null
+			}, {
+				"title": "管理产品",
+				"icon": "",
+				"href": "product/productList",
+				"spread": "false",
+				"children": null
+			}
+		]
+	}, {
+		"title": "招聘信息管理",
+		"icon": "",
+		"href": "",
+		"spread": "false",
+		"children": [
+			{
+				"title": "新增招聘",
+				"icon": "",
+				"href": "zhaopin/addZhaoPin",
+				"spread": "false",
+				"children": null
+			}, {
+				"title": "招聘信息管理",
+				"icon": "",
+				"href": "zhaopin/zhaopinList",
+				"spread": "false",
+				"children": null
+			}
+		]
+	}, {
+		"title": "公司信息管理",
+		"icon": "",
+		"href": "",
+		"spread": "false",
+		"children": [
+			{
+				"title": "公司配置",
+				"icon": "",
+				"href": "company/editCompany",
+				"spread": "false",
+				"children": null
+			}
+		]
+	}
+]

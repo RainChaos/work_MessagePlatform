@@ -1,0 +1,2 @@
+2019-10-30 14:34:39.927 [http-nio-192.168.1.70-7000-exec-3] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /getStuImg ip:192.168.1.70
+2019-10-30 14:35:04.482 [http-nio-192.168.1.70-7000-exec-7] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /getStuImg ip:192.168.1.70

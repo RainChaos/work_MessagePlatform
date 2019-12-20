@@ -1,0 +1,3 @@
+2019-10-15 08:55:49.415 [http-nio-192.168.1.70-7000-exec-4] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /ascpiecount ip:192.168.1.70
+2019-10-15 08:55:50.124 [http-nio-192.168.1.70-7000-exec-8] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /ascpiecount ip:192.168.1.70
+2019-10-15 08:56:02.118 [http-nio-192.168.1.70-7000-exec-9] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /ascpiecount ip:192.168.1.70

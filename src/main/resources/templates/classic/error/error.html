@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <base th:href="${#request.getContextPath()}+'/'">
+</head>
+<body>
+<header th:replace="/classic/common/common::header_err"></header>
+<div class="layui-container" style="text-align: center">
+    <h1 style="font-size: 150px;color: #009688!important">ERROE</h1>
+    <p style="text-align: left;margin-bottom: 20px">原因：</p>
+    <p class="am-link-muted" th:text="${exception}" style="text-align: left">出错了！</p>
+</div>
+</body>
+</html>

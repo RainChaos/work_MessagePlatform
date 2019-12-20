@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiapeng.messageplatform.dao.MessageLogMapper">
+    <resultMap id="BaseResultMap" type="com.jiapeng.messageplatform.entity.MessageLog">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="batchId" jdbcType="NVARCHAR" property="batchId"/>
+        <result column="te_no" jdbcType="NVARCHAR" property="teNo"/>
+        <result column="msgContent" jdbcType="NVARCHAR" property="msgContent"/>
+        <result column="state" jdbcType="NVARCHAR" property="state"/>
+        <result column="msgType" jdbcType="NVARCHAR" property="msgType"/>
+        <result column="sendDate" jdbcType="TIMESTAMP" property="sendDate"/>
+        <result column="createDate" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="remark" jdbcType="NVARCHAR" property="remark"/>
+        <result column="teName" jdbcType="NVARCHAR" property="teName"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, batchId,l.te_no, msgContent, state,msgType, sendDate,createDate,remark,t.name as teName
+    </sql>
+    <sql id="Page_Form">
+        FROM message_log l LEFT JOIN teacher t ON l.te_no=t.te_no
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        <include refid="Page_Form"/>
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from message_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.jiapeng.messageplatform.entity.MessageLog" keyProperty="id"
+            useGeneratedKeys="true">
+    insert into message_log (id,batchId, te_no, msgContent,
+      state, msgType,sendDate,createDate,remark)
+    values (#{id,jdbcType=INTEGER}, #{batchId,jdbcType=NVARCHAR},#{teNo,jdbcType=NVARCHAR}, #{msgContent,jdbcType=NVARCHAR},
+      #{state,jdbcType=NVARCHAR},#{msgType,jdbcType=NVARCHAR},#{sendDate,jdbcType=TIMESTAMP}), #{createDate,jdbcType=TIMESTAMP}), #{remark,jdbcType=NVARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.jiapeng.messageplatform.entity.MessageLog" keyProperty="id"
+            useGeneratedKeys="true">
+        insert into message_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="batchId != null">
+                batchId,
+            </if>
+            <if test="teNo != null">
+                te_no,
+            </if>
+            <if test="msgContent != null">
+                msgContent,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+            <if test="msgType != null">
+                msgType,
+            </if>
+            <if test="sendDate != null">
+                sendDate,
+            </if>
+            <if test="createDate != null">
+                createDate,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="batchId != null">
+                #{batchId,jdbcType=NVARCHAR},
+            </if>
+            <if test="teNo != null">
+                #{teNo,jdbcType=NVARCHAR},
+            </if>
+            <if test="msgContent != null">
+                #{msgContent,jdbcType=NVARCHAR},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=NVARCHAR},
+            </if>
+            <if test="msgType != null">
+                #{msgType,jdbcType=NVARCHAR},
+            </if>
+            <if test="sendDate != null">
+                #{sendDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=NVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jiapeng.messageplatform.entity.MessageLog">
+        update message_log
+        <set>
+            <if test="batchId != null">
+                batchId = #{batchId,jdbcType=NVARCHAR},
+            </if>
+            <if test="teNo != null">
+                te_no = #{teNo,jdbcType=NVARCHAR},
+            </if>
+            <if test="msgContent != null">
+                msgContent = #{msgContent,jdbcType=NVARCHAR},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=NVARCHAR},
+            </if>
+            <if test="msgType != null">
+                msgType = #{msgType,jdbcType=NVARCHAR},
+            </if>
+            <if test="sendDate != null">
+                sendDate = #{sendDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createDate != null">
+                createDate = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=NVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jiapeng.messageplatform.entity.MessageLog">
+    update message_log
+    set batchId = #{batchId,jdbcType=NVARCHAR},
+      te_no = #{teNo,jdbcType=NVARCHAR},
+      msgContent = #{msgContent,jdbcType=NVARCHAR},
+      state = #{state,jdbcType=NVARCHAR},
+      msgType = #{msgType,jdbcType=NVARCHAR},
+      sendDate = #{sendDate,jdbcType=TIMESTAMP},
+      createDate = #{createDate,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=NVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <sql id="Page_Where">
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+
+            <if test="teNoList != null and teNoList.size() != 0 ">
+                AND l.te_no IN
+                <foreach collection="teNoList" item="id" index="index"
+                         open="(" close=")" separator=",">
+                    #{id}
+                </foreach>
+            </if>
+
+            <if test="msgType != null and msgType !='' ">
+                AND l.msgType =#{msgType}
+            </if>
+            <if test="state != null and  state !='' ">
+                AND l.state=#{state}
+            </if>
+        </trim>
+    </sql>
+    <sql id="Page_OrderBy">
+        <if test="sortCondition != null and  sortCondition !='' ">
+            ORDER BY ${sortCondition}
+        </if>
+    </sql>
+    <select id="pageList" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+
+        <choose>
+            <when test="pageIndex != -1">
+                SELECT TOP ${pageSize} * FROM
+                (
+                select
+                <include refid="Base_Column_List"/>
+                ,Row_Number() OVER ( ORDER BY l.createDate DESC) as rownumber
+                <include refid="Page_Form"/>
+                <include refid="Page_Where"/>
+                ) temp
+                where rownumber  <![CDATA[ > ]]> #{pageIndex}
+
+            </when>
+            <otherwise>
+                select
+                <include refid="Base_Column_List"/>
+                ,Row_Number() OVER ( ORDER BY l.createDate DESC) as rownumber
+                <include refid="Page_Form"/>
+                <include refid="Page_Where"/>
+            </otherwise>
+        </choose>
+
+
+
+
+
+
+        <!--SELECT TOP ${pageSize} * FROM-->
+        <!--(-->
+        <!--select-->
+        <!--<include refid="Base_Column_List"/>-->
+        <!--,Row_Number() OVER ( ORDER BY l.te_no DESC) as rownumber-->
+        <!--<include refid="Page_Form"/>-->
+        <!--<include refid="Page_Where"/>-->
+        <!--) temp-->
+        <!--where rownumber  <![CDATA[ > ]]> #{pageIndex}-->
+        <!--<include refid="Page_OrderBy"/>-->
+    </select>
+    <select id="pageListCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+        SELECT
+        COUNT(1) AS Total
+        <include refid="Page_Form"/>
+        <include refid="Page_Where"/>
+    </select>
+    <select id="selectMessageByStuNo" resultMap="BaseResultMap">
+        select * from message_log where te_no=#{teNo}
+    </select>
+
+</mapper>

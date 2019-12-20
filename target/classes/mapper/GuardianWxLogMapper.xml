@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiapeng.messageplatform.dao.GuardianWxLogMapper">
+    <resultMap id="BaseResultMap" type="com.jiapeng.messageplatform.entity.GuadianWxLog">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="sc_code" jdbcType="NVARCHAR" property="sc_code"/>
+        <result column="schname" jdbcType="NVARCHAR" property="schname"/>
+        <result column="stuid" jdbcType="NVARCHAR" property="stuid"/>
+        <result column="stuno" jdbcType="NVARCHAR" property="stuno"/>
+        <result column="stuname" jdbcType="NVARCHAR" property="stuname"/>
+        <result column="guaname" jdbcType="NVARCHAR" property="guaname"/>
+        <result column="wxno" jdbcType="NVARCHAR" property="wxno"/>
+        <result column="operate" jdbcType="NVARCHAR" property="operate"/>
+        <result column="operatetime" jdbcType="TIMESTAMP" property="operatetime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    id, sch.name as schname,wxlog.sc_code, stuid, stuno, wxno, stuname, guaname, operate, operatetime
+  </sql>
+
+    <sql id="Record_Page_Form">
+        from guadian_wx_log wxlog
+        left join school sch on wxlog.sc_code =  sch.sc_code
+    </sql>
+
+    <sql id="Record_Page_Where">
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="scCode != null and scCode != '' ">
+                AND  wxlog.sc_code =#{scCode,jdbcType=NVARCHAR}
+            </if>
+            <if test="stuNo != null and stuNo != ''">
+                AND stuno =#{stuNo,jdbcType=NVARCHAR}
+            </if>
+            <if test="stuName != null and stuName != ''">
+                AND stuname =#{stuName,jdbcType=NVARCHAR}
+            </if>
+            <if test="startDate != null and startDate != ''">
+                AND (operatetime <![CDATA[>= ]]> #{startDate})
+            </if>
+            <if test="endDate != null and endDate != ''">
+                AND (operatetime <![CDATA[<= ]]> #{endDate})
+            </if>
+
+        </trim>
+    </sql>
+
+    <select id="selectRecord" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+        <choose>
+            <when test="pageIndex != -1">
+                SELECT TOP ${pageSize} * FROM
+                (
+                select
+                <include refid="Base_Column_List"/>
+                ,Row_Number() OVER ( ORDER BY wxlog.operatetime DESC) as rownumber
+                <include refid="Record_Page_Form"/>
+                <include refid="Record_Page_Where"/>
+                ) temp
+                where rownumber  <![CDATA[ > ]]> #{pageIndex}
+            </when>
+            <otherwise>
+                select
+                <include refid="Base_Column_List"/>
+                ,Row_Number() OVER ( ORDER BY wxlog.operatetime DESC) as rownumber
+                <include refid="Record_Page_Form"/>
+                <include refid="Record_Page_Where"/>
+            </otherwise>
+        </choose>
+    </select>
+    <select id="selectRecordCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+        SELECT
+        COUNT(1) AS Total
+        <include refid="Record_Page_Form"/>
+        <include refid="Record_Page_Where"/>
+    </select>
+
+
+    <insert id="insert" parameterType="com.jiapeng.messageplatform.entity.GuadianWxLog" keyProperty="id"
+            useGeneratedKeys="true">
+    insert into guadian_wx_log (sc_code, stuid, stuno, stuname, guaname, wxno, operate, operatetime)
+    values (#{sc_code,jdbcType=NVARCHAR}, #{stuid,jdbcType=NVARCHAR},
+      #{stuno,jdbcType=NVARCHAR},#{stuname,jdbcType=NVARCHAR},
+      #{guaname,jdbcType=NVARCHAR},#{wxno,jdbcType=NVARCHAR}, #{operate,jdbcType=NVARCHAR},GETDATE())
+  </insert>
+</mapper>

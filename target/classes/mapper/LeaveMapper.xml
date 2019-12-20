@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiapeng.messageplatform.dao.LeaveMapper">
+  <resultMap id="BaseResultMap" type="com.jiapeng.messageplatform.entity.Leave">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="teNo" jdbcType="NVARCHAR" property="teNo" />
+    <result column="stuNo" jdbcType="NVARCHAR" property="stuNo" />
+    <result column="startDate" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="endDate" jdbcType="TIMESTAMP" property="endDate" />
+    <result column="reason" jdbcType="NVARCHAR" property="reason" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="updateDate" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="gateReadState" jdbcType="BIT" property="gateReadState" />
+    <result column="readFailReason" jdbcType="NVARCHAR" property="readFailReason" />
+
+    <result column="cl_code" jdbcType="NVARCHAR" property="cl_code" />
+    <result column="name" jdbcType="NVARCHAR" property="name" />
+    <result column="stuName" jdbcType="NVARCHAR" property="stuName" />
+    <result column="sex" jdbcType="NVARCHAR" property="sex" />
+
+  </resultMap>
+
+
+  <resultMap id="BaseResultMap1" type="com.jiapeng.messageplatform.entity.LeaveTotal">
+    <result column="leaveTotal" jdbcType="INTEGER" property="leaveTotal" />
+    <result column="stuName" jdbcType="NVARCHAR" property="stuName" />
+    <result column="stuNo" jdbcType="NVARCHAR" property="stuNo" />
+  </resultMap>
+
+
+  <sql id="Base_Column_List">
+    id, teNo, stuNo, startDate, endDate, reason, createDate, updateDate, gateReadState,
+    readFailReason
+  </sql>
+
+
+  <!--已改-->
+  <sql id="Base_Column_Page_List">
+    cla.cl_code,cla.name,stu.stuName,stu.sex,lea.*
+  </sql>
+
+  <!--已改-->
+  <sql id="Page_Form">
+    from [leave] lea
+    left join student stu on stu.stuNo = lea.stuNo
+    left join class cla on cla.cl_code = stu.cl_code
+  </sql>
+
+
+  <sql id="Page_Where">
+    <trim prefix="WHERE" prefixOverrides="AND | OR">
+
+      <if test="stuNoAndName != null and stuNoAndName != '' ">
+        AND (stu.stuNo like CONCAT(CONCAT('%', #{stuNoAndName}), '%') OR stu.stuName like CONCAT(CONCAT('%', #{stuNoAndName}), '%'))
+      </if>
+
+      <if test="cl_code != null and cl_code != ''">
+        AND (cla.cl_code like CONCAT(CONCAT('%', #{cl_code}), '%'))
+      </if>
+
+      <if test="startDate != null and startDate != ''">
+        AND (lea.startDate <![CDATA[>= ]]> #{startDate})
+      </if>
+      <if test="endDate != null and endDate != ''">
+        AND (lea.endDate <![CDATA[<= ]]> #{endDate})
+      </if>
+      <if test="teNo != null and teNo != ''">
+        AND lea.teNo like CONCAT( #{teNo}, '%')
+      </if>
+    </trim>
+  </sql>
+
+
+  <select id="list" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+    <choose>
+      <when test="pageIndex != -1">
+        SELECT TOP ${pageSize} * FROM
+        (
+        select
+        <include refid="Base_Column_Page_List"/>
+        ,Row_Number() OVER ( ORDER BY stu.stuNo DESC) as rownumber
+        <include refid="Page_Form"/>
+        <include refid="Page_Where"/>
+        ) temp
+        where rownumber  <![CDATA[ > ]]> #{pageIndex}
+      </when>
+      <otherwise>
+        select
+        <include refid="Base_Column_Page_List"/>
+        ,Row_Number() OVER ( ORDER BY a.stuNo DESC) as rownumber
+        <include refid="Page_Form"/>
+        <include refid="Page_Where"/>
+      </otherwise>
+    </choose>
+  </select>
+  <select id="listCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+    SELECT
+    COUNT(distinct stu.stuNo) AS Total
+    <include refid="Page_Form"/>
+    <include refid="Page_Where"/>
+  </select>
+
+  <select id="totalsNum" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+    SELECT  lea.* ,stu.stuName,stu.sex from [leave] lea
+    left join student stu on stu.stuNo = lea.stuNo
+    <if test="teNo != null and teNo != ''">
+      where lea.teNo = #{teNo}
+    </if>
+    <if test="cl_code != null and cl_code != ''">
+      AND stu.cl_code = #{cl_code}
+    </if>
+    <if test="startDate != null and startDate != ''">
+      AND (lea.startDate <![CDATA[>= ]]> #{startDate})
+    </if>
+    <if test="endDate != null and endDate != ''">
+      AND (lea.endDate <![CDATA[<= ]]> #{endDate})
+    </if>
+  </select>
+
+  <select id="totals" parameterType="java.util.HashMap" resultMap="BaseResultMap1">
+    SELECT lea.stuNo,stu.stuName, COUNT(*) as leaveTotal from [leave] lea
+    left join student stu on stu.stuNo = lea.stuNo
+    <if test="teNo != null and teNo != ''">
+      where lea.teNo = #{teNo}
+    </if>
+    <if test="cl_code != null and cl_code != ''">
+      AND stu.cl_code = #{cl_code}
+    </if>
+    <if test="startDate != null and startDate != ''">
+      AND (lea.startDate <![CDATA[>= ]]> #{startDate})
+    </if>
+    <if test="endDate != null and endDate != ''">
+      AND (lea.endDate <![CDATA[<= ]]> #{endDate})
+    </if>
+    GROUP BY lea.stuNo,stu.stuName
+  </select>
+
+
+
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from [leave]
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from leave
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jiapeng.messageplatform.entity.Leave">
+    insert into [leave] (id, teNo, stuNo,
+    startDate, endDate, reason,
+    createDate, updateDate, gateReadState,
+    readFailReason)
+    values (#{id,jdbcType=INTEGER}, #{teNo,jdbcType=NVARCHAR}, #{stuNo,jdbcType=NVARCHAR},
+    #{startDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}, #{reason,jdbcType=NVARCHAR},
+    #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{gateReadState,jdbcType=BIT},
+    #{readFailReason,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jiapeng.messageplatform.entity.Leave">
+    insert into [leave]
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="teNo != null">
+        teNo,
+      </if>
+      <if test="stuNo != null">
+        stuNo,
+      </if>
+      <if test="startDate != null">
+        startDate,
+      </if>
+      <if test="endDate != null">
+        endDate,
+      </if>
+      <if test="reason != null">
+        reason,
+      </if>
+      <if test="createDate != null">
+        createDate,
+      </if>
+      <if test="updateDate != null">
+        updateDate,
+      </if>
+      <if test="gateReadState != null">
+        gateReadState,
+      </if>
+      <if test="readFailReason != null">
+        readFailReason,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="teNo != null">
+        #{teNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="stuNo != null">
+        #{stuNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=NVARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gateReadState != null">
+        #{gateReadState,jdbcType=BIT},
+      </if>
+      <if test="readFailReason != null">
+        #{readFailReason,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jiapeng.messageplatform.entity.Leave">
+    update [leave]
+    <set>
+      <if test="teNo != null">
+        teNo = #{teNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="stuNo != null">
+        stuNo = #{stuNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="startDate != null">
+        startDate = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        endDate = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reason != null">
+        reason = #{reason,jdbcType=NVARCHAR},
+      </if>
+      <if test="createDate != null">
+        createDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        updateDate = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gateReadState != null">
+        gateReadState = #{gateReadState,jdbcType=BIT},
+      </if>
+      <if test="readFailReason != null">
+        readFailReason = #{readFailReason,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jiapeng.messageplatform.entity.Leave">
+    update [leave]
+    set teNo = #{teNo,jdbcType=NVARCHAR},
+      stuNo = #{stuNo,jdbcType=NVARCHAR},
+      startDate = #{startDate,jdbcType=TIMESTAMP},
+      endDate = #{endDate,jdbcType=TIMESTAMP},
+      reason = #{reason,jdbcType=NVARCHAR},
+      createDate = #{createDate,jdbcType=TIMESTAMP},
+      updateDate = #{updateDate,jdbcType=TIMESTAMP},
+      gateReadState = #{gateReadState,jdbcType=BIT},
+      readFailReason = #{readFailReason,jdbcType=NVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

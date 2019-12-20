@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiapeng.messageplatform.dao.AscNoticeDetailMapper">
+  <resultMap id="BaseResultMap" type="com.jiapeng.messageplatform.entity.AscNoticeDetail">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="logId" jdbcType="INTEGER" property="logId" />
+    <result column="guaName" jdbcType="NVARCHAR" property="guaName" />
+    <result column="noticeNo" jdbcType="NVARCHAR" property="noticeNo" />
+    <result column="state" jdbcType="NVARCHAR" property="state" />
+    <result column="remark" jdbcType="NVARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, logId, guaName, noticeNo, state, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from asc_notice_detail
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from asc_notice_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jiapeng.messageplatform.entity.AscNoticeDetail" keyProperty="id"
+          useGeneratedKeys="true">
+    insert into asc_notice_detail (id, logId, guaName, 
+      noticeNo, state, remark
+      )
+    values (#{id,jdbcType=INTEGER}, #{logId,jdbcType=INTEGER}, #{guaName,jdbcType=NVARCHAR}, 
+      #{noticeNo,jdbcType=NVARCHAR}, #{state,jdbcType=NVARCHAR}, #{remark,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jiapeng.messageplatform.entity.AscNoticeDetail" keyProperty="id"
+          useGeneratedKeys="true">
+    insert into asc_notice_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="logId != null">
+        logId,
+      </if>
+      <if test="guaName != null">
+        guaName,
+      </if>
+      <if test="noticeNo != null">
+        noticeNo,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="logId != null">
+        #{logId,jdbcType=INTEGER},
+      </if>
+      <if test="guaName != null">
+        #{guaName,jdbcType=NVARCHAR},
+      </if>
+      <if test="noticeNo != null">
+        #{noticeNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=NVARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jiapeng.messageplatform.entity.AscNoticeDetail">
+    update asc_notice_detail
+    <set>
+      <if test="logId != null">
+        logId = #{logId,jdbcType=INTEGER},
+      </if>
+      <if test="guaName != null">
+        guaName = #{guaName,jdbcType=NVARCHAR},
+      </if>
+      <if test="noticeNo != null">
+        noticeNo = #{noticeNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=NVARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jiapeng.messageplatform.entity.AscNoticeDetail">
+    update asc_notice_detail
+    set logId = #{logId,jdbcType=INTEGER},
+      guaName = #{guaName,jdbcType=NVARCHAR},
+      noticeNo = #{noticeNo,jdbcType=NVARCHAR},
+      state = #{state,jdbcType=NVARCHAR},
+      remark = #{remark,jdbcType=NVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

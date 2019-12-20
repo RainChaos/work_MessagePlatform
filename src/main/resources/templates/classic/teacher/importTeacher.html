@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>添加</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="../../../static/plugins/layui-v2.5.4/css/layui.css" media="all" />
+<script>
+        var ctx = "${ctx}";  
+    </script>  
+<style type="text/css">
+
+.layui-form-item .layui-inline {
+	width: 33.333%;
+	float: left;
+	margin-right: 0;
+}
+@media ( max-width :1240px) {
+	.layui-form-item .layui-inline {
+		width: 100%;
+		float: none;
+	}}
+.layui-form-select{
+	right: 11px;
+}
+</style>
+</head>
+<body class="childrenBody">
+	<form class="layui-form" style="margin-top: 20px;">
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">选择文件</label>
+			<div class="layui-input-block">
+				<button type="button" class="layui-btn layui-btn-normal" lay-data="{accept: 'file'}" id="test8">选择文件</button>
+				<span id="filenameview"></span>
+				<input type="hidden" id="fileName" name="fileName">
+			</div>
+		</div>
+
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">选择工作表</label>
+			<div class="layui-input-block" style="width: 64% !important;">
+
+					<select id="sheetName" name="sheetName"  lay-search>
+					</select>
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+
+				<button type="button" class="layui-btn"  lay-submit="" lay-filter="btnupload" style="margin-top: 31px !important;" >开始上传</button>
+
+			</div>
+		</div>
+	</form>
+	<script type="text/javascript" src="../../../static/plugins/layui-v2.5.4/layui.js"></script>
+	<script type="text/javascript" src="../../../static/js/teacher/inputTeacher.js"></script>
+</body>
+</html>

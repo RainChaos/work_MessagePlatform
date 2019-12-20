@@ -1,0 +1,12 @@
+2019-10-10 09:56:52.306 [http-nio-192.168.1.70-7000-exec-1] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /ascrecord ip:192.168.1.70
+2019-10-10 17:48:49.661 [http-nio-192.168.1.70-7000-exec-2] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /ascpiecount ip:192.168.1.70
+2019-10-10 17:49:19.146 [http-nio-192.168.1.70-7000-exec-6] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /ascrecord ip:192.168.1.70
+2019-10-10 17:50:06.848 [http-nio-192.168.1.70-7000-exec-10] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /ascpiecount ip:192.168.1.70
+2019-10-10 17:53:39.708 [http-nio-192.168.1.70-7000-exec-9] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /ascpiecount ip:192.168.1.70
+2019-10-10 17:53:53.094 [http-nio-192.168.1.70-7000-exec-5] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /ascpiecount ip:192.168.1.70
+2019-10-10 17:54:18.182 [http-nio-192.168.1.70-7000-exec-1] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /ascpiecount ip:192.168.1.70
+2019-10-10 17:54:28.545 [http-nio-192.168.1.70-7000-exec-7] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /ascpiecount ip:192.168.1.70
+2019-10-10 17:55:26.641 [http-nio-192.168.1.70-7000-exec-3] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /ascpiecount ip:192.168.1.70
+2019-10-10 17:56:06.377 [http-nio-192.168.1.70-7000-exec-2] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /ascpiecount ip:192.168.1.70
+2019-10-10 17:56:22.091 [http-nio-192.168.1.70-7000-exec-6] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /ascpiecount ip:192.168.1.70
+2019-10-10 17:57:35.347 [http-nio-192.168.1.70-7000-exec-3] INFO  c.jiapeng.messageplatform.controller.ApiController >>>>>>>>>> /ascpiecount ip:192.168.1.70

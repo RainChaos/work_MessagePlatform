@@ -1,0 +1,34 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script src="~/Content/scripts/jquery-2.2.3.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var access_code = getUrlPara('code');
+            if (access_code == null) {
+                var fromurl = "http://" + window.location.host;
+                var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + '@Session["appid"]' + "&redirect_uri=" + encodeURIComponent(fromurl) + "&response_type=code&scope=snsapi_base&state=STATE&#wechat_redirect";
+                location.href = url;
+                return;
+            }
+        })
+
+        function getUrlPara(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null)
+                return unescape(r[2]);
+            return null;
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

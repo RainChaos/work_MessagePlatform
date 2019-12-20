@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiapeng.messageplatform.dao.MessageDetailMapper">
+    <resultMap id="BaseResultMap" type="com.jiapeng.messageplatform.entity.MessageDetail">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="logId" jdbcType="INTEGER" property="logId"/>
+        <result column="stuId" jdbcType="NVARCHAR" property="stuId"/>
+        <result column="guaName" jdbcType="NVARCHAR" property="guaName"/>
+        <result column="phone" jdbcType="NVARCHAR" property="phone"/>
+        <result column="state" jdbcType="NVARCHAR" property="state"/>
+        <result column="remark" jdbcType="NVARCHAR" property="remark"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id,logId, stuId, guaName, phone, state, remark
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from message_detail
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from message_detail
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.jiapeng.messageplatform.entity.MessageDetail" keyProperty="id"
+            useGeneratedKeys="true">
+    insert into message_detail (id, logId,stuId, guaName,
+      phone, state)
+    values (#{id,jdbcType=INTEGER},#{logId,jdbcType=INTEGER}, #{stuId,jdbcType=NVARCHAR}, #{guaName,jdbcType=NVARCHAR},
+      #{phone,jdbcType=NVARCHAR}, #{state,jdbcType=NVARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.jiapeng.messageplatform.entity.MessageDetail" keyProperty="id"
+            useGeneratedKeys="true">
+        insert into message_detail
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="logId != null">
+                logId,
+            </if>
+            <if test="stuId != null">
+                stuId,
+            </if>
+            <if test="guaName != null">
+                guaName,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="logId != null">
+                #{logId,jdbcType=INTEGER},
+            </if>
+            <if test="stuId != null">
+                #{stuId,jdbcType=NVARCHAR},
+            </if>
+            <if test="guaName != null">
+                #{guaName,jdbcType=NVARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=NVARCHAR},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=NVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jiapeng.messageplatform.entity.MessageDetail">
+        update message_detail
+        <set>
+            <if test="logId != null">
+                logId = #{logId,jdbcType=INTEGER},
+            </if>
+            <if test="stuId != null">
+                stuId = #{stuId,jdbcType=NVARCHAR},
+            </if>
+            <if test="guaName != null">
+                guaName = #{guaName,jdbcType=NVARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=NVARCHAR},
+            </if>
+            <if test="state != null">
+                state = #{state,jdbcType=NVARCHAR},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=NVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jiapeng.messageplatform.entity.MessageDetail">
+    update message_detail
+    set  logId = #{logId,jdbcType=INTEGER},
+      stuId = #{stuId,jdbcType=NVARCHAR},
+      guaName = #{guaName,jdbcType=NVARCHAR},
+      phone = #{phone,jdbcType=NVARCHAR},
+      state = #{state,jdbcType=NVARCHAR},
+      remark = #{remark,jdbcType=NVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <sql id="Page_Form">
+        FROM message_detail
+    </sql>
+    <sql id="Page_Where">
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="logId != null and logId != '' ">
+                AND logId =#{logId}
+            </if>
+            <if test="state != null and state !='' ">
+                AND state=#{state}
+            </if>
+        </trim>
+    </sql>
+    <select id="pageList" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+        SELECT TOP ${pageSize} * FROM
+        (
+        select
+        <include refid="Base_Column_List"/>
+        ,Row_Number() OVER ( ORDER BY logId DESC) as rownumber
+        <include refid="Page_Form"/>
+        <include refid="Page_Where"/>
+        ) temp
+        where rownumber  <![CDATA[ > ]]> #{pageIndex}
+    </select>
+    <select id="pageListCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+        SELECT
+        COUNT(1) AS Total
+        <include refid="Page_Form"/>
+        <include refid="Page_Where"/>
+    </select>
+</mapper>

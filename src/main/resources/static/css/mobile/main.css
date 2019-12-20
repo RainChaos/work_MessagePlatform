@@ -1,0 +1,484 @@
+/*commom start*/
+body {
+    font-size: 1.4rem;
+}
+
+/*div底部边框*/
+.divBtmLine {
+    border-bottom: 1px solid #dedede;
+    text-align: center;
+    padding: 10px 12px;
+}
+
+/*文字超出后用…表示*/
+.shenlue {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.am-header .am-header-title {
+    font-size: 1.7rem;
+}
+
+/*theme 主题背景颜色*/
+.theme-bg-color-secondary {
+    background-color: #3bb4f2;
+}
+
+.hr_5solid {
+    display: block;
+    width: 100%;
+    border-top: 5px solid #eee;
+}
+
+/*commom end*/
+
+/*login start*/
+.login-body {
+    height: 100%;
+    background: -webkit-linear-gradient(#FFFDF7, #cceaf5);
+    background: -o-linear-gradient(#FFFDF7, #cceaf5);
+    background: -moz-linear-gradient(#FFFDF7, #cceaf5);
+    background: linear-gradient(#FFFDF7, #cceaf5);
+}
+
+.footer-right {
+    color: #999;
+    font-size: 13px;
+    position: fixed;
+    bottom: 0;
+    clear: left;
+    width: 100%;
+    height: 30px;
+    /*background-color: #eeeeee;*/
+    text-align: center;
+    line-height: 30px;
+}
+
+/*login end*/
+
+/*index start*/
+.header-img {
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    right: 30px;
+    top: 15px;
+    z-index: 1;
+}
+
+.cd_dl {
+    background-color: #ffffff;
+    position: absolute;
+    top: 65px;
+    margin-left: -20px;
+    /*padding: 5px 0px;*/
+    padding-bottom: -1px;
+    display: none;
+    border: #acaaaa 1px solid;
+    border-radius: 5px;
+}
+
+.cd_dl dd {
+    padding: 6px 20px;
+    margin: 0 2px;
+    font-size: 14px;
+    border-bottom: 1px #d6d6d6 solid;
+    /*background-color: #a0ac8f;*/
+}
+
+.cd_dl dd :hover {
+    background-color: #0b76ac;
+}
+
+.cd_dl dd a {
+    color: #000;
+}
+
+.triangle {
+    margin: 0px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #acaaaa transparent;
+    padding: 0px;
+    width: 0px;
+    height: 0px;
+    left: 0px;
+    position: absolute;
+    bottom: 16px;
+    left: 30%;
+    display: none;
+}
+
+.triangle_inner {
+    margin: 0px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent;
+    padding: 0px;
+    width: 0px;
+    height: 0px;
+    left: -10px;
+    top: -8px;
+    position: absolute;
+    bottom: 16px;
+    z-index: 9999;
+}
+
+.boxes {
+    /*width: 300px;*/
+}
+
+.boxes .box {
+    height: auto;
+    width: 100%;
+    color: #000;
+    float: left;
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 10%;
+    /*background: -moz-linear-gradient(top,  rgba(211, 220, 240, 0.3), rgba(207, 216, 238, 0.6));*/
+    /*background: -webkit-linear-gradient(top,  rgba(211, 220, 240, 0.3), rgba(207, 216, 238, 0.6));*/
+    /*background: -o-linear-gradient(top,  rgba(211, 220, 240, 0.3), rgba(207, 216, 238, 0.6));*/
+}
+
+.boxes .box1 {
+    height: auto;
+    color: rgb(54, 74, 90);
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 10%;
+    background: -moz-linear-gradient(top, rgba(211, 220, 240, 0.2), rgba(207, 216, 238, 0.6));
+    background: -webkit-linear-gradient(top, rgba(211, 220, 240, 0.2), rgba(207, 216, 238, 0.6));
+    background: -o-linear-gradient(top, rgba(211, 220, 240, 0.2), rgba(207, 216, 238, 0.6));
+}
+
+.accordionPd {
+    padding: 0.8rem 0rem;
+}
+
+.al-icon {
+    /*width: 30px;*/
+    /*height: 30px;*/
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+    font-size: 30px;
+}
+
+.icon {
+    width: 100%;
+    font-size: 24px;
+    margin-top: 5px;
+    color: #FFFFFF;
+    background-color: #eee;
+    box-sizing: border-box;
+    display: inline-block;
+    /*width: 48px;*/
+    /*height: 48px;*/
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.icon-span {
+    width: 100%;
+    float: left;
+    margin-top: 2px;
+    color: rgb(54, 74, 90);
+}
+
+.am-accordion-title:before {
+    content: "";
+    /*position: absolute;*/
+    left: 2px;
+    top: 8px;
+    bottom: 8px;
+    border-left: 3px solid #3bb4f2;
+    margin-right: 5px;
+}
+
+.new-icon {
+    padding: 6px 0px;
+    width: 20%;
+    clear: none;
+    float: left;
+    text-align: center
+}
+
+.cd-hide {
+    display: none;
+}
+
+/*index  end*/
+
+/*/student/info start*/
+.info-list {
+    padding: 1.0rem 0px;
+    font-size: 14px;
+}
+
+.info-list-l {
+}
+
+.info-list-r {
+    color: #868686;
+}
+
+/*/student/info end*/
+
+/*error*/
+.body404 {
+    height: 100%;
+    background: -webkit-linear-gradient(#ffffff, rgba(216, 239, 250, 0.56));
+    background: -o-linear-gradient(#ffffff, rgba(216, 239, 250, 0.56));
+    background: -moz-linear-gradient(#ffffff, rgba(216, 239, 250, 0.56));
+    background: linear-gradient(#ffffff, rgba(216, 239, 250, 0.56));
+}
+
+.bodyerr {
+    height: 100%;
+    background: -webkit-linear-gradient(#ffffff, rgba(250, 222, 222, 0.45));
+    background: -o-linear-gradient(#ffffff, rgba(250, 222, 222, 0.45));
+    background: -moz-linear-gradient(#ffffff, rgba(250, 222, 222, 0.45));
+    background: linear-gradient(#ffffff, rgba(250, 222, 222, 0.45));
+}
+
+.title_err_common {
+    width: 100%;
+    font-size: 150px;
+    color: #0e93d7;
+    margin: 60px auto 20px auto;
+}
+
+@media screen and (min-width: 320px) and (max-width: 640px) {
+    .title_404 {
+        font-size: 100px
+    }
+
+    .title_err {
+        font-size: 80px
+    }
+}
+
+@media screen and (min-width: 641px) {
+
+}
+
+/*error*/
+
+/*电费管理*/
+
+.amountitem {
+    /*border: 1px solid #51A1E7;*/
+    display: inline-block;
+    padding: 6px 5px;
+    margin-bottom: 0;
+    background-color: #CCCCCC;
+    font-size: 15px;
+    color: white;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border-radius: 2px;
+    width: 100%;
+    height: 35px;
+}
+
+/*选中金额的样式*/
+.amountitem-selected {
+    /*border: 2px red dotted;*/
+    display: inline-block;
+    padding: 6px 5px;
+    margin-bottom: 0;
+    background-color: #00BE00;
+    font-size: 15px;
+    color: white;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border-radius: 2px;
+    width: 100%;
+    height: 35px;
+}
+
+/*充值金额不可输入框样式* by hzl 2019-6-3 10:52:02*/
+.rechargeMoney {
+    padding: 0px 10px;
+    width: 100px;
+    height: 32px;
+    color: #D5682D;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+
+/*电费管理*/
+/*充值流水*/
+.czlsTime {
+    text-align: right;
+    margin-top: 3px;
+    color: #d2d2d2;
+}
+
+.czlsDetail {
+    border: 1px dashed royalblue;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    color: #707070
+}
+
+/*收费样式*/
+
+/**********下划线DIV**************/
+
+.main-item {
+    margin: 0;
+    width: 100%;
+    height: auto;
+    border-bottom: 1px gainsboro solid; /*dashed  虚线*/
+    padding: 10px 3% 5px 3%;
+}
+
+.main-item span {
+    display: inline-block;
+}
+
+.main-item table {
+    width: 100%;
+    font-size: 14px;
+}
+
+.main-item table tr {
+    /*word-break: keep-all;*/ /*让表格数据保持在一行上显示*/
+}
+
+.main-item-span {
+    margin: 0;
+    float: left;
+    display: block;
+    width: 45%;
+    padding-left: 10%;
+    /*40%*/
+}
+
+.main-item-check {
+    float: right;
+    width: 10%;
+    margin: 15px 5% 0 0;
+    /*height: 100%;*/
+    text-align: center;
+}
+
+.main-item-info {
+    float: left;
+    width: 82%;
+}
+
+.main-item-info div {
+    margin-bottom: 5px;
+}
+
+/*支付方式样式*/
+
+.banklist {
+    width: 100%;
+    height: 65px;
+    margin: auto;
+    padding: 5px 2% 10px 2%;
+}
+
+.banklist div {
+    float: left;
+    width: auto;
+    height: auto;
+    margin-left: 12px;
+    overflow: hidden;
+    margin-top: 5px;
+    cursor: pointer;
+    position: relative;
+    height: auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.bankitem {
+    border: 2px solid white;
+}
+
+/*选中银行卡的样式*/
+.bankitem-selected {
+    border: 2px red solid;
+}
+
+.bankitem-selected b {
+    clear: left;
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+    background: url(../img/selected-icon.png) no-repeat;
+}
+
+.bankitem-img {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+    width: 130px;
+    height: 45px;
+}
+
+/*密码找回*/
+.stepDiv {
+    float: left;
+    width: 24%;
+    color: #484848;
+    background-color: #f1f1f1;
+    margin-right: 2px;
+}
+
+.stepStartDiv {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.stepEndDiv {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.doStepDiv {
+    background-color: #a8e887;
+}

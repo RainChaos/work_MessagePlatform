@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiapeng.messageplatform.dao.ConfigMapper">
+    <resultMap id="BaseResultMap" type="com.jiapeng.messageplatform.entity.Config">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="cfDeId" jdbcType="INTEGER" property="cfDeId"/>
+        <result column="scCode" jdbcType="NVARCHAR" property="scCode"/>
+        <result column="value" jdbcType="NVARCHAR" property="value"/>
+        <result column="cfName" jdbcType="NVARCHAR" property="cfName"/>
+        <result column="cfType" jdbcType="NVARCHAR" property="cfType"/>
+        <result column="cfCode" jdbcType="NVARCHAR" property="cfCode"/>
+        <result column="scName" jdbcType="NVARCHAR" property="scName"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    c.*,cd.name as cfName,cd.type as cfType,cd.code as cfCode,s.name as scName
+  </sql>
+    <sql id="Base_From">
+    FROM config c
+    LEFT JOIN config_define cd ON  c.cfDeId=cd.id
+    LEFT JOIN school s ON c.scCode=s.sc_code
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        <include refid="Base_From"/>
+        where c.id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from config
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.jiapeng.messageplatform.entity.Config">
+    insert into config (id, cfDeId, scCode, 
+      value)
+    values (#{id,jdbcType=INTEGER}, #{cfDeId,jdbcType=INTEGER}, #{scCode,jdbcType=NVARCHAR}, 
+      #{value,jdbcType=NVARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.jiapeng.messageplatform.entity.Config">
+        insert into config
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="cfDeId != null">
+                cfDeId,
+            </if>
+            <if test="scCode != null">
+                scCode,
+            </if>
+            <if test="value != null">
+                value,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="cfDeId != null">
+                #{cfDeId,jdbcType=INTEGER},
+            </if>
+            <if test="scCode != null">
+                #{scCode,jdbcType=NVARCHAR},
+            </if>
+            <if test="value != null">
+                #{value,jdbcType=NVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jiapeng.messageplatform.entity.Config">
+        update config
+        <set>
+            <if test="cfDeId != null">
+                cfDeId = #{cfDeId,jdbcType=INTEGER},
+            </if>
+            <if test="scCode != null">
+                scCode = #{scCode,jdbcType=NVARCHAR},
+            </if>
+            <if test="value != null">
+                value = #{value,jdbcType=NVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.jiapeng.messageplatform.entity.Config">
+    update config
+    set cfDeId = #{cfDeId,jdbcType=INTEGER},
+      scCode = #{scCode,jdbcType=NVARCHAR},
+      value = #{value,jdbcType=NVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="list" parameterType="java.util.HashMap" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        <include refid="Base_From"/>
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="scCode != null and scCode != '' ">
+                AND s.sc_code = #{scCode}
+            </if>
+            <if test="cfDeId != null and cfDeId != ''">
+                AND c.cfDeId = #{cfDeId}
+            </if>
+        </trim>
+        ORDER BY c.id,s.sc_code
+    </select>
+</mapper>

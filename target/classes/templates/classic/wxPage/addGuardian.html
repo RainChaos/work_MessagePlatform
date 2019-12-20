@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="${#request.getContextPath()}+'/'">
+    <meta charset="utf-8">
+    <title>家校互动平台</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="../../static/plugins/layui-v2.5.4/css/layui.css" media="all" />
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all" />
+    <link rel="stylesheet" href="../../static/css/main.css" media="all" />
+    <style type="text/css">
+        .layui-input-inline{
+            margin: 0px !important;
+
+        }
+        .layui-form-label{
+            width: auto;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body class="main_body" style="background: #F2F2F2;">
+
+    <div style="padding: 20px; background-color: #F2F2F2;">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header" style="text-align: center;"><legend style="font-size: 20px;font-weight: 300;">信息绑定</legend></div>
+                    <div class="layui-card-body">
+
+                        <form class="layui-form" style="margin-top: 20px;">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label" style="clear: both; text-align: left;">学生编号</label>
+                                <div class="layui-input-block" style="margin: 0px;">
+                                    <input type="text" name="title"
+                                           autocomplete="off" class="layui-input" >
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label" style="clear: both; text-align: left;">学生姓名</label>
+                                <div class="layui-input-block" style="margin: 0px;">
+                                    <input type="text" name="title"
+                                           autocomplete="off" class="layui-input" >
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label" style="clear: both; text-align: left;">家长姓名</label>
+                                <div class="layui-input-block" style="margin: 0px;">
+                                    <input type="text" name="title"
+                                           autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label" style="clear: both; text-align: left;">家长手机号码</label>
+                                <div class="layui-input-block" style="margin: 0px;">
+                                    <input type="text" name="title"
+                                           autocomplete="off" class="layui-input" >
+                                </div>
+                            </div>
+
+
+                            <div class="layui-form-item">
+                                <div class="layui-input-block" style="text-align: center; margin: 0px;">
+                                    <button class="layui-btn" lay-submit="" lay-filter="bing">解除绑定</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="../../static/plugins/layui-v2.5.4/layui.js"></script>
+    <script>
+        layui.use(['form', 'layedit', 'jquery'], function () {
+            var form = layui.form
+                    , layer = layui.layer
+                    , $ = layui.jquery;
+            //用户绑定事件
+            form.on("submit(bing)",function(data){
+                //弹出loading
+                var index = layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
+                var msg;
+                $.ajax({
+                    type: "post",
+                    url: "",
+                    data:data.field,
+                    dataType:"json",
+                    success:function(d){
+                        if(d.code==200){
+                            msg="解除成功！";
+                        }else{
+
+                            msg="系统错误！";
+                        }
+                        layer.msg(msg);
+                    }
+                });
+                setTimeout(function(){
+                    layer.close(index);
+                    //刷新父页面
+                    parent.location.reload();
+                },2000);
+                return false;
+            });
+        });
+    </script>
+
+</body>
+</html>

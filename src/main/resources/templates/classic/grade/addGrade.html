@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>信息添加</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="../../../static/plugins/layui-v2.5.4/css/layui.css" media="all" />
+<style type="text/css">
+.layui-form-item .layui-inline {
+	width: 33.333%;
+	float: left;
+	margin-right: 0;
+}
+@media ( max-width :1240px) {
+	.layui-form-item .layui-inline {
+		width: 100%;
+		float: none;
+	}
+}
+</style>
+</head>
+<body class="childrenBody">
+	<form class="layui-form" style="width: 80%;margin-top: 30px;" id="aaf">
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">学校</label>
+			<div class="layui-input-block" style="margin-left: 0px;">
+				<div class="layui-input-inline" style="left: -1px; ">
+					<select id="scCode" name="sc_code"  lay-filter="sc_code" lay-search>
+						<option value="" selected>全部</option>
+						<span th:each="school:${schoollist.content.rows}">
+								<option th:value="${school.sc_code}"th:text="${school.name}"></option>
+							</span>
+					</select>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">年级名称</label>
+			<div class="layui-input-block">
+				<input type="text"  class="layui-input userName"
+					lay-verify="required" placeholder="请输入年级名称" name="name" value="">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">排序</label>
+			<div class="layui-input-block">
+				<input type="number" name="orderNumber" class="layui-input userName"
+					   placeholder="排序(整数)" lay-verify="required">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn" lay-submit="" lay-filter="addGrade">添加</button>
+			</div>
+		</div>
+	</form>
+	<script type="text/javascript" src="../../../static/plugins/layui-v2.5.4/layui.js"></script>
+	<script type="text/javascript" src="../../../static/js/grade/addGrade.js"></script>
+</body>
+</html>

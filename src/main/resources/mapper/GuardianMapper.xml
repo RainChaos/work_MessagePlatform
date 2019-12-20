@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiapeng.messageplatform.dao.GuardianMapper">
+    <resultMap id="BaseResultMap" type="com.jiapeng.messageplatform.entity.Guardian">
+        <id column="id" jdbcType="NVARCHAR" property="id"/>
+        <result column="stuId" jdbcType="NVARCHAR" property="stuId"/>
+        <result column="stuNo" jdbcType="NVARCHAR" property="stuNo"/>
+        <result column="guaName" jdbcType="NVARCHAR" property="guaName"/>
+        <result column="phone" jdbcType="NVARCHAR" property="phone"/>
+        <result column="wxNo" jdbcType="NVARCHAR" property="wxNo"/>
+        <result column="relation" jdbcType="NVARCHAR" property="relation"/>
+        <!--映射关系，指定属性与属性的类型-->
+        <association property="student" javaType="com.jiapeng.messageplatform.entity.Student">
+            <result property="stuName" column="stuName"></result>
+            <result property="idCode" column="idCode"></result>
+            <result property="gradeName" column="gradeName"></result>
+            <result property="className" column="className"></result>
+            <result property="schoolName" column="schoolName"></result>
+        </association>
+    </resultMap>
+
+
+    <resultMap id="WxPageResultMap" type="com.jiapeng.messageplatform.entity.WxBandEntity">
+        <id column="id" jdbcType="NVARCHAR" property="id"/>
+        <result column="stuId" jdbcType="NVARCHAR" property="stuId"/>
+        <result column="stuNo" jdbcType="NVARCHAR" property="stuNo"/>
+        <result column="guaName" jdbcType="NVARCHAR" property="guaName"/>
+        <result column="phone" jdbcType="NVARCHAR" property="phone"/>
+        <result column="wxNo" jdbcType="NVARCHAR" property="wxNo"/>
+
+        <result column="wxNo" jdbcType="NVARCHAR" property="wxNo"/>
+        <result column="relation" jdbcType="NVARCHAR" property="relation"/>
+
+
+
+        <result property="schoolName" column="schoolName"></result>
+        <result property="gradeName" column="gradeName"></result>
+        <result property="className" column="className"></result>
+        <result property="stuName" column="stuName"></result>
+
+    </resultMap>
+
+
+
+    <insert id="insert" parameterType="com.jiapeng.messageplatform.entity.Guardian">
+    insert into guardian (stuId, guaName, phone, wxNo,
+      relation)
+    values (#{stuId,jdbcType=NVARCHAR}, #{guaName,jdbcType=NVARCHAR}, #{phone,jdbcType=NVARCHAR},#{wxNo,jdbcType=NVARCHAR},
+      #{relation,jdbcType=NVARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.jiapeng.messageplatform.entity.Guardian">
+        insert into guardian
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stuId != null">
+                stuId,
+            </if>
+            <if test="guaName != null">
+                guaName,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="relation != null">
+                relation,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="stuId != null">
+                #{stuId,jdbcType=NVARCHAR},
+            </if>
+            <if test="guaName != null">
+                #{guaName,jdbcType=NVARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=NVARCHAR},
+            </if>
+            <if test="relation != null">
+                #{relation,jdbcType=NVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.jiapeng.messageplatform.entity.Guardian">
+        update guardian
+        <set>
+            <if test="guaName != null">
+                guaName = #{guaName,jdbcType=NVARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=NVARCHAR},
+            </if>
+            <if test="relation != null">
+                relation = #{relation,jdbcType=NVARCHAR},
+            </if>
+            <if test="wxNo != null">
+                wxNo = #{wxNo,jdbcType=NVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=NVARCHAR}
+    </update>
+    <select id="find" parameterType="java.util.HashMap" resultMap="WxPageResultMap">
+        SELECT  gu.*,st.stuNo,st.stuName,st.idCode ,c.name AS className,gr.name AS gradeName,sc.name AS schoolName FROM guardian
+        gu
+        LEFT JOIN student st ON gu.stuId =st.stuId
+        LEFT JOIN class c ON st.cl_code = c.cl_code
+        LEFT JOIN grade gr ON gr.gr_code = c.gr_code
+        LEFT JOIN school sc ON sc.sc_code = c.sc_code
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="stuId != null and stuId != ''">
+                AND gu.stuId =#{stuId}
+            </if>
+            <if test="wxNo != null and wxNo != ''">
+                AND wxNo =#{wxNo}
+            </if>
+        </trim>
+    </select>
+</mapper>

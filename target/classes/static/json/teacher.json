@@ -1,0 +1,146 @@
+[
+  {
+    "path": null,
+    "idName": null,
+    "children": [
+      {
+        "path": "/page/teacher/studentList",
+        "idName": null,
+        "children": [],
+        "name": "学生管理",
+        "icon": "&#xe61d",
+        "ordernumber": 0,
+        "id": "101103",
+        "parentid": "101"
+      },
+      {
+        "path": "/page/teacher/getClassList",
+        "idName": null,
+        "children": [],
+        "name": "班级管理",
+        "icon": "&#xe61d",
+        "ordernumber": 0,
+        "id": "101104",
+        "parentid": "101"
+      }
+    ],
+    "name": "学校管理",
+    "icon": "&#xe61d",
+    "ordernumber": 0,
+    "id": "101",
+    "parentid": null
+  },
+  {
+    "path": null,
+    "idName": null,
+    "children": [
+      {
+        "path": "/page/teacher/messageSend",
+        "idName": null,
+        "children": [],
+        "name": "群发信息",
+        "icon": "&#xe61d",
+        "ordernumber": 0,
+        "id": "102100",
+        "parentid": "102"
+      },
+      {
+        "path": "/page/teacher/msgSendByOne",
+        "idName": null,
+        "children": [],
+        "name": "私发信息",
+        "icon": "&#xe61d",
+        "ordernumber": 0,
+        "id": "102101",
+        "parentid": "102"
+      },
+      {
+        "path": "/page/teacher/messageList",
+        "idName": null,
+        "children": [],
+        "name": "发信记录",
+        "icon": "&#xe61d",
+        "ordernumber": 0,
+        "id": "102102",
+        "parentid": "102"
+      }
+    ],
+    "name": "通知发布管理",
+    "icon": "&#xe61d",
+    "ordernumber": 0,
+    "id": "102",
+    "parentid": null
+  },
+  {
+    "path": null,
+    "idName": null,
+    "children": [
+      {
+        "path": "/page/teacher/stuLeave",
+        "idName": null,
+        "children": [],
+        "name": "学生请假",
+        "icon": "&#xe61d",
+        "ordernumber": 0,
+        "id": "103100",
+        "parentid": "103"
+      },
+      {
+        "path": "/page/teacher/stuLeaveList",
+        "idName": null,
+        "children": [],
+        "name": "请假记录",
+        "icon": "&#xe61d",
+        "ordernumber": 0,
+        "id": "103101",
+        "parentid": "103"
+      },
+      {
+        "path": "/page/totals/leaveTotal",
+        "idName": null,
+        "children": [],
+        "name": "请假统计",
+        "icon": "&#xe61d",
+        "ordernumber": 0,
+        "id": "103102",
+        "parentid": "103"
+      }
+    ],
+    "name": "请假管理",
+    "icon": "&#xe61d",
+    "ordernumber": 0,
+    "id": "103",
+    "parentid": null
+  },
+  {
+  "path": null,
+  "idName": null,
+  "children": [
+    {
+      "path": "/page/ascList",
+      "idName": null,
+      "children": [],
+      "name": "出入记录",
+      "icon": "&#xe61d",
+      "ordernumber": 0,
+      "id": "104101",
+      "parentid": "104"
+    },
+    {
+      "path": "/page/ascTotal",
+      "idName": null,
+      "children": [],
+      "name": "出入统计",
+      "icon": "&#xe61d",
+      "ordernumber": 0,
+      "id": "104102",
+      "parentid": "104"
+    }
+  ],
+  "name": "门禁消息",
+  "icon": "&#xe61d",
+  "ordernumber": 0,
+  "id": "104",
+  "parentid": null
+}
+]

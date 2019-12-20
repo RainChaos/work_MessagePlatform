@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>添加</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="../../../../static/plugins/layui-v2.5.4/css/layui.css" media="all" />
+<script>
+        var ctx = "${ctx}";  
+    </script>  
+<style type="text/css">
+.layui-form-item .layui-inline {
+	width: 33.333%;
+	float: left;
+	margin-right: 0;
+}
+
+@media ( max-width :1240px) {
+	.layui-form-item .layui-inline {
+		width: 100%;
+		float: none;
+	}
+}
+</style>
+</head>
+<body class="childrenBody">
+	<form class="layui-form" style="width: 80%; margin-top: 50px;" id="aaf">
+		<input type="hidden"  name="id" th:value="${configId}">
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">学校:</label>
+			<div class="layui-input-block">
+				<input type="text" class="layui-input userName"
+					lay-verify="required"  disabled th:value="${scName}">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">配置项:</label>
+			<div class="layui-input-block">
+				<input type="text" class="layui-input userName"
+					   lay-verify="required" placeholder="请输入配置名称" disabled th:value="${data.name}">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">值:</label>
+			<div id="valueDiv"  class="layui-input-block">
+
+				<span th:switch="${data.type}">
+					<span th:case="Date">
+						<input id="value" name="value"  type="text" class="layui-input" th:value="${value}"/>
+					</span>
+
+					<span th:case="Boolean">
+						<span th:if="${value}=='true'">
+							<input  type="radio"  name="value" value="true" title="true" checked="">
+							<input  type="radio"  name="value" value="false" title="false">
+						</span>
+						<span th:if="${value}=='false'">
+							<input  type="radio"  name="value" value="true" title="true" >
+							<input  type="radio"  name="value" value="false" title="false" checked="">
+						</span>
+					</span>
+
+					<span th:case="Select">
+						<select  name="value">
+							<span th:each="school:${list}">
+								<option th:value="${school}"th:text="${school}"></option>
+							</span>
+						</select>
+					</span>
+				</span>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn" lay-submit="" lay-filter="eidtItem">修改</button>
+			</div>
+		</div>
+	</form>
+	<script type="text/javascript" src="../../../static/plugins/layui-v2.5.4/layui.js"></script>
+	<script type="text/javascript" src="../../../static/js/config/editConfig.js"></script>
+</body>
+</html>
